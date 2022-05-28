@@ -6,9 +6,11 @@
 
   <body>
    
-   <!-- PRE 要素で囲んだ範囲は記載したままの文字が表示されます BRタグをつける必要も有りません-->
+   <!-- PRE 要素で囲んだ範囲は記載したままの文字が表示されます
+    BRタグをつける必要も有りません-->
    <h1>
-    <!-- 以下の表示文字①をボタンを押したときキャンパスに表示させるために”starts"と言うidを割り当て-->
+    <!-- 以下の表示文字①をボタンを押したときに
+    キャンパスに表示させるために”starts"と言うidを割り当て-->
     <pre id="starts"> 
      プログラミングをしよう！
      JavaScriptは覚えて損はないよ♪
@@ -42,7 +44,7 @@
    sta2canvas();
       </textarea>
 <HR>
-    <!-- ②のTextArea 'func'に埋め込まれたスクリプトを実行する-->
+    <!-- ③TextArea 'func'に埋め込まれたスクリプトを実行する-->
    <button onclick="eval(document.getElementById('func').value);">スクリプト実行</button>
    <button onclick="document.getElementById('textcanvas').getContext('2d').clearRect(0,0,400,150);">キャンパスのクリア</button>
    
