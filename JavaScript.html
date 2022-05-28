@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <base target="_top">
     <title>JavaScriptプログラミング</title>
   </head>
+
   <body>
-    <!-- PRE 要素で囲んだ範囲は記載したままの文字が表示されます -->
-    <pre>
-     プログラミングを
-     してみてください。
-     JavaScriptを覚えて損はないよ
+   
+   <!-- PRE 要素で囲んだ範囲は記載したままの文字が表示されます BRタグをつける必要も有りません-->
+   <h1>
+    <!-- 以下の表示文字①をボタンを押したときキャンパスに表示させるために”starts"と言うidを割り当て-->
+    <pre id="starts"> 
+     プログラミングをしよう！
+     JavaScriptは覚えて損はないよ♪
     </pre>
-  </body>
+   </h1>
+
+   <canvas id="textcanvas" width=400 height="150" 
+   style="border: 5pt solid orange; background-color:#CCC;"></canvas>
+	<hr>
+
+    <!-- スクリプトをTextAreaに埋め込む② idは'func'-->
+    <textarea id="func" cols=70 rows=15 scrollbar="yes">
+ 	function sta2canvas(){ <!-- sta2canvas と言う関数を定義 -->
+    	<!--キャンパス操作要素（コンテキスト）を2次元表示として取得-->
+    	var canvas = document.getElementById('textcanvas');
+    	const ctx = canvas.getContext('2d');
+        ctx.clearRect(0,0,400,150);
+    	<!--表示文字①を取得-->
+    	const displaystrings = 
+    		document.getElementById('starts').innerHTML;
+    	const textXpoint = 0;<!--文字を置くキャンパスのX座標-->
+    	var textYpoint = 10;<!--文字を置くキャンパスのY座標-->
+        ctx.fillStyle ="green";
+    	<!--キャンパスのY座標に＋10pxづつ文字を表示-->
+    	for(;
+            textYpoint<150;
+            textYpoint+=10) 
+              ctx.fillText( displaystrings, textXpoint, textYpoint);
+
+   }
+   sta2canvas();
+      </textarea>
+<HR>
+    <!-- ②のTextArea 'func'に埋め込まれたスクリプトを実行する-->
+   <button onclick="eval(document.getElementById('func').value);">スクリプト実行</button>
+   <button onclick="document.getElementById('textcanvas').getContext('2d').clearRect(0,0,400,150);">キャンパスのクリア</button>
+   
+ </body>
+
 </html>
