@@ -5,6 +5,13 @@
   </head>
 
   <body>
+     <script lang="text/JavaScript">
+	 var Tid = 0;
+        function TimerLanch(f, sec) {
+          clerTimeout(Tid);
+	  Tid = setTimeout(f,sec*1000) ;
+	}
+     </script>
    
    <!-- PRE 要素で囲んだ範囲は記載したままの文字が表示されます
     BRタグをつける必要も有りません-->
