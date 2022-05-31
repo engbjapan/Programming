@@ -14,7 +14,14 @@
 <body>
   <section id="static">
     <pre><code id="static-js" data-height="taller">
-    var cvs = dosument.createElement
+    const ドキュメント = document;
+    var cvs = ドキュメント.createElement('canvas');
+    cvs = {
+      id :'textcanvas',
+      width :400,
+      height :150,
+      style :"border: 5pt solid orange; background-color:#CCC;"
+    };
  	function sta2canvas(){ <!-- sta2canvas と言う関数を定義 -->
     	<!--キャンパス操作要素（コンテキスト）を2次元表示として取得-->
     	var canvas = document.getElementById('textcanvas');
@@ -40,7 +47,7 @@
     <header class="output-header full-border">
       <h4 class="output-heading">JavaScript 実行ページ:<br>（これは、<a href="https://developer.mozilla.org/ja/" target=_blank>MDN</a>
       の 
-      <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Property_Accessors" target=_blank>プロパティアクセッサページのTry It!のHTML</a>を利用しています）</h4>
+      <a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Property_Accessors" target=_blank>プロパティアクセッサページのTry It!のページ(iframeHTML/CSS/jsの殆ど）</a>を利用しています）</h4>
     </header>
     <div id="editor" class="editor"></div>
 
