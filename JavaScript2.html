@@ -14,34 +14,41 @@
 <body>
   <section id="static">
     <pre><code id="static-js" data-height="taller">
+
     const ドキュメント = document;
-    var cvs = ドキュメント.createElement('canvas');
-    cvs = {
-      id :'textcanvas',
-      width :400,
-      height :150,
-      style :"border: 5pt solid orange; background-color:#CCC;"
-    };
- 	function sta2canvas(){ <!-- sta2canvas と言う関数を定義 -->
-    	<!--キャンパス操作要素（コンテキスト）を2次元表示として取得-->
+//    var cvs = ドキュメント.createElement('canvas');
+//    cvs = {
+//      id :'textcanvas',
+//      width :400,
+//      height :150,
+//      style :"border: 5pt solid orange; background-color:#CCC;"
+//    };
+    const 作業スペース = ドキュメント.getElementById('作業スペース');
+    作業スペース.innerHTML = "<div id='作業スペース'></div> 
+    + "<canvas id='textcanvas' width=400 height='150' layout=center "
+    + " style='border: 5pt solid orange; background-color:#CCC;'></canvas>";
+<!--    
+ 	function sta2canvas(){ 
+    	
     	var canvas = document.getElementById('textcanvas');
     	const ctx = canvas.getContext('2d');
         ctx.clearRect(0,0,400,150);
-    	<!--表示文字①を取得-->
+    	
     	const displaystrings = 
     		document.getElementById('starts').innerHTML;
-    	const textXpoint = 0;<!--文字を置くキャンパスのX座標-->
-    	var textYpoint = 10;<!--文字を置くキャンパスのY座標-->
+    	const textXpoint = 0;
+    	var textYpoint = 10;
         ctx.fillStyle ="green";
-    	<!--キャンパスのY座標に＋10pxづつ文字を表示-->
+    	
     	for(;
             textYpoint<150;
             textYpoint+=10) 
               ctx.fillText( displaystrings, textXpoint, textYpoint);
 
    }
-   sta2canvas();</code></pre>
-  </section>
+   sta2canvas();
+-->
+</section>
 
   <section id="live" class="live hidden">
     <header class="output-header full-border">
