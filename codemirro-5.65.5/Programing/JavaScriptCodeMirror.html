@@ -1,0 +1,301 @@
+<html lang="ja">
+<head>
+<title>JavaScriptプログラミングCodeMirrorエディター版</title>
+<meta charset="utf-8"/>
+
+<link rel=stylesheet href="../doc/docs.css">
+<!---->
+<link rel="stylesheet" href="../lib5/codemirror.css">
+<link rel="stylesheet" href="../addon5/hint/show-hint.css">
+<script src="../lib5/codemirror.js"></script>
+<script src="../mode5/javascript/javascript.js"></script>
+
+<script src="../addon5/hint/show-hint.js"></script>
+<script src="../addon5/hint/javascript-hint.js"></script>
+<script src="../mode5/markdown/markdown.js"></script>
+<!---->
+<script src="../mode/css/css.js"></script>
+<script src="../unpkg.com/jshint/dist/jshint.js"></script>
+<script src="../unpkg.com/jsonlint/web/jsonlint.js"></script>
+<script src="../unpkg.com/csslint/dist/csslint.js"></script>
+
+<link rel="stylesheet" href="../addon/lint/lint.css">
+<script src="../addon/lint/lint.js"></script>
+<script src="../addon/lint/javascript-lint.js"></script>
+<script src="../addon/lint/json-lint.js"></script>
+<script src="../addon/lint/css-lint.js"></script>
+
+<link rel="stylesheet" href="../addon/dialog/dialog.css">
+<link rel="stylesheet" href="../addon/search/matchesonscrollbar.css">
+<script src="../mode/xml/xml.js"></script>
+<script src="../addon/dialog/dialog.js"></script>
+<script src="../addon/search/searchcursor.js"></script>
+<script src="../addon/search/search.js"></script>
+<script src="../addon/scroll/annotatescrollbar.js"></script>
+<script src="../addon/search/matchesonscrollbar.js"></script>
+<script src="../addon/search/jump-to-line.js"></script>
+<style>
+<!--      .CodeMirror {border: 1px solid black;}-->
+      .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
+      dt {font-family: monospace; color: #666;}
+    </style>
+<!--Thema CSS include -->
+<link rel="stylesheet" href="../theme/3024-day.css">
+<link rel="stylesheet" href="../theme/3024-night.css">
+<link rel="stylesheet" href="../theme/abbott.css">
+<link rel="stylesheet" href="../theme/abcdef.css">
+<link rel="stylesheet" href="../theme/ambiance.css">
+<link rel="stylesheet" href="../theme/ayu-dark.css">
+<link rel="stylesheet" href="../theme/ayu-mirage.css">
+<link rel="stylesheet" href="../theme/base16-dark.css">
+<link rel="stylesheet" href="../theme/bespin.css">
+<link rel="stylesheet" href="../theme/base16-light.css">
+<link rel="stylesheet" href="../theme/blackboard.css">
+<link rel="stylesheet" href="../theme/cobalt.css">
+<link rel="stylesheet" href="../theme/colorforth.css">
+<link rel="stylesheet" href="../theme/dracula.css">
+<link rel="stylesheet" href="../theme/duotone-dark.css">
+<link rel="stylesheet" href="../theme/duotone-light.css">
+<link rel="stylesheet" href="../theme/eclipse.css">
+<link rel="stylesheet" href="../theme/elegant.css">
+<link rel="stylesheet" href="../theme/erlang-dark.css">
+<link rel="stylesheet" href="../theme/gruvbox-dark.css">
+<link rel="stylesheet" href="../theme/hopscotch.css">
+<link rel="stylesheet" href="../theme/icecoder.css">
+<link rel="stylesheet" href="../theme/isotope.css">
+<link rel="stylesheet" href="../theme/juejin.css">
+<link rel="stylesheet" href="../theme/lesser-dark.css">
+<link rel="stylesheet" href="../theme/liquibyte.css">
+<link rel="stylesheet" href="../theme/lucario.css">
+<link rel="stylesheet" href="../theme/material.css">
+<link rel="stylesheet" href="../theme/material-darker.css">
+<link rel="stylesheet" href="../theme/material-palenight.css">
+<link rel="stylesheet" href="../theme/material-ocean.css">
+<link rel="stylesheet" href="../theme/mbo.css">
+<link rel="stylesheet" href="../theme/mdn-like.css">
+<link rel="stylesheet" href="../theme/midnight.css">
+<link rel="stylesheet" href="../theme/monokai.css">
+<link rel="stylesheet" href="../theme/moxer.css">
+<link rel="stylesheet" href="../theme/neat.css">
+<link rel="stylesheet" href="../theme/neo.css">
+<link rel="stylesheet" href="../theme/night.css">
+<link rel="stylesheet" href="../theme/nord.css">
+<link rel="stylesheet" href="../theme/oceanic-next.css">
+<link rel="stylesheet" href="../theme/panda-syntax.css">
+<link rel="stylesheet" href="../theme/paraiso-dark.css">
+<link rel="stylesheet" href="../theme/paraiso-light.css">
+<link rel="stylesheet" href="../theme/pastel-on-dark.css">
+<link rel="stylesheet" href="../theme/railscasts.css">
+<link rel="stylesheet" href="../theme/rubyblue.css">
+<link rel="stylesheet" href="../theme/seti.css">
+<link rel="stylesheet" href="../theme/shadowfox.css">
+<link rel="stylesheet" href="../theme/solarized.css">
+<link rel="stylesheet" href="../theme/the-matrix.css">
+<link rel="stylesheet" href="../theme/tomorrow-night-bright.css">
+<link rel="stylesheet" href="../theme/tomorrow-night-eighties.css">
+<link rel="stylesheet" href="../theme/ttcn.css">
+<link rel="stylesheet" href="../theme/twilight.css">
+<link rel="stylesheet" href="../theme/vibrant-ink.css">
+<link rel="stylesheet" href="../theme/xq-dark.css">
+<link rel="stylesheet" href="../theme/xq-light.css">
+<link rel="stylesheet" href="../theme/yeti.css">
+<link rel="stylesheet" href="../theme/idea.css">
+<link rel="stylesheet" href="../theme/darcula.css">
+<link rel="stylesheet" href="../theme/yonce.css">
+<link rel="stylesheet" href="../theme/zenburn.css">
+</head>
+<body>
+<center>
+<h1>JavaScriptプログラミング<a href="https://codemirror.net/" target=_blank>CodeMirror</a>エディター版<pre id="starts">プログラミングをしよう！
+     JavaScriptは覚えて損はないよ♪</pre>
+</h1>
+   <canvas id="textcanvas" 
+   style=" width: 90%; height: 150px;border: 5pt solid orange; background-color:#CCC;"></canvas>
+
+   <button onclick="eval(editor.getValue());">スクリプト実行</button>
+   <button onclick="var cv = DC.getElementById('textcanvas');cv.getContext('2d').clearRect(0,0,cv.width,cv.height);">キャンパスのクリア</button>
+<hr>
+<pre>スクリプトコード編集エリア: 
+※エリア内にカーソルが有る時、｛Ctl+F｝ で検索。｛Ctl+Space｝でヒント表示します。
+</center>テーマ選択：<select onchange="selectTheme()" id=TMselect>
+    <option>default</option>
+    <option>3024-day</option>
+    <option>3024-night</option>
+    <option>abbott</option>
+    <option>abcdef</option>
+    <option>ambiance</option>
+    <option>ayu-dark</option>
+    <option>ayu-mirage</option>
+    <option>base16-dark</option>
+    <option>base16-light</option>
+    <option>bespin</option>
+    <option selected>blackboard</option>
+    <option>cobalt</option>
+    <option>colorforth</option>
+    <option>darcula</option>
+    <option>dracula</option>
+    <option>duotone-dark</option>
+    <option>duotone-light</option>
+    <option>eclipse</option>
+    <option>elegant</option>
+    <option>erlang-dark</option>
+    <option>gruvbox-dark</option>
+    <option>hopscotch</option>
+    <option>icecoder</option>
+    <option>idea</option>
+    <option>isotope</option>
+    <option>juejin</option>
+    <option>lesser-dark</option>
+    <option>liquibyte</option>
+    <option>lucario</option>
+    <option>material</option>
+    <option>material-darker</option>
+    <option>material-palenight</option>
+    <option>material-ocean</option>
+    <option>mbo</option>
+    <option>mdn-like</option>
+    <option>midnight</option>
+    <option>monokai</option>
+    <option>moxer</option>
+    <option>neat</option>
+    <option>neo</option>
+    <option>night</option>
+    <option>nord</option>
+    <option>oceanic-next</option>
+    <option>panda-syntax</option>
+    <option>paraiso-dark</option>
+    <option>paraiso-light</option>
+    <option>pastel-on-dark</option>
+    <option>railscasts</option>
+    <option>rubyblue</option>
+    <option>seti</option>
+    <option>shadowfox</option>
+    <option>solarized dark</option>
+    <option>solarized light</option>
+    <option>the-matrix</option>
+    <option>tomorrow-night-bright</option>
+    <option>tomorrow-night-eighties</option>
+    <option>ttcn</option>
+    <option>twilight</option>
+    <option>vibrant-ink</option>
+    <option>xq-dark</option>
+    <option>xq-light</option>
+    <option>yeti</option>
+    <option>yonce</option>
+    <option>zenburn</option>
+</select>
+</pre>
+<script>
+const DC = document;
+</script>
+<p><textarea id="code-js">
+ function sta2canvas(){ //sta2canvas と言う関数を定義 
+   //キャンパス操作要素（コンテキスト）を2次元表示として取得
+   var canvas = document.getElementById('textcanvas');
+   const ctx = canvas.getContext('2d');
+   ctx.clearRect(0,0,canvas.width,canvas.height);
+   //表示文字①を取得
+   const displaystrings = 
+      document.getElementById('starts').innerText;
+   const textXpoint = 0;  //文字を置くキャンパスのX座標
+   var textYpoint = 10;   //文字を置くキャンパスのY座標
+   ctx.fillStyle ="green";
+   //キャンパスのY座標に＋10pxづつ文字を表示
+   for(;
+      textYpoint < (canvas.height + 10) ;
+      textYpoint += 10 ) 
+          ctx.fillText( displaystrings, textXpoint, textYpoint,canvas.width);
+}
+sta2canvas();
+
+console.log("hellow");
+function Person(first, last, age, gender, interests) {
+  // property and method definitions
+  this.name = {
+    'first': first,
+    'last' : last
+  };
+  this.age = age;
+  this.gender = gender;
+  this.interests = interests;
+  //...see link in summary above for full definition
+}
+try{
+var person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']);
+
+console.log(JSON.stringify(Object.keys(person1),null,'\t'));
+}catch(e){alert(e.message);}
+</textarea></p>
+<hr>
+<pre>
+console.log:
+<p><textarea id="consolePre" style="width: 95%; height: 20%; border: 1px solid black; padding: .2em .4em;">
+</textarea>
+</pre></p>
+
+<script>
+  var editor = CodeMirror.fromTextArea(document.getElementById("code-js"), {
+    lineNumbers: true,
+    mode: {name: "javascript", globalVars: true},
+    gutters: ["CodeMirror-lint-markers"],
+    lint: {options: {esversion: 2021}},
+    extraKeys: {"Alt-F": "findPersistent", "Ctrl-Space": "autocomplete" }, //検索,AutoComplete
+  });
+ 
+ console.log = ((mes)=> {
+   var el = document.getElementById('consolePre');
+   el.value += mes+"\n";
+ }
+ );
+  //テーマ
+  var input = document.getElementById("TMselect");
+  function selectTheme() {
+    var theme = input.options[input.selectedIndex].textContent;
+    editor.setOption("theme", theme);
+    location.hash = "#" + theme;
+  }
+  var choice = (location.hash && location.hash.slice(1)) ||
+               (document.location.search &&
+                decodeURIComponent(document.location.search.slice(1)));
+  if (choice) {
+    input.value = choice;
+    editor.setOption("theme", choice);
+  }
+  CodeMirror.on(window, "hashchange", function() {
+    var theme = location.hash.slice(1);
+    if (theme) { input.value = theme; selectTheme(); }
+  });
+  //AutoComplete
+if (typeof Promise !== "undefined") {
+  var comp = [
+    ["here", "hither"],
+    ["asynchronous", "nonsynchronous"],
+    ["completion", "achievement", "conclusion", "culmination", "expirations"],
+    ["hinting", "advise", "broach", "imply"],
+    ["function","action"],
+    ["provide", "add", "bring", "give"],
+    ["synonyms", "equivalents"],
+    ["words", "token"],
+    ["each", "every"],
+  ];
+
+  function synonyms(cm, option) {
+    return new Promise(function(accept) {
+      setTimeout(function() {
+        var cursor = cm.getCursor(), line = cm.getLine(cursor.line)
+        var start = cursor.ch, end = cursor.ch
+        while (start && /\w/.test(line.charAt(start - 1))) --start
+        while (end < line.length && /\w/.test(line.charAt(end))) ++end
+        var word = line.slice(start, end).toLowerCase()
+        for (var i = 0; i < comp.length; i++) if (comp[i].indexOf(word) != -1)
+          return accept({list: comp[i],
+                         from: CodeMirror.Pos(cursor.line, start),
+                         to: CodeMirror.Pos(cursor.line, end)})
+        return accept(null)
+      }, 100)
+    })
+  }
+}
+</script>
+</body>
+</html>
