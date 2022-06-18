@@ -258,8 +258,24 @@ const DC = document;
      return eval(editor.getValue());
   }
 </script>
-<p><textarea id="code-js" style="overflowY:hidden">
- function sta2canvas(){ //sta2canvas と言う関数を定義 
+<p><textarea id="code-js">
+console.log("こんにちわ");
+function 人間(p姓, p名前, 年齢, 男女, 興味) {
+  this.名前 = {
+    '名': p姓,
+    '姓' : p名前
+  };
+  this.歳 = 年齢;
+  this.性別 = 男女;
+  this.好きなこと = 興味;
+}
+try{
+  var あなた = new 人間('Bob', 'Smith', 32, 'male', ['music', 'skiing']);
+  console.log(JSON.stringify(Object.keys(あなた),null,'\t'));
+}catch(e){alert(e.message);}
+
+
+function sta2canvas(){ //sta2canvas と言う関数を定義 
    //キャンパス操作要素（コンテキスト）を2次元表示として取得
    var canvas = document.getElementById('textcanvas');
    const ctx = canvas.getContext('2d');
@@ -277,28 +293,6 @@ const DC = document;
           ctx.fillText( displaystrings, textXpoint, textYpoint,canvas.width);
 }
 sta2canvas();
-//でそれ以降の行末まではコメント化されます
-//*********************************************************/
-//↓以下はおまけのスクリプト
-/** C ライクのコメントで　/** ～
-console.log("これはコメントされた");
-**/ //**/ 迄の文字がコメント化されます
-console.log("hellow");
-function Person(first, last, age, gender, interests) {
-  // property and method definitions
-  this.name = {
-    'first': first,
-    'last' : last
-  };
-  this.age = age;
-  this.gender = gender;
-  this.interests = interests;
-}
-try{
-var person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']);
-
-console.log(JSON.stringify(Object.keys(person1),null,'\t'));
-}catch(e){alert(e.message);}
 </textarea></p>
 <hr>
 <center>
