@@ -1,474 +1,489 @@
-<html lang="ja"> 
- <head> 
- <title>JavaScriptプログラミングCodeMirrorエディター版</title> 
- <meta charset="utf-8"/> 
-  
- <link rel=stylesheet href="./codemirro-5.65.5/doc/docs.css"> 
- <!----> 
- <link rel="stylesheet" href="./codemirro-5.65.5/lib5/codemirror.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/addon5/hint/show-hint.css"> 
- <script src="./codemirro-5.65.5/lib5/codemirror.js"></script> 
- <script src="./codemirro-5.65.5/mode5/javascript/javascript.js"></script> 
-  
- <script src="./codemirro-5.65.5/addon5/hint/show-hint.js"></script> 
- <script src="./codemirro-5.65.5/addon5/hint/javascript-hint.js"></script> 
- <script src="./codemirro-5.65.5/mode5/markdown/markdown.js"></script> 
- <!----> 
- <script src="./codemirro-5.65.5/mode/css/css.js"></script> 
- <script src="./codemirro-5.65.5/unpkg.com/jshint/dist/jshint.js"></script> 
- <script src="./codemirro-5.65.5/unpkg.com/jsonlint/web/jsonlint.js"></script> 
- <script src="./codemirro-5.65.5/unpkg.com/csslint/dist/csslint.js"></script> 
-  
- <link rel="stylesheet" href="./codemirro-5.65.5/addon/lint/lint.css"> 
- <script src="./codemirro-5.65.5/addon/lint/lint.js"></script> 
- <script src="./codemirro-5.65.5/addon/lint/javascript-lint.js"></script> 
- <script src="./codemirro-5.65.5/addon/lint/json-lint.js"></script> 
- <script src="./codemirro-5.65.5/addon/lint/css-lint.js"></script> 
-  
- <link rel="stylesheet" href="./codemirro-5.65.5/addon/dialog/dialog.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/addon/search/matchesonscrollbar.css"> 
- <script src="./codemirro-5.65.5/mode/xml/xml.js"></script> 
- <script src="./codemirro-5.65.5/addon/dialog/dialog.js"></script> 
- <script src="./codemirro-5.65.5/addon/search/searchcursor.js"></script> 
- <script src="./codemirro-5.65.5/addon/search/search.js"></script> 
- <script src="./codemirro-5.65.5/addon/scroll/annotatescrollbar.js"></script> 
- <script src="./codemirro-5.65.5/addon/search/matchesonscrollbar.js"></script> 
- <script src="./codemirro-5.65.5/addon/search/jump-to-line.js"></script> 
-  
- <script src="./codemirro-5.65.5/addon/display/panel.js"></script> 
-  
- <style> 
- <!--      .CodeMirror {border: 1px solid black;}--> 
-       .CodeMirror { 
-       border-top: 1px solid black;  
-       border-bottom: 1px solid black; 
-       resize: vertical;!これが垂直方向リサイズに重要 
-       } 
-       dt {font-family: monospace; color: #666;} 
-  
-  
-   .border { 
-     border: 1px solid #f7f7f7; 
-  
-   } 
-   .add-panel { 
-     background: orange; 
-     padding: 3px 6px; 
-     color: white !important;  
-     border-radius: 3px; 
-     border: 2px solid blue; 
-   } 
-   .add-selecter { 
-     padding: 3px 6px; 
-     border-radius: 3px; 
-   } 
-   .add-panel, .remove-panel { 
-     cursor: pointer; 
-   } 
-   .remove-panel { 
-     float: right; 
-     background: red; 
-     color: white; 
-         padding: 3px 6px; 
-     border-radius: 3px; 
-     border: 2px solid; 
-   } 
-   .panel { 
-     background: #f7f7f7; 
-     padding: 3px 7px; 
-     font-size: 0.85em; 
-   } 
-   .panel.top, .panel.after-top { 
-     border-bottom: 1px solid #ddd; 
-   } 
-   .panel.bottom, .panel.before-bottom { 
-     border-top: 1px solid #ddd; 
-   } 
-   .log-panel { 
-     background: green; 
-     padding: 3px 6px; 
-     color: white ;  
-     border-radius: 3px; 
-     border: 2px solid; 
-   } 
-     .log-panelclear { 
-     background: red; 
-     padding: 3px 6px; 
-     color: white ;  
-     border-radius: 3px; 
-     border: 2px solid; 
-     float: right; 
-   } 
-     .canvas-panel { 
-     background: yellow; 
-     padding: 3px 6px; 
-     color: black ;  
-     border-radius: 3px; 
-     border: 2px solid; 
-   } 
- </style> 
- <!--Thema CSS include --> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/3024-day.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/3024-night.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/abbott.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/abcdef.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/ambiance.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/ayu-dark.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/ayu-mirage.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/base16-dark.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/bespin.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/base16-light.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/blackboard.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/cobalt.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/colorforth.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/dracula.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/duotone-dark.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/duotone-light.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/eclipse.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/elegant.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/erlang-dark.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/gruvbox-dark.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/hopscotch.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/icecoder.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/isotope.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/juejin.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/lesser-dark.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/liquibyte.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/lucario.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/material.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/material-darker.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/material-palenight.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/material-ocean.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/mbo.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/mdn-like.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/midnight.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/monokai.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/moxer.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/neat.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/neo.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/night.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/nord.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/oceanic-next.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/panda-syntax.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/paraiso-dark.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/paraiso-light.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/pastel-on-dark.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/railscasts.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/rubyblue.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/seti.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/shadowfox.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/solarized.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/the-matrix.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/tomorrow-night-bright.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/tomorrow-night-eighties.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/ttcn.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/twilight.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/vibrant-ink.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/xq-dark.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/xq-light.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/yeti.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/idea.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/darcula.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/yonce.css"> 
- <link rel="stylesheet" href="./codemirro-5.65.5/theme/zenburn.css"> 
- </head> 
- <body> 
- <center> 
- <h1>JavaScriptプログラミング<a href="https://codemirror.net/" target=_blank>CodeMirror</a>エディター版<pre id="starts">プログラミングをしよう！ 
-      JavaScriptは覚えて損はないよ♪</pre> 
- </h1> 
- <hr> 
- <pre>スクリプトコード編集エリア: ※エリア内にカーソルが有る時、｛Ctl+F｝ で検索。｛Ctl+Space｝でヒント表示します。 
- </center><p id="テーマ選択" hidden>テーマ選択：<select onchange="selectTheme()" id=TMselect> 
-     <option>default</option> 
-     <option>3024-day</option> 
-     <option>3024-night</option> 
-     <option>abbott</option> 
-     <option>abcdef</option> 
-     <option>ambiance</option> 
-     <option>ayu-dark</option> 
-     <option>ayu-mirage</option> 
-     <option>base16-dark</option> 
-     <option>base16-light</option> 
-     <option>bespin</option> 
-     <option selected>blackboard</option> 
-     <option>cobalt</option> 
-     <option>colorforth</option> 
-     <option>darcula</option> 
-     <option>dracula</option> 
-     <option>duotone-dark</option> 
-     <option>duotone-light</option> 
-     <option>eclipse</option> 
-     <option>elegant</option> 
-     <option>erlang-dark</option> 
-     <option>gruvbox-dark</option> 
-     <option>hopscotch</option> 
-     <option>icecoder</option> 
-     <option>idea</option> 
-     <option>isotope</option> 
-     <option>juejin</option> 
-     <option>lesser-dark</option> 
-     <option>liquibyte</option> 
-     <option>lucario</option> 
-     <option>material</option> 
-     <option>material-darker</option> 
-     <option>material-palenight</option> 
-     <option>material-ocean</option> 
-     <option>mbo</option> 
-     <option>mdn-like</option> 
-     <option>midnight</option> 
-     <option>monokai</option> 
-     <option>moxer</option> 
-     <option>neat</option> 
-     <option>neo</option> 
-     <option>night</option> 
-     <option>nord</option> 
-     <option>oceanic-next</option> 
-     <option>panda-syntax</option> 
-     <option>paraiso-dark</option> 
-     <option>paraiso-light</option> 
-     <option>pastel-on-dark</option> 
-     <option>railscasts</option> 
-     <option>rubyblue</option> 
-     <option>seti</option> 
-     <option>shadowfox</option> 
-     <option>solarized dark</option> 
-     <option>solarized light</option> 
-     <option>the-matrix</option> 
-     <option>tomorrow-night-bright</option> 
-     <option>tomorrow-night-eighties</option> 
-     <option>ttcn</option> 
-     <option>twilight</option> 
-     <option>vibrant-ink</option> 
-     <option>xq-dark</option> 
-     <option>xq-light</option> 
-     <option>yeti</option> 
-     <option>yonce</option> 
-     <option>zenburn</option> 
- </select></p> 
- </pre> 
- <script> 
- const DC = document; 
-   function Execuengbjapan() { 
-      return eval(editor.getValue()); 
-   } 
- </script> 
- <p><textarea id="code-js" style="overflowY:hidden"> 
-  function sta2canvas(){ //sta2canvas と言う関数を定義  
-    //キャンパス操作要素（コンテキスト）を2次元表示として取得 
-    var canvas = document.getElementById('textcanvas'); 
-    const ctx = canvas.getContext('2d'); 
-    ctx.clearRect(0,0,canvas.width,canvas.height); 
-    //表示文字①を取得 
-    const displaystrings =  
-       document.getElementById('starts').innerText; 
-    const textXpoint = 0;  //文字を置くキャンパスのX座標 
-    var textYpoint = 10;   //文字を置くキャンパスのY座標 
-    ctx.fillStyle ="green"; 
-    //キャンパスのY座標に＋10pxづつ文字を表示 
-    for(; 
-       textYpoint < (canvas.height + 10) ; 
-       textYpoint += 10 )  
-           ctx.fillText( displaystrings, textXpoint, textYpoint,canvas.width); 
- } 
- sta2canvas(); 
- //でそれ以降の行末まではコメント化されます 
- //*********************************************************/ 
- //↓以下はおまけのスクリプト 
- /** C ライクのコメントで　/** ～ 
- console.log("これはコメントされた"); 
- **/ //**/ 迄の文字がコメント化されます 
- console.log("hellow"); 
- function Person(first, last, age, gender, interests) { 
-   // property and method definitions 
-   this.name = { 
-     'first': first, 
-     'last' : last 
-   }; 
-   this.age = age; 
-   this.gender = gender; 
-   this.interests = interests; 
- } 
- try{ 
- var person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']); 
-  
- console.log(JSON.stringify(Object.keys(person1),null,'\t')); 
- }catch(e){alert(e.message);} 
- </textarea></p> 
- <hr> 
- <center> 
- <a class="canvas-panel">キャンパス</a> 
- <!--<a class="remove-panel" onclick="var cv = DC.getElementById('textcanvas');cv.getContext('2d').clearRect(0,0,cv.width,cv.height);">【クリア】</a>--> 
- <canvas id="textcanvas"  
-    style=" width: 90%; height: 40%;border: 5pt solid orange; background-color:#CCC;"></canvas> 
- </center> 
- <hr> 
- <p><textarea id="consolePre" ><!--  padding: .2em .4em; --> 
- </textarea> 
- </p> 
-  
- <script> 
-   var editor = CodeMirror.fromTextArea(document.getElementById("code-js"), { 
-     lineNumbers: true, 
-     mode: {name: "javascript", globalVars: true}, 
-     gutters: ["CodeMirror-lint-markers"], 
-     lint: {options: {esversion: 2021}}, 
-     extraKeys: {"Alt-F": "findPersistent" //検索 
-               , "Ctrl-Space": "autocomplete" //AutoComplete 
-               , "Ctrl-Enter": "Execuengbjapan" //実行 
-               },  
-    // viewportMargin: Infinity , 
-    //style: {height: "70%" ;}, 
-   }); 
-   var logediter = CodeMirror.fromTextArea(document.getElementById('consolePre'), { 
-         mode: 'text/html' 
-         ,viewportMargin: Infinity  
-  }); 
-  console.log = ((mes)=> { 
-    logediter.setValue(logediter.getValue() + mes + "\n"); 
-  }); 
-  console.clear = (()=> { 
-    logediter.setValue(""); 
-  }); 
-   //テーマ 
-   var input = document.getElementById("TMselect"); 
-   function selectTheme() { 
-     var theme = input.options[input.selectedIndex].textContent; 
-     editor.setOption("theme", theme); 
-     location.hash = "#" + theme; 
-   } 
-   var choice = (location.hash && location.hash.slice(1)) || 
-                (document.location.search && 
-                 decodeURIComponent(document.location.search.slice(1))); 
-   if (choice) { 
-     input.value = choice; 
-     editor.setOption("theme", choice); 
-   } 
-   CodeMirror.on(window, "hashchange", function() { 
-     var theme = location.hash.slice(1); 
-     if (theme) { input.value = theme; selectTheme(); } 
-   }); 
-   //AutoComplete 
- if (typeof Promise !== "undefined") { 
-   var comp = [ 
-     ["here", "hither"], 
-     ["asynchronous", "nonsynchronous"], 
-     ["completion", "achievement", "conclusion", "culmination", "expirations"], 
-     ["hinting", "advise", "broach", "imply"], 
-     ["function","action"], 
-     ["provide", "add", "bring", "give"], 
-     ["synonyms", "equivalents"], 
-     ["words", "token"], 
-     ["each", "every"], 
-   ]; 
-  
-   function synonyms(cm, option) { 
-     return new Promise(function(accept) { 
-       setTimeout(function() { 
-         var cursor = cm.getCursor(), line = cm.getLine(cursor.line) 
-         var start = cursor.ch, end = cursor.ch 
-         while (start && /\w/.test(line.charAt(start - 1))) --start 
-         while (end < line.length && /\w/.test(line.charAt(end))) ++end 
-         var word = line.slice(start, end).toLowerCase() 
-         for (var i = 0; i < comp.length; i++) if (comp[i].indexOf(word) != -1) 
-           return accept({list: comp[i], 
-                          from: CodeMirror.Pos(cursor.line, start), 
-                          to: CodeMirror.Pos(cursor.line, end)}) 
-         return accept(null) 
-       }, 100) 
-     }) 
-   } 
- } 
-  
- const タイトルパネル = document.createElement("div"); 
- タイトルパネル.className = "panel top"; 
- const 操作パネル = document.createElement("div"); 
- 操作パネル.className = "panel bottom"; 
- function makeButton( 
-   ele 
-   ,押したときの関数定義 
-   ,ボタン文字 
-   ,マウスおーば時文字 
-   ,classs 
-   ) { 
-   close = ele ; 
-   close.setAttribute("title", マウスおーば時文字); 
-   close.setAttribute("class", classs); 
-   close.textContent = ボタン文字 ; 
-   if (押したときの関数定義 instanceof Function) close.onclick = 押したときの関数定義 ; 
-   return close; 
- } 
- function addPHznode(どこ 
-                  ,ボタンパネル 
-                  ) { 
-   editor.addPanel(ボタンパネル, {position: どこ, stable: true}); 
- } 
-  
- 操作パネル.appendChild( 
-   makeButton( 
-     document.createElement("a") 
-     ,Execuengbjapan 
-     ,"スクリプト実行" 
-     ,"スクリプト実行します" 
-     ,"add-panel" 
-   ) 
- ); 
- 操作パネル.appendChild( 
-   makeButton( 
-     document.createElement("a") 
-     ,(() => { 
-       var cv = DC.getElementById('textcanvas'); 
-       cv.getContext('2d').clearRect(0,0,cv.width,cv.height); 
-     } 
-     ) 
-     ,"キャンパスのクリア" 
-     ,"キャンパスのクリアします" 
-     ,"remove-panel" 
-   ) 
- ); 
- /** 
- パネル.appendChild( 
-   makeButton( 
-     (() => { 
-       return null; 
-     } 
-     ) 
-     ,"" 
-     ,"エディターエリアテーマの選択をします" 
-     ,"add-panel" 
-   ) 
- ); 
- **/ 
- addPHznode("bottom",操作パネル); 
-  
- //logパネル 
-   
- const ログパネル = document.createElement("div"); 
- ログパネル.className = "panel top"; 
-  
- ログパネル.appendChild( 
-   makeButton( 
-     document.createElement("a") 
-     ,null 
-     ,"console.log" 
-     ,"console.logの出力です" 
-     ,"log-panel" 
-   ) 
- ); 
- ログパネル.appendChild( 
-   makeButton( 
-     document.createElement("a") 
-     ,(()=> { 
-       console.clear(); 
-     } 
-     ) 
-     ,"クリア" 
-     ,"console.logのクリアです" 
-     ,"remove-panel" 
-   ) 
- ); 
-  logediter.addPanel(ログパネル, {position: "top", stable: true}); 
-  
- </script> 
- </body> 
- </html>
+<html lang="ja">
+<head>
+<title>JavaScriptプログラミングCodeMirrorエディター版</title>
+<meta charset="utf-8"/>
+
+<link rel=stylesheet href="./codemirro-5.65.5/doc/docs.css">
+<!---->
+<link rel="stylesheet" href="./codemirro-5.65.5/lib5/codemirror.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/addon5/hint/show-hint.css">
+<script src="./codemirro-5.65.5/lib5/codemirror.js"></script>
+<script src="./codemirro-5.65.5/mode5/javascript/javascript.js"></script>
+
+<script src="./codemirro-5.65.5/addon5/hint/show-hint.js"></script>
+<script src="./codemirro-5.65.5/addon5/hint/javascript-hint.js"></script>
+<script src="./codemirro-5.65.5/mode5/markdown/markdown.js"></script>
+<!---->
+<script src="./codemirro-5.65.5/mode/css/css.js"></script>
+<script src="./codemirro-5.65.5/unpkg.com/jshint/dist/jshint.js"></script>
+<script src="./codemirro-5.65.5/unpkg.com/jsonlint/web/jsonlint.js"></script>
+<script src="./codemirro-5.65.5/unpkg.com/csslint/dist/csslint.js"></script>
+
+<link rel="stylesheet" href="./codemirro-5.65.5/addon/lint/lint.css">
+<script src="./codemirro-5.65.5/addon/lint/lint.js"></script>
+<script src="./codemirro-5.65.5/addon/lint/javascript-lint.js"></script>
+<script src="./codemirro-5.65.5/addon/lint/json-lint.js"></script>
+<script src="./codemirro-5.65.5/addon/lint/css-lint.js"></script>
+
+<link rel="stylesheet" href="./codemirro-5.65.5/addon/dialog/dialog.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/addon/search/matchesonscrollbar.css">
+<script src="./codemirro-5.65.5/mode/xml/xml.js"></script>
+<script src="./codemirro-5.65.5/addon/dialog/dialog.js"></script>
+<script src="./codemirro-5.65.5/addon/search/searchcursor.js"></script>
+<script src="./codemirro-5.65.5/addon/search/search.js"></script>
+<script src="./codemirro-5.65.5/addon/scroll/annotatescrollbar.js"></script>
+<script src="./codemirro-5.65.5/addon/search/matchesonscrollbar.js"></script>
+<script src="./codemirro-5.65.5/addon/search/jump-to-line.js"></script>
+
+<script src="./codemirro-5.65.5/addon/display/panel.js"></script>
+
+<style>
+<!--      .CodeMirror {border: 1px solid black;}-->
+      .CodeMirror {
+      border-top: 1px solid black; 
+      border-bottom: 1px solid black;
+      resize: vertical;!これが垂直方向リサイズに重要
+      }
+      dt {font-family: monospace; color: #666;}
+
+
+  .border {
+    border: 1px solid #f7f7f7;
+
+  }
+  .add-panel {
+    background: orange;
+    padding: 3px 6px;
+    color: white !important; 
+    border-radius: 3px;
+    border: 2px solid blue;
+  }
+  .add-selecter {
+    padding: 	30px 6px;
+    border-radius: 3px;
+        align: right;
+  }
+  .add-panel, .remove-panel, .title-panel,.add-selecter {
+    cursor: pointer;
+  }
+  .remove-panel {
+    float: right;
+    background: red;
+    color: white;
+        padding: 3px 6px;
+    border-radius: 3px;
+    border: 2px solid;
+  }
+  .panel {
+    background: #f7f7f7;
+    padding: 3px 7px;
+    font-size: 0.85em;
+  }
+  .panel.top, .panel.after-top {
+    border-bottom: 1px solid #ddd;
+  }
+  .panel.bottom, .panel.before-bottom {
+    border-top: 1px solid #ddd;
+  }
+  .log-panel, .title-panel {
+    padding: 3px 6px;
+    border-radius: 3px;
+    border: 2px solid;
+
+    color: white ; 
+    background: green;
+  }
+  .log-panel {
+    color: white ; 
+    background: green;
+  }
+    .log-panelclear {
+    background: red;
+    padding: 3px 6px;
+    color: white ; 
+    border-radius: 3px;
+    border: 2px solid;
+!    float: right;
+  }
+    .canvas-panel {
+    background: yellow;
+    padding: 3px 6px;
+    color: black ; 
+    border-radius: 3px;
+    border: 2px solid;
+  }
+</style>
+<!--Thema CSS include -->
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/3024-day.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/3024-night.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/abbott.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/abcdef.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/ambiance.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/ayu-dark.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/ayu-mirage.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/base16-dark.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/bespin.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/base16-light.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/blackboard.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/cobalt.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/colorforth.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/dracula.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/duotone-dark.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/duotone-light.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/eclipse.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/elegant.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/erlang-dark.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/gruvbox-dark.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/hopscotch.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/icecoder.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/isotope.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/juejin.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/lesser-dark.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/liquibyte.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/lucario.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/material.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/material-darker.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/material-palenight.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/material-ocean.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/mbo.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/mdn-like.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/midnight.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/monokai.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/moxer.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/neat.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/neo.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/night.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/nord.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/oceanic-next.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/panda-syntax.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/paraiso-dark.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/paraiso-light.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/pastel-on-dark.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/railscasts.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/rubyblue.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/seti.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/shadowfox.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/solarized.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/the-matrix.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/tomorrow-night-bright.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/tomorrow-night-eighties.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/ttcn.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/twilight.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/vibrant-ink.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/xq-dark.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/xq-light.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/yeti.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/idea.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/darcula.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/yonce.css">
+<link rel="stylesheet" href="./codemirro-5.65.5/theme/zenburn.css">
+</head>
+<body>
+<center>
+<h1>JavaScriptプログラミング<a href="https://codemirror.net/" target=_blank>CodeMirror</a>エディター版<pre id="starts">プログラミングをしよう！
+     JavaScriptは覚えて損はないよ♪</pre>
+</h1>
+<hr>
+</center><p id="テーマ選択" hidden>テーマ選択：<select onchange="selectTheme()" id=TMselect>
+    <option>default</option>
+    <option>3024-day</option>
+    <option>3024-night</option>
+    <option>abbott</option>
+    <option>abcdef</option>
+    <option>ambiance</option>
+    <option>ayu-dark</option>
+    <option>ayu-mirage</option>
+    <option>base16-dark</option>
+    <option>base16-light</option>
+    <option>bespin</option>
+    <option selected>blackboard</option>
+    <option>cobalt</option>
+    <option>colorforth</option>
+    <option>darcula</option>
+    <option>dracula</option>
+    <option>duotone-dark</option>
+    <option>duotone-light</option>
+    <option>eclipse</option>
+    <option>elegant</option>
+    <option>erlang-dark</option>
+    <option>gruvbox-dark</option>
+    <option>hopscotch</option>
+    <option>icecoder</option>
+    <option>idea</option>
+    <option>isotope</option>
+    <option>juejin</option>
+    <option>lesser-dark</option>
+    <option>liquibyte</option>
+    <option>lucario</option>
+    <option>material</option>
+    <option>material-darker</option>
+    <option>material-palenight</option>
+    <option>material-ocean</option>
+    <option>mbo</option>
+    <option>mdn-like</option>
+    <option>midnight</option>
+    <option>monokai</option>
+    <option>moxer</option>
+    <option>neat</option>
+    <option>neo</option>
+    <option>night</option>
+    <option>nord</option>
+    <option>oceanic-next</option>
+    <option>panda-syntax</option>
+    <option>paraiso-dark</option>
+    <option>paraiso-light</option>
+    <option>pastel-on-dark</option>
+    <option>railscasts</option>
+    <option>rubyblue</option>
+    <option>seti</option>
+    <option>shadowfox</option>
+    <option>solarized dark</option>
+    <option>solarized light</option>
+    <option>the-matrix</option>
+    <option>tomorrow-night-bright</option>
+    <option>tomorrow-night-eighties</option>
+    <option>ttcn</option>
+    <option>twilight</option>
+    <option>vibrant-ink</option>
+    <option>xq-dark</option>
+    <option>xq-light</option>
+    <option>yeti</option>
+    <option>yonce</option>
+    <option>zenburn</option>
+</select></p>
+</pre>
+<script>
+const DC = document;
+  function Execuengbjapan() {
+     return eval(editor.getValue());
+  }
+</script>
+<p><textarea id="code-js" style="overflowY:hidden">
+ function sta2canvas(){ //sta2canvas と言う関数を定義 
+   //キャンパス操作要素（コンテキスト）を2次元表示として取得
+   var canvas = document.getElementById('textcanvas');
+   const ctx = canvas.getContext('2d');
+   ctx.clearRect(0,0,canvas.width,canvas.height);
+   //表示文字①を取得
+   const displaystrings = 
+      document.getElementById('starts').innerText;
+   const textXpoint = 0;  //文字を置くキャンパスのX座標
+   var textYpoint = 10;   //文字を置くキャンパスのY座標
+   ctx.fillStyle ="green";
+   //キャンパスのY座標に＋10pxづつ文字を表示
+   for(;
+      textYpoint < (canvas.height + 10) ;
+      textYpoint += 10 ) 
+          ctx.fillText( displaystrings, textXpoint, textYpoint,canvas.width);
+}
+sta2canvas();
+//でそれ以降の行末まではコメント化されます
+//*********************************************************/
+//↓以下はおまけのスクリプト
+/** C ライクのコメントで　/** ～
+console.log("これはコメントされた");
+**/ //**/ 迄の文字がコメント化されます
+console.log("hellow");
+function Person(first, last, age, gender, interests) {
+  // property and method definitions
+  this.name = {
+    'first': first,
+    'last' : last
+  };
+  this.age = age;
+  this.gender = gender;
+  this.interests = interests;
+}
+try{
+var person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']);
+
+console.log(JSON.stringify(Object.keys(person1),null,'\t'));
+}catch(e){alert(e.message);}
+</textarea></p>
+<hr>
+<center>
+<a class="canvas-panel">キャンパス</a>
+<!--<a class="remove-panel" onclick="var cv = DC.getElementById('textcanvas');cv.getContext('2d').clearRect(0,0,cv.width,cv.height);">【クリア】</a>-->
+<canvas id="textcanvas" 
+   style=" width: 90%; height: 40%;border: 5pt solid orange; background-color:#CCC;"></canvas>
+</center>
+<hr>
+<p><textarea id="consolePre" ></textarea></p>
+
+<script>
+  var editor = CodeMirror.fromTextArea(document.getElementById("code-js"), {
+    lineNumbers: true,
+    mode: {name: "javascript", globalVars: true},
+    gutters: ["CodeMirror-lint-markers"],
+    lint: {options: {esversion: 2021}},
+    extraKeys: {"Alt-F": "findPersistent" //検索
+              , "Ctrl-Space": "autocomplete" //AutoComplete
+              //, "Ctrl-Enter": "Execuengbjapan" //実行
+              }, 
+   // viewportMargin: Infinity ,
+   //style: {height: "70%" ;},
+  });
+  var logediter = CodeMirror.fromTextArea(document.getElementById('consolePre'), {
+        mode: 'text/html'
+        ,viewportMargin: Infinity 
+ });
+ console.log = ((mes)=> {
+   logediter.setValue(logediter.getValue() + mes + "\n");
+ });
+ console.clear = (()=> {
+   logediter.setValue("");
+ });
+  //テーマ
+  var input = document.getElementById("TMselect");
+  function selectTheme() {
+    var theme = input.options[input.selectedIndex].textContent;
+    editor.setOption("theme", theme);
+    location.hash = "#" + theme;
+  }
+  var choice = (location.hash && location.hash.slice(1)) ||
+               (document.location.search &&
+                decodeURIComponent(document.location.search.slice(1)));
+  if (choice) {
+    input.value = choice;
+    editor.setOption("theme", choice);
+  }
+  CodeMirror.on(window, "hashchange", function() {
+    var theme = location.hash.slice(1);
+    if (theme) { input.value = theme; selectTheme(); }
+  });
+  //AutoComplete
+if (typeof Promise !== "undefined") {
+  var comp = [
+    ["here", "hither"],
+    ["asynchronous", "nonsynchronous"],
+    ["completion", "achievement", "conclusion", "culmination", "expirations"],
+    ["hinting", "advise", "broach", "imply"],
+    ["function","action"],
+    ["provide", "add", "bring", "give"],
+    ["synonyms", "equivalents"],
+    ["words", "token"],
+    ["each", "every"],
+  ];
+
+  function synonyms(cm, option) {
+    return new Promise(function(accept) {
+      setTimeout(function() {
+        var cursor = cm.getCursor(), line = cm.getLine(cursor.line)
+        var start = cursor.ch, end = cursor.ch
+        while (start && /\w/.test(line.charAt(start - 1))) --start
+        while (end < line.length && /\w/.test(line.charAt(end))) ++end
+        var word = line.slice(start, end).toLowerCase()
+        for (var i = 0; i < comp.length; i++) if (comp[i].indexOf(word) != -1)
+          return accept({list: comp[i],
+                         from: CodeMirror.Pos(cursor.line, start),
+                         to: CodeMirror.Pos(cursor.line, end)})
+        return accept(null)
+      }, 100)
+    })
+  }
+}
+
+const タイトルパネル = document.createElement("div");
+タイトルパネル.className = "panel top";
+const 操作パネル = document.createElement("div");
+操作パネル.className = "panel bottom";
+function makeButton(
+  ele
+  ,押したときの関数定義
+  ,ボタン文字
+  ,マウスおーば時文字
+  ,classs
+  ) {
+  close = ele ;
+  close.setAttribute("title", マウスおーば時文字);
+  close.setAttribute("class", classs);
+  if (ボタン文字 != "") close.textContent = ボタン文字 ;
+  if (押したときの関数定義 instanceof Function) close.onclick = 押したときの関数定義 ;
+  return close;
+}
+function addPHznode(どこ
+                 ,ボタンパネル
+                 ) {
+  editor.addPanel(ボタンパネル, {position: どこ, stable: true});
+}
+タイトルパネル.appendChild(
+  makeButton(
+    document.createElement("span")
+    ,null
+    ,"此処がスクリプ編集エリア！ "
+    ,"エリア内にカーソルが有る時、｛Ctl+F｝ で検索。｛Ctl+Space｝でヒント表示します。"
+    ,"title-panel"
+  )
+);
+const tmselPa = document.createElement("span");
+//tmselPs.setAttribute('align','center');
+tmselPa.innerText = "　　thema⇒";
+tmselPa.appendChild(document.getElementById("TMselect"));
+タイトルパネル.appendChild(
+  makeButton(
+    tmselPa
+    ,null
+    ,""
+    ,"テーマ選択します"
+    ,"add-selecter"
+  )
+);
+操作パネル.appendChild(
+  makeButton(
+    document.createElement("a")
+    ,Execuengbjapan
+    ,"スクリプト実行"
+    ,"スクリプト実行します"
+    ,"add-panel"
+  )
+);
+操作パネル.appendChild(
+  makeButton(
+    document.createElement("a")
+    ,(() => {
+      var cv = DC.getElementById('textcanvas');
+      cv.getContext('2d').clearRect(0,0,cv.width,cv.height);
+    }
+    )
+    ,"キャンパスのクリア"
+    ,"キャンパスのクリアします"
+    ,"remove-panel"
+  )
+);
+
+addPHznode("bottom",操作パネル);
+
+addPHznode("top",タイトルパネル);
+
+
+//logパネル
+ 
+const ログパネル = document.createElement("div");
+ログパネル.className = "panel top";
+
+ログパネル.appendChild(
+  makeButton(
+    document.createElement("span")
+    ,null
+    ,"console.log"
+    ,"console.logの出力です"
+    ,"log-panel"
+  )
+);
+ログパネル.appendChild(
+  makeButton(
+    document.createElement("span")
+    ,(()=> {
+      console.clear();
+    }
+    )
+    ,"クリア"
+    ,"console.logのクリアです"
+    ,"remove-panel"
+  )
+);
+ logediter.addPanel(ログパネル, {position: "top", stable: true});
+
+</script>
+</body>
+</html>
