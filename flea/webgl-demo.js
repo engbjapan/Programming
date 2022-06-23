@@ -89,9 +89,8 @@ function main() {
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-//  const texture = loadTexture(gl, 'https://engbjapan.github.io/Programming/flea/latest_512_0094.jpg');
-  const texture = loadTexture(gl, 'https://swc.nict.go.jp/data/latest/sdo/latest_512_0094.jpg?20220404');
-//https://swc.nict.go.jp/data/latest/sdo/latest_512_0094.jpg?20220404
+const texture = loadTexture(gl, './latest_512_0094.jpg');
+
   var then = 0;
 
   // Draw the scene repeatedly;/:
