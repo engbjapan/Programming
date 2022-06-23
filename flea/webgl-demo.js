@@ -314,7 +314,7 @@ function loadTexture(gl, url) {
                 pixel);
 
   const image = new Image();
-  image.src = url;
+  image.crossOrigin = "anonymous";//CORS対応これが重要
   image.onload = function() {
     gl.bindTexture(gl.TEXTURE_2D, texture);
     gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
@@ -334,7 +334,7 @@ function loadTexture(gl, url) {
        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
     }
   };
-  //image.src = url;
+  image.src = url;
 
   return texture;
 }
