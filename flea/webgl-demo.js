@@ -89,11 +89,12 @@ function main() {
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-  const texture = loadTexture(gl, 'https://engbjapan.github.io/Programming/flea/latest_512_0094.jpg');
-
+//  const texture = loadTexture(gl, 'https://engbjapan.github.io/Programming/flea/latest_512_0094.jpg');
+  const texture = loadTexture(gl, 'https://swc.nict.go.jp/data/latest/sdo/latest_512_0094.jpg?20220404');
+//https://swc.nict.go.jp/data/latest/sdo/latest_512_0094.jpg?20220404
   var then = 0;
 
-  // Draw the scene repeatedly
+  // Draw the scene repeatedly;/:
   function render(now) {
     now *= 0.001;  // convert to seconds
     const deltaTime = now - then;
