@@ -89,7 +89,7 @@ function main() {
   // objects we'll be drawing.
   const buffers = initBuffers(gl);
 
-const texture = loadTexture(gl, './latest_512_0094.jpg');
+const texture = loadTexture(gl, 'https://engbjapan.github.io/Programming/flea/latest_512_0094.jpg');
 
   var then = 0;
 
