@@ -19,7 +19,7 @@ printf "小暮起動開始ポート:${ENGBJ_Port}\n"
 printf "小暮起動終了\n"
 printf "グロッキー起動します：ポート${ENGBJ_Port}\n"
 cat /root/.config/ngrok/ngrok.yml
-/content/ngrok tcp ${ENGBJ_Port} &
+/content/ngrok tcp ${ENGBJ_Port} 
 sleep 3
 wget -O - http://localhost:4040/api/tunnels
 printf "グロッキー起動しました：ポート${ENGBJ_Port}\n"
