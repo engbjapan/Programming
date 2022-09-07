@@ -1,3 +1,4 @@
+cd /content/
 printf "ｓｓｈ設定開始\n"
 echo root:$ENGBJ_rasswd | chpasswd
 mkdir -p /var/run/sshd
