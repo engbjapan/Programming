@@ -8,12 +8,12 @@ cat /etc/ssh/sshd_config | egrep '^[^\#]+.*$'
 echo "LD_LIBRARY_PATH=/usr/lib64-nvidia" >> /root/.bashrc
 echo "export LD_LIBRARY_PATH" >> /root/.bashrc
 ln -sf /usr/sbin/sshd /content/kogule
-printf "ｓｓｈログインパスワード:${$ENGBJ_rasswd}\n"
+printf "ｓｓｈログインパスワード:${ENGBJ_rasswd}\n"
 printf "ｓｓｈ設定終了\n"
 printf "ＮＧＲＯＫ設定開始\n"
 ./ngrok config add-authtoken $ENGBJ_token
 printf "ＮＧＲＯＫ設定終了\n"
-printf "小暮起動開始ポート:${ENGBJ_Port}"\n"
+printf "小暮起動開始ポート:${ENGBJ_Port}\n"
 /content/kogule -D &
 printf "小暮起動終了\n"
 printf "グロッキー起動します：ポート${ENGBJ_Port}\n"
