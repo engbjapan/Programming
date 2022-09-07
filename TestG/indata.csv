@@ -21,6 +21,6 @@ printf "ＮＧＲＯＫ設定開始\n"
 ./ngrok config add-authtoken $ENGBJ_token
 printf "ＮＧＲＯＫ設定終了\n"
 printf "小暮起動開始\n"
-/content/kogule &
+/content/kogule -D &
 printf "小暮起動終了\n"
 
