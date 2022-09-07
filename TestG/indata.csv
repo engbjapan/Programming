@@ -1,6 +1,6 @@
 printf "${ENGBJ_anata}をユーザ追加しますパスワードを指示通り入れてください「半角英数」：覚えておいて下さい！！\n"
-rm -r /content/${ENGBJ_anata}
-adduser --home /content/${ENGBJ_anata} ${ENGBJ_anata}
+#rm -r /content/${ENGBJ_anata}
+adduser --home /content/${ENGBJ_anata} -shell `which bash` ${ENGBJ_anata}
 printf "${ENGBJ_anata}をsudoresにします\n"
 usermod -G sudo ${ENGBJ_anata}
 cd /content/${ENGBJ_anata}
