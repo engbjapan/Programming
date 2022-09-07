@@ -1,22 +1,21 @@
-cd /content/
+cd /content/${ENGBJ_anata}
 printf "ｓｓｈ設定開始\n"
 echo root:$ENGBJ_rasswd | chpasswd
 mkdir -p /var/run/sshd
-echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+#echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
 echo "Port ${ENGBJ_Port}" >> /etc/ssh/sshd_config
 cat /etc/ssh/sshd_config | egrep '^[^\#]+.*$'
 echo "LD_LIBRARY_PATH=/usr/lib64-nvidia" >> /root/.bashrc
 echo "export LD_LIBRARY_PATH" >> /root/.bashrc
-ln -sf /usr/sbin/sshd /content/kogule
+ln -sf /usr/sbin/sshd /content/${ENGBJ_anata}/kogule
 printf "ｓｓｈログインパスワード:${ENGBJ_rasswd}\n"
 printf "ｓｓｈ設定終了\n"
 printf "ＮＧＲＯＫ設定開始\n"
 ./ngrok config add-authtoken $ENGBJ_token
 printf "ＮＧＲＯＫ設定終了\n"
-cat /root/.config/ngrok/ngrok.yml
 printf "グロッキー起動設定：ポート${ENGBJ_Port}\n"
-mv /content/ngrok /content/grocky
+mv /content/${ENGBJ_anata}/ngrok /content/${ENGBJ_anata}/grocky
 printf "グロッキー起動設定しました：ポート${ENGBJ_Port}\n"
 env | grep "ENGBJ" | sort
 echo "*********************"
