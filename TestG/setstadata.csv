@@ -24,3 +24,4 @@ wget -O - http://localhost:4040/api/tunnels
 printf "グロッキー起動しました：ポート${ENGBJ_Port}\n"
 env | grep "ENGBJ" | sort
 echo "*********************"
+exit
