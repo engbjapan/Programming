@@ -4,6 +4,9 @@ wget -q -c -nc https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.
 rm -f ./ngrok
 tar xzvf ./ngrok-v3-stable-linux-amd64.tgz
 rm -f ./ngrok-v3-stable-linux-amd64.tgz
-apt-get install  openssh-server pwgen net-tools iproute2 x11-apps tigervnc-standalone-server aterm -y -qq
+apt-get install -yf -qq \
+  openssh-server pwgen\
+    net-tools iproute2\
+      x11-apps aterm tigervnc-standalone-server fluxbox  
 printf "インストール終了\n"
 exit
