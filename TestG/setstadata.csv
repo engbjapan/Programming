@@ -14,15 +14,10 @@ printf "ｓｓｈ設定終了\n"
 printf "ＮＧＲＯＫ設定開始\n"
 ./ngrok config add-authtoken $ENGBJ_token
 printf "ＮＧＲＯＫ設定終了\n"
-printf "小暮起動開始ポート:${ENGBJ_Port}\n"
-/content/kogule -D &
-printf "小暮起動終了\n"
-printf "グロッキー起動します：ポート${ENGBJ_Port}\n"
 cat /root/.config/ngrok/ngrok.yml
-/content/ngrok tcp ${ENGBJ_Port} 
-sleep 3
-wget -O - http://localhost:4040/api/tunnels
-printf "グロッキー起動しました：ポート${ENGBJ_Port}\n"
+printf "グロッキー起動設定：ポート${ENGBJ_Port}\n"
+mv /content/ngrok /content/grocky
+printf "グロッキー起動設定しました：ポート${ENGBJ_Port}\n"
 env | grep "ENGBJ" | sort
 echo "*********************"
 exit
