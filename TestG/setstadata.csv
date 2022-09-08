@@ -1,4 +1,5 @@
-cd /content/${ENGBJ_anata}
+chmod 777 /content/${ENGBJ_anata}
+su - ${ENGBJ_anata}
 printf "ｓｓｈ設定とログインシェル設定開始\n"
 
 #echo root:$ENGBJ_rasswd | chpasswd
@@ -11,9 +12,7 @@ cat /etc/ssh/sshd_config | egrep '^[^\#]+.*$'
 
 echo "LD_LIBRARY_PATH=/usr/lib64-nvidia" >> /root/.bashrc
 echo "export LD_LIBRARY_PATH" >> /root/.bashrc
-
-echo "export LD_LIBRARY_PATH" >> /content/${ENGBJ_anata}/.bashrc
-echo "LD_LIBRARY_PATH=/usr/lib64-nvidia" >> /content/${ENGBJ_anata}/.bashrc
+cp -a /root/.bashrc /content/${ENGBJ_anata}/.bashrc
 
 ln -sf /usr/sbin/sshd /content/${ENGBJ_anata}/kogule
 printf "ｓｓｈ設定とログインシェル設定終了\n"
