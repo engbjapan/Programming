@@ -1,17 +1,17 @@
 echo "ユーザ追加開始"
 rm -r /content/${ENGBJ_anata}
+echo "ログインパスワードを入力してください覚えておいて下さい"
 adduser --home /content/${ENGBJ_anata} --shell `which bash` ${ENGBJ_anata}
 usermod -G sudo ${ENGBJ_anata}
 echo "ユーザ追加終了"
-echo "ユーザ切り替え開始"
-su - ${ENGBJ_anata}
-echo "ユーザ切り替え終了"
+
 echo "インストール開始"
-wget -q -c -nc https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
-rm -f ./ngrok
-tar xzvf ./ngrok-v3-stable-linux-amd64.tgz
-rm -f ./ngrok-v3-stable-linux-amd64.tgz
-sudo apt-get install -yf -qq \
+cd /content/${ENGBJ_anata}
+sudo -u ${ENGBJ_anata} wget -q -c -nc https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+sudo -u ${ENGBJ_anata} rm -f ./ngrok
+sudo -u ${ENGBJ_anata} tar xzvf ./ngrok-v3-stable-linux-amd64.tgz
+sudo -u ${ENGBJ_anata} rm -f ./ngrok-v3-stable-linux-amd64.tgz
+sudo -u ${ENGBJ_anata} apt-get install -yf -qq \
   openssh-server pwgen\
     net-tools iproute2\
       x11-apps aterm tigervnc-standalone-server fluxbox\
