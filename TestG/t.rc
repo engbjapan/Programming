@@ -1,6 +1,7 @@
+printf "ｓｓｈ設定とログインシェル設定開始\n"
 echo "コメントリセット設定ファンクションの定義"
 function comsetbkup() {
- cmmestr=$1
+ cmmestr=`echo "${1}"|perl -pe 's/([\.]|[\-]|[\$]|[\/])/\\\\$1/g'`
  setstr=$2
  files=$3
  backups=$4
@@ -8,6 +9,8 @@ function comsetbkup() {
  cp $files $backups
  echo "${setstr}" >> $files
 }
+echo "コメントリセット設定ファンクションの定義終了"
+
 echo "コメントリセット設定ファンクションの定義終了"
 echo "ユーザ追加開始"
 userdel ${ENGBJ_anata}
