@@ -33,7 +33,7 @@ comsetbkup "$cmmeStr" "$cmmeStr" /root/.bashrc /content/.bashrc.root
 source /root/.bashrc
 echo "日本語ローケル変更root終了（バックアップ：/content/.bashrc.root）"
 printf "\n\n\n\n\n" | adduser --home /content/${ENGBJ_anata} --disabled-login ${ENGBJ_anata}
-usermod -g 0 ${ENGBJ_anata}
+usermod -G root ${ENGBJ_anata}
 echo
 id ${ENGBJ_anata}
 echo "ユーザ追加終了"
