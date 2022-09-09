@@ -24,6 +24,6 @@ printf "グロッキー起動設定しました：ポート${ENGBJ_Port}\n"
 env | grep "ENGBJ" | sort
 echo "*********************"
 echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです"
-printf "/content/${ENGBJ_anata}/kogule -D &\n"
-printf "sudo --user=${ENGBJ_anata} bash -c (/content/${ENGBJ_anata}/grocky --config /content/${ENGBJ_anata}/grocky.yml  tcp ${ENGBJ_Port} &)\n"
+printf "bash -c '/content/${ENGBJ_anata}/kogule -D &'\n"
+printf "sudo --user=${ENGBJ_anata} bash -c '/content/${ENGBJ_anata}/grocky --config /content/${ENGBJ_anata}/grocky.yml  tcp ${ENGBJ_Port} &'\n"
 echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです終了"
