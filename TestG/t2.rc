@@ -14,7 +14,7 @@ ln -sf /usr/sbin/sshd /content/${ENGBJ_anata}/kogule
 printf "ｓｓｈ設定とログインシェル設定終了\n"
 
 printf "ＮＧＲＯＫ設定開始\n"
-./ngrok config add-authtoken $ENGBJ_token
+mv /content/${ENGBJ_anata}/ngrok config add-authtoken $ENGBJ_token
 printf "ＮＧＲＯＫ設定終了\n"
 
 printf "グロッキー起動設定：ポート${ENGBJ_Port}\n"
