@@ -1,6 +1,6 @@
 cd /content/${ENGBJ_anata}
 id
 echo "Helloe"
-nohup sleep 30 & 
+sleep 30 & 
 env
-exit
+
