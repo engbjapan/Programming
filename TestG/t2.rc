@@ -27,5 +27,3 @@ echo "*********************"
 printf "/content/${ENGBJ_anata}/kogule tcp ${ENGBJ_Port} -D &"
 printf "sudo --user=${ENGBJ_anata} /content/${ENGBJ_anata}/grocky &"
 #echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです終了"
-exit
-
