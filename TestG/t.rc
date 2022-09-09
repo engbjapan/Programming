@@ -1,4 +1,5 @@
 echo "ユーザ追加開始"
+rm -r /content/${ENGBJ_anata}
 adduser --home /content/${ENGBJ_anata} --shell `which bash` ${ENGBJ_anata}
 usermod -G sudo ${ENGBJ_anata}
 echo "ユーザ追加終了"
@@ -10,9 +11,10 @@ wget -q -c -nc https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.
 rm -f ./ngrok
 tar xzvf ./ngrok-v3-stable-linux-amd64.tgz
 rm -f ./ngrok-v3-stable-linux-amd64.tgz
-apt-get install -yf -qq \
+sudo apt-get install -yf -qq \
   openssh-server pwgen\
     net-tools iproute2\
       x11-apps aterm tigervnc-standalone-server fluxbox\
        novnc
 echo "インストール終了"
+exit
