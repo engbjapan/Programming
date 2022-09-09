@@ -1,0 +1,30 @@
+printf "ｓｓｈ設定とログインシェル設定開始\n"
+
+mkdir -p /var/run/sshd
+#echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
+echo "PasswordAuthentication yes" >> /etc/ssh/sshd_config
+echo "Port ${ENGBJ_Port}" >> /etc/ssh/sshd_config
+cat /etc/ssh/sshd_config | egrep '^[^\#]+.*$'
+
+echo "LD_LIBRARY_PATH=/usr/lib64-nvidia" >> /root/.bashrc
+echo "export LD_LIBRARY_PATH" >> /root/.bashrc
+echo "LD_LIBRARY_PATH=/usr/lib64-nvidia" >> /content/${ENGBJ_anata}/.bashrc
+echo "export LD_LIBRARY_PATH" >> /content/${ENGBJ_anata}/.bashrc
+ln -sf /usr/sbin/sshd /content/${ENGBJ_anata}/kogule
+printf "ｓｓｈ設定とログインシェル設定終了\n"
+
+printf "ＮＧＲＯＫ設定開始\n"
+./ngrok config add-authtoken $ENGBJ_token
+printf "ＮＧＲＯＫ設定終了\n"
+
+printf "グロッキー起動設定：ポート${ENGBJ_Port}\n"
+mv /content/${ENGBJ_anata}/ngrok /content/${ENGBJ_anata}/grocky
+printf "グロッキー起動設定しました：ポート${ENGBJ_Port}\n"
+env | grep "ENGBJ" | sort
+echo "*********************"
+#echo "ｓｓｈデーモンとグロッキーデーモンをＮＯＨＵＰ起動"
+#nohup /content/${ENGBJ_anata}/kogule tcp ${ENGBJ_Port} &
+#nohup /content/${ENGBJ_anata}/grocky &
+#echo "ｓｓｈデーモンとグロッキーデーモンをＮＯＨＵＰ起動終了"
+printf "content/${ENGBJ_anata}/kogule \n/content/${ENGBJ_anata}/grocky\n"
+exit
