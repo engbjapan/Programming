@@ -14,8 +14,8 @@ ln -sf /usr/sbin/sshd /content/${ENGBJ_anata}/kogule
 printf "ｓｓｈ設定とログインシェル設定終了\n"
 
 printf "ＮＧＲＯＫ設定開始\n"
-ln -sf /content/${ENGBJ_anata}/ngrok /content/${ENGBJ_anata}/kogule
-sudo --user=${ENGBJ_anata} /content/${ENGBJ_anata}/kogule config add-authtoken $ENGBJ_token
+ln -sf /content/${ENGBJ_anata}/ngrok /content/${ENGBJ_anata}/grocky
+sudo --user=${ENGBJ_anata} /content/${ENGBJ_anata}/grocky config add-authtoken $ENGBJ_token
 chmod 777 /content/${ENGBJ_anata}/ngrok
 printf "ＮＧＲＯＫ設定終了\n"
 
@@ -23,7 +23,7 @@ printf "グロッキー起動設定：ポート${ENGBJ_Port}\n"
 printf "グロッキー起動設定しました：ポート${ENGBJ_Port}\n"
 env | grep "ENGBJ" | sort
 echo "*********************"
-#echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです"
-printf "/content/${ENGBJ_anata}/kogule tcp ${ENGBJ_Port} -D &"
-printf "sudo --user=${ENGBJ_anata} /content/${ENGBJ_anata}/grocky &"
-#echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです終了"
+echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです"
+printf "/content/${ENGBJ_anata}/kogule tcp ${ENGBJ_Port} -D &\n"
+printf "sudo --user=${ENGBJ_anata} bash -c (/content/${ENGBJ_anata}/grocky &)\n"
+echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです終了"
