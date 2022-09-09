@@ -1,0 +1,5 @@
+id
+echo "Helloe"
+nohup echo "Hellow" &
+env
+exit
