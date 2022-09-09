@@ -3,14 +3,22 @@ userdel ${ENGBJ_anata}
 rm -r /content/${ENGBJ_anata}
 echo "日本語ローケル変更開始root"
 cat /etc/locale.gen | egrep '^[^\#]+.*$'
+
 mkdir /content/etc
+cmmeStr="ja_JP.UTF-8 UTF-8"
+perl -pi -e "s/^(${cmmeStr}.*)$/\#${1}/g" /etc/locale.gen
 cp -f /etc/locale.gen /content/etc/locale.gen.bak
-echo 'ja_JP.UTF-8 UTF-8' >> /etc/locale.gen
+echo "${cmmeStr}" >> /etc/locale.gen
 cat /etc/locale.gen | egrep '^[^\#]+.*$'
+
 locale-gen
 update-locale
+
+cmmeStr="export LANG=ja_JP.UTF-8"
+perl -pi -e "s/^(${cmmeStr}.*)$/\#${1}/g" /root/.bashrc
 cp -f /root/.bashrc /content/.bashrc.root
-echo "export LANG=ja_JP.UTF-8" >> /root/.bashrc
+echo "${cmmeStr}" >> /root/.bashrc
+
 source /root/.bashrc
 echo "日本語ローケル変更root終了（バックアップ：/content/.bashrc.root）"
 printf "\n\n\n\n\n" | adduser --home /content/${ENGBJ_anata} --disabled-login ${ENGBJ_anata}
@@ -21,9 +29,15 @@ id ${ENGBJ_anata}
 echo "ユーザ追加終了"
 echo "日本語ローケル変更開始ユーザ"
 cd /content/${ENGBJ_anata}
+
+cmmeStr="export LANG=ja_JP.UTF-8"
+perl -pi -e "s/^(${cmmeStr}.*)$/\#${1}/g" /content/${ENGBJ_anata}/.bashrc
 cp -f /content/${ENGBJ_anata}/.bashrc /content/.bashrc.${ENGBJ_anata}
-echo "export LANG=ja_JP.UTF-8" >> /content/${ENGBJ_anata}/.bashrc
-#source /content/${ENGBJ_anata}/.bashrc
+echo "${cmmeStr}" >> /content/${ENGBJ_anata}/.bashrc
+chmod 777 /content/${ENGBJ_anata}/.bashrc
+
+echo "日本語ローケル変更終了ユーザ　バックアップ:/content/.bashrc.${ENGBJ_anata}"
+
 echo "インストール開始"
 wget -q -c -nc https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 rm -f ./ngrok
