@@ -1,5 +1,6 @@
+cd /content/${ENGBJ_anata}
 id
 echo "Helloe"
-/usr/bin/nohup sleep 30 & 
+sudo /usr/bin/nohup sleep 30 & 
 env
 exit
