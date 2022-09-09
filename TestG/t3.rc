@@ -1,4 +1,5 @@
 printf "ＶＮＣサーバセッティングと起動開始"
+cd /content/${ENGBJ_anata}
 sudo --user=${ENGBJ_anata} vncserver -kill :99
 printf "ＶＮＣパスワードを登録します。覚えておいてくいださいね"
 sudo --user=${ENGBJ_anata} vncpasswd
