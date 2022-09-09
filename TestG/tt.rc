@@ -1,5 +1,5 @@
 id
 echo "Helloe"
-/usr/bin/nohup sleep 30 & >> ./hup.sleep30
+/usr/bin/nohup sleep 30 & 
 env
 exit
