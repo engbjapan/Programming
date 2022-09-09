@@ -1,5 +1,6 @@
 printf "ＶＮＣサーバセッティングと起動開始"
 sudo --user=${ENGBJ_anata} vncserver -kill :99
+printf "ＶＮＣパスワードを登録します。覚えておいてくいださいね"
 sudo --user=${ENGBJ_anata} vncpasswd
 sudo --user=${ENGBJ_anata} export DISPLAY=:99.0 && vncserver -localhost no -xstartup `which fluxbox` -geometry 900x600 :99
 printf "ＶＮＣサーバセッティングと起動終了"
