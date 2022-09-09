@@ -1,5 +1,5 @@
 id
 echo "Helloe"
-nohup echo "Hellow" &
+sleep 100 &
 env
 exit
