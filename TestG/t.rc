@@ -13,24 +13,28 @@ cp -f /root/.bashrc /content/.bashrc.root
 echo "export LANG=ja_JP.UTF-8" >> /root/.bashrc
 source /root/.bashrc
 echo "日本語ローケル変更root終了（バックアップ：/content/.bashrc.root）"
-echo "ログインパスワードを入力してください覚えておいて下さい"
-adduser --home /content/${ENGBJ_anata} --shell `which bash` ${ENGBJ_anata}
-usermod -G sudo ${ENGBJ_anata}
+printf "\n\n\n\n\n" | adduser --home /content/${ENGBJ_anata} --disabled-login ${ENGBJ_anata}
+usermod -G root ${ENGBJ_anata}
+echo
+id ${ENGBJ_anata}
+#usermod -G sudo ${ENGBJ_anata}
 echo "ユーザ追加終了"
 echo "日本語ローケル変更開始ユーザ"
 cd /content/${ENGBJ_anata}
 cp -f /content/${ENGBJ_anata}/.bashrc /content/.bashrc.${ENGBJ_anata}
 echo "export LANG=ja_JP.UTF-8" >> /content/${ENGBJ_anata}/.bashrc
-source /content/${ENGBJ_anata}/.bashrc
+#source /content/${ENGBJ_anata}/.bashrc
 echo "インストール開始"
-sudo -u ${ENGBJ_anata} wget -q -c -nc https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
-sudo -u ${ENGBJ_anata} rm -f ./ngrok
-sudo -u ${ENGBJ_anata} tar xzvf ./ngrok-v3-stable-linux-amd64.tgz
-sudo -u ${ENGBJ_anata} rm -f ./ngrok-v3-stable-linux-amd64.tgz
+swget -q -c -nc https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+rm -f ./ngrok
+tar xzvf ./ngrok-v3-stable-linux-amd64.tgz
+rm -f ./ngrok-v3-stable-linux-amd64.tgz
 apt-get install -yf -qq \
   openssh-server pwgen\
     net-tools iproute2\
       x11-apps aterm tigervnc-standalone-server fluxbox\
        novnc
+echo "ログインパスワードを入力してください覚えておいて下さい"
+#adduser --home /content/${ENGBJ_anata} --shell `which bash` ${ENGBJ_anata}
+passwd ${ENGBJ_anata}
 echo "インストール終了"
-exit
