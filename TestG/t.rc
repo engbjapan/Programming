@@ -1,4 +1,5 @@
 echo "ユーザ追加開始"
+userdel ${ENGBJ_anata}
 rm -r /content/${ENGBJ_anata}
 echo "ログインパスワードを入力してください覚えておいて下さい"
 adduser --home /content/${ENGBJ_anata} --shell `which bash` ${ENGBJ_anata}
