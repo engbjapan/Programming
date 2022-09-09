@@ -12,7 +12,7 @@ sudo -u ${ENGBJ_anata} wget -q -c -nc https://bin.equinox.io/c/bNyj1mQVY4c/ngrok
 sudo -u ${ENGBJ_anata} rm -f ./ngrok
 sudo -u ${ENGBJ_anata} tar xzvf ./ngrok-v3-stable-linux-amd64.tgz
 sudo -u ${ENGBJ_anata} rm -f ./ngrok-v3-stable-linux-amd64.tgz
-sudo -u ${ENGBJ_anata} apt-get install -yf -qq \
+sudo  apt-get install -yf -qq \
   openssh-server pwgen\
     net-tools iproute2\
       x11-apps aterm tigervnc-standalone-server fluxbox\
