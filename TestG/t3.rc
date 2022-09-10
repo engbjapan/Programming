@@ -1,4 +1,5 @@
 printf "ＶＮＣサーバセッティングと起動開始\n"
+rm -fr /tmp/.X11-unix 
 mkdir /tmp/.X11-unix
 chmod 777 /tmp/.X11-unix
 cd /content/${ENGBJ_anata}
