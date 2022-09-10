@@ -3,6 +3,7 @@ cd /content/${ENGBJ_anata}
 vncserver -kill :99
 printf "ＶＮＣパスワードを登録します。覚えておいてくいださいね\n"
 vncpasswd
+printf "ＶＮＣパスワードを登録終了、サーバ起動\n"
 export DISPLAY=:99.0 && vncserver -localhost no -xstartup `which fluxbox` -geometry 900x600 :99
 printf "ＶＮＣサーバセッティングと起動終了\n"
 printf "sudo --user=${ENGBJ_anata} bash -c \"websockify --web=/usr/share/novnc $ENGBJ_WWWPort localhost:5999 $ENGBJ_WWWPort &\"\n"
