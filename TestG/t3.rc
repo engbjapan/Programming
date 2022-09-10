@@ -1,5 +1,6 @@
 printf "ＶＮＣサーバセッティングと起動開始\n"
 cd /content/${ENGBJ_anata}
+export HOME=/content/${ENGBJ_anata}
 vncserver -kill :99
 printf "ＶＮＣパスワードを登録します。覚えておいてくいださいね\n"
 vncpasswd
