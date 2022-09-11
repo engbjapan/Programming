@@ -56,7 +56,4 @@ apt-get install -yf -qq \
     net-tools iproute2\
       x11-apps aterm tigervnc-standalone-server fluxbox\
        novnc
-echo "ログインパスワードを入力してください覚えておいて下さい"
-#adduser --home /content/${ENGBJ_anata} --shell `which bash` ${ENGBJ_anata}
-passwd ${ENGBJ_anata}
 echo "インストール終了"
