@@ -35,7 +35,7 @@ ln -sf /usr/sbin/sshd /content/${ENGBJ_anata}/kogule
 printf "ｓｓｈ設定とログインシェル設定終了\n"
 
 printf "小暮とグロッキーのプロセス切る\n"
-!killall kogure
+!killall kogule
 !killall grocky
 printf "小暮とグロッキーのプロセス切る終了\n"
 
