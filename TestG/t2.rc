@@ -1,7 +1,7 @@
 printf "ｓｓｈ設定とログインシェル設定開始\n"
 echo "コメントリセット設定ファンクションの定義"
 function comsetbkup() {
- cmmestr=`echo "${1}"|perl -pe 's/([\.]|[\-]|[\$]|[\/])/\\\\$1/g'`
+ cmmestr=`echo "${1}"|perl -pe 's/([\.]|[\-]|[\$]|[\/]|[\:]|[\[]|[\]][\(]|[\)])/\\\\$1/g'`
  setstr=$2
  files=$3
  backups=$4
@@ -19,14 +19,16 @@ comsetbkup "$cmmStr" "Port ${ENGBJ_Port}" /etc/ssh/sshd_config /etc/ssh/sshd_con
 cat /etc/ssh/sshd_config | egrep '^[^\#]+.*$'
 cmsStrNidia="LD_LIBRARY_PATH=/usr/lib64-nvidia"
 comsetbkup "$cmsStrNidia" "$cmsStrNidia" /root/.bashrc /root/.bashrc.bak
-#echo "LD_LIBRARY_PATH=/usr/lib64-nvidia" >> /root/.bashrc
+ 
 cmsStrLdLP="export LD_LIBRARY_PATH"
 comsetbkup "$cmsStrLdLP" "$cmsStrLdLP" /root/.bashrc /root/.bashrc.bak.2
-#echo "export LD_LIBRARY_PATH" >> /root/.bashrc
+
+comsetbkup "export DISPLAY" "export DISPLAY:99.0" /root/.bashrc /root/.bashrc.bak.3
 comsetbkup "$cmsStrNidia" "$cmsStrNidia" /content/${ENGBJ_anata}/.bashrc /content/${ENGBJ_anata}/.bashrc.bak
-#echo "LD_LIBRARY_PATH=/usr/lib64-nvidia" >> /content/${ENGBJ_anata}/.bashrc
+ 
 comsetbkup "$cmsStrLdLP" "$cmsStrLdLP" /content/${ENGBJ_anata}/.bashrc /content/${ENGBJ_anata}/.bashrc.bak.2
-#echo "export LD_LIBRARY_PATH" >> /content/${ENGBJ_anata}/.bashrc
+comsetbkup "export DISPLAY" "export DISPLAY:99.0" /content/${ENGBJ_anata}/.bashrc /content/${ENGBJ_anata}/.bashrc.bak.3
+
 ln -sf /usr/sbin/sshd /content/${ENGBJ_anata}/kogule
 printf "ｓｓｈ設定とログインシェル設定終了\n"
 
