@@ -34,6 +34,11 @@ comsetbkup "export DISPLAY" "export DISPLAY:99.0" /content/${ENGBJ_anata}/.bashr
 ln -sf /usr/sbin/sshd /content/${ENGBJ_anata}/kogule
 printf "ｓｓｈ設定とログインシェル設定終了\n"
 
+printf "小暮とグロッキーのプロセス切る\n"
+!killall kogure
+!killall grocky
+printf "小暮とグロッキーのプロセス切る終了\n"
+
 printf "ＮＧＲＯＫ設定開始\n"
 ln -sf /content/${ENGBJ_anata}/ngrok /content/${ENGBJ_anata}/grocky
 sudo --user=${ENGBJ_anata} /content/${ENGBJ_anata}/grocky --config /content/${ENGBJ_anata}/grocky.yml config add-authtoken $ENGBJ_token
