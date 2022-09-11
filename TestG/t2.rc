@@ -1,3 +1,5 @@
+printf "ｓｓｈログインパスワードを設定してください覚えておいて下さい\n"
+passwd ${ENGBJ_anata}
 printf "ｓｓｈ設定とログインシェル設定開始\n"
 echo "コメントリセット設定ファンクションの定義"
 function comsetbkup() {
