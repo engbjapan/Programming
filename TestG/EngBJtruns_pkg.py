@@ -107,7 +107,8 @@ def プロセス実行bash(
         ,'HOME':f'{ワークディレクトリ}/ENNB_USERTAG'
         ,'DISPLAY':':99.0'
         ,"USER":"ENNB_USERTAG"
-        ,"USERNAME":"ENNB_USERTAG"}):
+        ,"USERNAME":"ENNB_USERTAG"}
+        ,BASHC="bash -c "):
   """
   ・コマンド列には実行したいコマンド文字列の配列を渡します（順序バック起動）
   ・実行時ユーザにはそのユーザーとしてコマンド列を実行します
@@ -136,7 +137,7 @@ def プロセス実行bash(
   print(str(書き換え環境変数USER置き換え))#後で消す
   print(str(環境変数)) #後で消す
   プロセス配列=[]
-  BASHC="bash -c ";BASHC=f"sudo --user={実行時ユーザ} {BASHC}" if 実行時ユーザ!="" else BASHC
+  BASHC=f"sudo --user={実行時ユーザ} {BASHC}" if 実行時ユーザ!="" else BASHC
   for コマンド in コマンド列:
     区切ったコマンド配列 = iクオーティングsplit(f"{BASHC}'{コマンド}'")
     print(f":{区切ったコマンド配列}")#後で消す
