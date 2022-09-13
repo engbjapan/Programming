@@ -1,3 +1,6 @@
+ROOTDIRS=/content
+export PWD=${ROOTDIRS}
+cd ${ROOTDIRS}
 printf "ｓｓｈログインパスワードを設定してください覚えておいて下さい\n"
 passwd ${ENGBJ_anata}
 printf "ｓｓｈ設定とログインシェル設定開始\n"
@@ -26,23 +29,26 @@ cmsStrLdLP="export LD_LIBRARY_PATH"
 comsetbkup "$cmsStrLdLP" "$cmsStrLdLP" /root/.bashrc /root/.bashrc.bak.2
 
 comsetbkup "export DISPLAY" "export DISPLAY:99.0" /root/.bashrc /root/.bashrc.bak.3
-comsetbkup "$cmsStrNidia" "$cmsStrNidia" /content/${ENGBJ_anata}/.bashrc /content/${ENGBJ_anata}/.bashrc.bak
+comsetbkup "$cmsStrNidia" "$cmsStrNidia" ${ROOTDIRS}/${ENGBJ_anata}/.bashrc ${ROOTDIRS}/${ENGBJ_anata}/.bashrc.bak
  
-comsetbkup "$cmsStrLdLP" "$cmsStrLdLP" /content/${ENGBJ_anata}/.bashrc /content/${ENGBJ_anata}/.bashrc.bak.2
-comsetbkup "export DISPLAY" "export DISPLAY:99.0" /content/${ENGBJ_anata}/.bashrc /content/${ENGBJ_anata}/.bashrc.bak.3
+comsetbkup "$cmsStrLdLP" "$cmsStrLdLP" ${ROOTDIRS}/${ENGBJ_anata}/.bashrc ${ROOTDIRS}/${ENGBJ_anata}/.bashrc.bak.2
+comsetbkup "export DISPLAY" "export DISPLAY:99.0" ${ROOTDIRS}/${ENGBJ_anata}/.bashrc ${ROOTDIRS}/${ENGBJ_anata}/.bashrc.bak.3
 
-ln -sf /usr/sbin/sshd /content/${ENGBJ_anata}/kogule
+ln -sf `which sshd` ${ROOTDIRS}/${ENGBJ_anata}/kogule
 printf "ｓｓｈ設定とログインシェル設定終了\n"
 
 printf "小暮とグロッキーのプロセス切る\n"
-!killall kogule
-!killall grocky
+killall kogule
+killall grocky
 printf "小暮とグロッキーのプロセス切る終了\n"
 
 printf "ＮＧＲＯＫ設定開始\n"
-ln -sf /content/${ENGBJ_anata}/ngrok /content/${ENGBJ_anata}/grocky
-sudo --user=${ENGBJ_anata} /content/${ENGBJ_anata}/grocky --config /content/${ENGBJ_anata}/grocky.yml config add-authtoken $ENGBJ_token
 chmod 777 /content/${ENGBJ_anata}/ngrok
+ln -sf ${ROOTDIRS}/${ENGBJ_anata}/ngrok ${ROOTDIRS}/${ENGBJ_anata}/grocky
+${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml config add-authtoken $ENGBJ_token
+if [ "$ENGBJ_simasu"= "します" ]; then
+${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grockysimasu.yml config add-authtoken $ENGBJ_simasutoken
+fi
 printf "ＮＧＲＯＫ設定終了\n"
 
 printf "グロッキー起動設定：ポート${ENGBJ_Port}\n"
@@ -50,6 +56,9 @@ printf "グロッキー起動設定しました：ポート${ENGBJ_Port}\n"
 env | grep "ENGBJ" | sort
 echo "*********************"
 echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです"
-printf "bash -c '/content/${ENGBJ_anata}/kogule -D &'\n"
-printf "sudo --user=${ENGBJ_anata} bash -c '/content/${ENGBJ_anata}/grocky --config /content/${ENGBJ_anata}/grocky.yml  tcp ${ENGBJ_Port} &'\n"
+printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/kogule -D &'\n"
+printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/grocky --config /content/${ENGBJ_anata}/grocky.yml  http ${ENGBJ_WWWPort} &'\n"
+if [ "$ENGBJ_simasu"= "します" ]; then
+printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/grocky --config /content/${ENGBJ_anata}/grockysimasu.yml  tcp ${ENGBJ_Port} &'\n"
+fi
 echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです終了"
