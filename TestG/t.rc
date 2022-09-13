@@ -1,3 +1,6 @@
+ROOTDIRS=/content
+export PWD=${ROOTDIRS}
+cd ${ROOTDIRS}
 printf "ｓｓｈ設定とログインシェル設定開始\n"
 echo "コメントリセット設定ファンクションの定義"
 function comsetbkup() {
@@ -10,15 +13,13 @@ function comsetbkup() {
  echo "${setstr}" >> $files
 }
 echo "コメントリセット設定ファンクションの定義終了"
-
-echo "コメントリセット設定ファンクションの定義終了"
 echo "ユーザ追加開始"
 userdel ${ENGBJ_anata}
-rm -r /content/${ENGBJ_anata}
+rm -r ${ROOTDIRS}/${ENGBJ_anata}
 echo "日本語ローケル変更開始root"
 cat /etc/locale.gen | egrep '^[^\#]+.*$'
 
-mkdir /content/etc
+mkdir ${ROOTDIRS}/etc
 cmmeStr="ja_JP.UTF-8 UTF-8"
 comsetbkup "$cmmeStr" "$cmmeStr" /etc/locale.gen /etc/locale.gen.bak
  
@@ -28,26 +29,34 @@ locale-gen
 update-locale
 
 cmmeStr="export LANG=ja_JP.UTF-8"
-comsetbkup "$cmmeStr" "$cmmeStr" /root/.bashrc /content/.bashrc.root
-
+comsetbkup "$cmmeStr" "$cmmeStr" /root/.bashrc ${ROOTDIRS}/.bashrc.root
+echo "root/.bashrcリロード開始"
 source /root/.bashrc
-echo "日本語ローケル変更root終了（バックアップ：/content/.bashrc.root）"
-printf "\n\n\n\n\n" | adduser --home /content/${ENGBJ_anata} --disabled-login ${ENGBJ_anata}
-usermod -G root ${ENGBJ_anata}
-echo
+echo "root/.bashrcリロード終了"
+echo "PWDを${ROOTDIRS}に変更リロード開始"
+export PWD=${ROOTDIRS}
+cd ${ROOTDIRS}
+
+echo "日本語ローケル変更root終了（バックアップ：${ROOTDIRS}/.bashrc.root）"
+echo "ユーザ追加開始"
+rm -fr ${ROOTDIRS}/${ENGBJ_anata}
+printf "\n\n\n\n\n" | adduser --home ${ROOTDIRS}/${ENGBJ_anata} --disabled-login ${ENGBJ_anata}
+usermod -G sudo ${ENGBJ_anata}
 id ${ENGBJ_anata}
+chmod -r 777 ${ROOTDIRS}/${ENGBJ_anata}
 echo "ユーザ追加終了"
 echo "日本語ローケル変更開始ユーザ"
-cd /content/${ENGBJ_anata}
+cd ${ROOTDIRS}/${ENGBJ_anata}
 
 cmmeStr="export LANG=ja_JP.UTF-8"
-comsetbkup "$cmmeStr" "$cmmeStr" /content/${ENGBJ_anata}/.bashrc /content/.bashrc.${ENGBJ_anata}
-chmod 777 /content/${ENGBJ_anata}/.bashrc
+comsetbkup "$cmmeStr" "$cmmeStr" ${ROOTDIRS}/${ENGBJ_anata}/.bashrc ${ROOTDIRS}/.bashrc.${ENGBJ_anata}
+chmod 777 ${ROOTDIRS}/${ENGBJ_anata}/.bashrc
 
-echo "日本語ローケル変更終了ユーザ　バックアップ:/content/.bashrc.${ENGBJ_anata}"
+echo "日本語ローケル変更終了ユーザ　バックアップ:${ROOTDIRS}/.bashrc.${ENGBJ_anata}"
 
 echo "インストール開始"
-wget -q -c -nc https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
+cd ${ROOTDIRS}
+wget -qq https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 rm -f ./ngrok
 tar xzvf ./ngrok-v3-stable-linux-amd64.tgz
 rm -f ./ngrok-v3-stable-linux-amd64.tgz
