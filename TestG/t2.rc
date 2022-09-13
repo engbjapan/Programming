@@ -56,9 +56,9 @@ printf "グロッキー起動設定しました：ポート${ENGBJ_Port}\n"
 env | grep "ENGBJ" | sort
 echo "*********************"
 echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです"
-printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/grocky --config /content/${ENGBJ_anata}/grocky.yml  http ${ENGBJ_WWWPort} &'\n"
+printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml  http ${ENGBJ_WWWPort} &'\n"
 if [ "$ENGBJ_simasutoken" != "" ]; then
 printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/kogule -D &'\n"
-printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/grocky --config /content/${ENGBJ_anata}/grockysimasu.yml  tcp ${ENGBJ_Port} &'\n"
+printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grockysimasu.yml  tcp ${ENGBJ_Port} &'\n"
 fi
 echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです終了"
