@@ -3,4 +3,5 @@ function EGBtest(){
 id
 echo "Helloe"
 env
+exit 0
 }
