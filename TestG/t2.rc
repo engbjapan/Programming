@@ -46,7 +46,7 @@ printf "ＮＧＲＯＫ設定開始\n"
 chmod 777 /content/${ENGBJ_anata}/ngrok
 ln -sf ${ROOTDIRS}/${ENGBJ_anata}/ngrok ${ROOTDIRS}/${ENGBJ_anata}/grocky
 ${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml config add-authtoken $ENGBJ_token
-if [ "$ENGBJ_simasu"= "します" ]; then
+if [ "$ENGBJ_simasutoken" != "" ]; then
 ${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grockysimasu.yml config add-authtoken $ENGBJ_simasutoken
 fi
 printf "ＮＧＲＯＫ設定終了\n"
@@ -58,7 +58,7 @@ echo "*********************"
 echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです"
 printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/kogule -D &'\n"
 printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/grocky --config /content/${ENGBJ_anata}/grocky.yml  http ${ENGBJ_WWWPort} &'\n"
-if [ "$ENGBJ_simasu"= "します" ]; then
+if [ "$ENGBJ_simasutoken" != "" ]; then
 printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/grocky --config /content/${ENGBJ_anata}/grockysimasu.yml  tcp ${ENGBJ_Port} &'\n"
 fi
 echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです終了"
