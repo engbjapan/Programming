@@ -4,7 +4,7 @@ cd ${ROOTDIRS}
 printf "ＶＮＣサーバセッティングと起動開始\n"
 rm -fr /tmp/.X11-unix 
 mkdir /tmp/.X11-unix
-chmod 777 /tmp/.X11-unix
+chmod -fr 777 /tmp/.X11-unix
 cd ${ROOTDIRS}/${ENGBJ_anata}
 export HOME=${ROOTDIRS}/${ENGBJ_anata}
 echo "ＶＮＣサーバー９９を切る"
