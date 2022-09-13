@@ -51,8 +51,6 @@ ${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grockysima
 fi
 printf "ＮＧＲＯＫ設定終了\n"
 
-printf "グロッキー起動設定：ポート${ENGBJ_Port}\n"
-printf "グロッキー起動設定しました：ポート${ENGBJ_Port}\n"
 env | grep "ENGBJ" | sort
 echo "*********************"
 echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです"
