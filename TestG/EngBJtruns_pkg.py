@@ -139,7 +139,7 @@ def プロセス実行bash(
   BASHC="bash -c ";BASHC=f"sudo --user={実行時ユーザ} {BASHC}" if 実行時ユーザ!="" else BASHC
   for コマンド in コマンド列:
     区切ったコマンド配列 = iクオーティングsplit(f"{BASHC}'{コマンド}'")
-    print(f":{区切ったコマンド配列}")
+    print(f":{区切ったコマンド配列}")#後で消す
     print(f"> {コマンド}")
 
     if 実行時ユーザ!="" :
@@ -158,6 +158,8 @@ def プロセス結果表示(プロセス配列):
     print(f"PID:{PID} 出力:\n{出力データ.decode(encoding='utf-8')}")
     print(f"リターンＣＯＤＥ={プロセス.returncode}")
   return プロセス配列
+def パイピングコマンド列変換(パイピングコマンド):
+  パイピングコマンド列
 
 def Colabウェブリンク表示(ソースポート番号,ホスト名,パス="/vnc.html",接続ポート番号="443",接続フルパス=""):
   from google.colab import output
