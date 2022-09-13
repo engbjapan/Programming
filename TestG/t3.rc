@@ -1,20 +1,22 @@
-#!/bin/bash
+ROOTDIRS=/content
+export PWD=${ROOTDIRS}
+cd ${ROOTDIRS}
 printf "ＶＮＣサーバセッティングと起動開始\n"
 rm -fr /tmp/.X11-unix 
 mkdir /tmp/.X11-unix
 chmod 777 /tmp/.X11-unix
-cd /content/${ENGBJ_anata}
-export HOME=/content/${ENGBJ_anata}
+cd ${ROOTDIRS}/${ENGBJ_anata}
+export HOME=${ROOTDIRS}/${ENGBJ_anata}
 echo "ＶＮＣサーバー９９を切る"
 vncserver -kill :99
 echo "ＶＮＣサーバー９９を切る終了"
 printf "ＶＮＣパスワードを登録します。覚えておいてくいださいね\n"
-mkdir /content/${ENGBJ_anata}/.vnc/
-chmod -r 777 /content/${ENGBJ_anata}/.vnc/
-vncpasswd -f /content/${ENGBJ_anata}/.vnc/passwd
+mkdir ${ROOTDIRS}/${ENGBJ_anata}/.vnc/
+chmod -fr 777 ${ROOTDIRS}/${ENGBJ_anata}/.vnc/
+vncpasswd -f ${ROOTDIRS}/${ENGBJ_anata}/.vnc/passwd
 printf "ＶＮＣパスワードを登録終了、サーバ起動\n"
 export DISPLAY=:99.0 
-echo DISPLAY=${DISPLAY}
+echo "DISPLAY=${DISPLAY}"
 echo " ノボックサーバーを切る"
 killall websockify
 echo " ノボックサーバーを切る終了"
