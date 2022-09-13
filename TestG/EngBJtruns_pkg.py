@@ -11,6 +11,8 @@ from subprocess import Popen as iプロセス生成と管理
 from subprocess import PIPE as fパイプ
 from subprocess import STDOUT as ｆ標準出力
 
+ワークディレクトリ="/content"
+
 def 指定の変数の値を取得します(変数名):
   return iＯＳ.environ[変数名]
 
@@ -99,10 +101,10 @@ def プロセス実行bash(
       ,実行時ユーザ=""
       ,書き換え環境変数={
         'LANG':'ja_JP.UTF-8'
-        ,'OLDPWD':'/content/ENNB_USERTAG'
-        ,'ENV':'/content/ENNB_USERTAG/.bashrc'
-        ,'PWD':'/content/ENNB_USERTAG'
-        ,'HOME':'/content/ENNB_USERTAG'
+        ,'OLDPWD':f'{ワークディレクトリ}/ENNB_USERTAG'
+        ,'ENV':f'{ワークディレクトリ}/ENNB_USERTAG/.bashrc'
+        ,'PWD':f'{ワークディレクトリ}/ENNB_USERTAG'
+        ,'HOME':f'{ワークディレクトリ}/ENNB_USERTAG'
         ,'DISPLAY':':99.0'
         ,"USER":"ENNB_USERTAG"
         ,"USERNAME":"ENNB_USERTAG"}):
@@ -119,15 +121,6 @@ def プロセス実行bash(
   [Popen コンストラクター](https://docs.python.org/ja/3.7/library/subprocess.html#popen-constructor)
   """
   ＲＯＯＴ環境変数Copy = iＯＳ.environ.copy()
-  書き換え環境変数={
-        'LANG':'ja_JP.UTF-8'
-        ,'OLDPWD':'/content/ENNB_USERTAG'
-        ,'ENV':'/content/ENNB_USERTAG/.bashrc'
-        ,'PWD':'/content/ENNB_USERTAG'
-        ,'HOME':'/content/ENNB_USERTAG'
-        ,'DISPLAY':':99.0'
-        ,"USER":"ENNB_USERTAG"
-        ,"USERNAME":"ENNB_USERTAG"}
   環境変数={}
   書き換え環境変数USER置き換え={}
   if 実行時ユーザ!="" :
