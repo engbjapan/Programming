@@ -126,9 +126,11 @@ def プロセス実行bash(
   書き換え環境変数USER置き換え={}
   if 実行時ユーザ!="" :
       for マッピング要素文字 in list(map(
-        lambda  key: f'{key}'+"="+f'\"{書き換え環境変数[key].replace("ENNB_USERTAG",実行時ユーザ)}\"'
+        lambda  key: 
+            f'{key}'+"="+f'\"{書き換え環境変数[key].replace("ENNB_USERTAG",実行時ユーザ)}\"'
         ,list(書き換え環境変数)) ):
-          書き換え環境変数USER置き換え.update(eval(f"dict({マッピング要素文字})"))
+        
+            書き換え環境変数USER置き換え.update(eval(f"dict({マッピング要素文字})"))
 
       ＲＯＯＴ環境変数Copy.update(書き換え環境変数USER置き換え) #if 実行時ユーザ!="" else ＲＯＯＴ環境変数Copy
       環境変数 = ＲＯＯＴ環境変数Copy
@@ -155,15 +157,18 @@ def プロセス実行bash(
 def プロセス結果表示(プロセス配列):
   for プロセス in プロセス配列:
     出力データ, _ = プロセス.communicate()
-    PID = プロセス.pid
-    print(f"PID:{PID} 出力:\n{出力データ.decode(encoding='utf-8')}")
+    print(f"PID:{プロセス.pid} 出力:\n{出力データ.decode(encoding='utf-8')}")
     print(f"リターンＣＯＤＥ={プロセス.returncode}")
   return プロセス配列
-def パイピングコマンド列変換(パイピングコマンド):
-  パイピングコマンド列
+
+def プロセス切る(プロセス配列):
+  map(lambda プロセス: 
+          システムコマンド実行(f"kill -9 {プロセス.pid}")
+      ,プロセス配列)
+  return プロセス配列
 
 def Colabウェブリンク表示(ソースポート番号,ホスト名,パス="/vnc.html",接続ポート番号="443",接続フルパス=""):
   from google.colab import output
   接続フルパス = 接続フルパス if (接続フルパス=="") else f"{パス}?host={ホスト名}&port={接続ポート番号}"
-  output.serve_kernel_port_as_window(ソースポート番号,path='/vnc.html?host=e2fc-34-83-17-214.ngrok.io&port=443')
+  output.serve_kernel_port_as_window(ソースポート番号,path=f"[接続フルパス]")
   return f'https://localhost:{ソースポート番号}{接続フルパス}'
