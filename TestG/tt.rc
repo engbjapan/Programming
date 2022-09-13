@@ -1,6 +1,5 @@
 #!/bin/bash
 function EGBtest(){
-#cd /content/${ENGBJ_anata}
 id
 echo "Helloe"
 env
