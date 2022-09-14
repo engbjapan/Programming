@@ -172,3 +172,59 @@ def Colabウェブリンク表示(ソースポート番号,ホスト名,パス="
   接続フルパス = 接続フルパス if (接続フルパス=="") else f"{パス}?host={ホスト名}&port={接続ポート番号}"
   output.serve_kernel_port_as_window(ソースポート番号,path=f"[接続フルパス]")
   return f'https://localhost:{ソースポート番号}{接続フルパス}'
+
+# @title **GoogleDrive共有ファイルのスモール、ラージ両方取ってくる**
+def GoogleDrive共有ファイル取得(
+    ワークDIR="/content" # @param  
+    ,
+    共有ファイルID="10_wfp1U4rMzc20eiGNrdQa9V2S9ByJwV" # @param
+    ):
+    import subprocess as iプロセス実行
+    from shlex import split as iシェル区切り列作成
+
+    # 関数を日本語変数に紐づける
+    fシステムコマンド実行 = get_ipython().system_raw
+
+    fシステムコマンド実行(f"rm -f {ワークDIR}/_cmds")
+
+    コマンドs = f"""
+    ConTentPath={ワークDIR}
+    FILE_ID="{共有ファイルID}" 
+    FILE_NAMES=`wget -O - -qq https://drive.google.com/file/d/$FILE_ID/view | grep '<title>' |perl -pe 's/^.+<title>([^ ]+)[ ]+.*$/${1}/g'`
+    wget -O $ConTentPath/viewhtml -qq "https://drive.google.com/uc?export=download&id=$FILE_ID"
+    if [ $(grep  'DOCTYPE' $ConTentPath/viewhtml | wc -l) -eq 0 ]; then
+      echo "スモールファイル:$ConTentPath/$FILE_NAMES"
+      mv $ConTentPath/viewhtml $ConTentPath/$FILE_NAMES
+    else
+      echo "ラージファイル:$ConTentPath/$FILE_NAMES"
+      printf "wget  -O $ConTentPath/$FILE_NAMES -qq 'https://drive.google.com/uc?export=download&id=$FILE_ID&confirm=t&" >  $ConTentPath/FILE_ID_WGET_CMD 
+      cat $ConTentPath/viewhtml | perl -pe 's/\r*\n//g' | perl -pe 's/^.*(uuid\=[^\"]+)\".*$/$1/g' >> $ConTentPath/FILE_ID_WGET_CMD 
+      printf "&uc-download-link=Download&nbsp;anyway'" >> "$ConTentPath/FILE_ID_WGET_CMD" 
+      /bin/bash $ConTentPath/FILE_ID_WGET_CMD
+    fi
+    """
+    #コマンドファイル作成
+    with open(f"{ワークDIR}/_cmds","w") as ファイルOBJ :
+      ファイルOBJ.write(コマンドs)               #コマンド書き込み
+      ファイルOBJ.flush()                        #ファイルのフラッシュと書き込み
+      ファイルOBJ.close()
+
+    fシステムコマンド実行(f"chmod 777 {ワークDIR}/_cmds")
+    # bashコマンド実行
+    プロセス = iプロセス実行.Popen(
+          iシェル区切り列作成(
+            f"/bin/bash {ワークDIR}/_cmds")
+          ,stdout=iプロセス実行.PIPE)
+    # Popenのプロセスの関数を日本語変数に紐づける 
+    実行結果取得 = プロセス.communicate
+
+    実行結果出力 , エラー結果出力 = 実行結果取得()
+
+    fシステムコマンド実行(f"rm -f {ワークDIR}/_cmds")
+    fシステムコマンド実行(f"rm -f {ワークDIR}/FILE_ID_WGET_CMD")
+
+    return (実行結果出力.decode("utf-8"),
+            # いわゆ三項演算子
+            エラー結果出力.decode("utf-8") if エラー結果出力!=None else "",
+            プロセス)
+  
