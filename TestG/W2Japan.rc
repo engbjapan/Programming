@@ -30,6 +30,7 @@ locale-gen
 update-locale
 
 cmmeStr="export LANG=ja_JP.UTF-8"
+export LANG=ja_JP.UTF-8
 comsetbkup "$cmmeStr" "$cmmeStr" /root/.bashrc ${ROOTDIRS}/.bashrc.root
 echo "root/.bashrcリロード開始"
 source /root/.bashrc
