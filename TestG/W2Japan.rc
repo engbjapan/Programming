@@ -1,0 +1,34 @@
+ROOTDIRS=/content
+echo "日本時間変更開始root"
+mv /etc/localtime /etc/localtime.org
+ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+date
+echo "日本時間変更終了root"
+echo "コメントリセット設定ファンクションの定義"
+function comsetbkup() {
+ cmmestr=`echo "${1}"|perl -pe 's/([\.]|[\-]|[\$]|[\/]|[\:]|[\[]|[\]][\(]|[\)])/\\\\$1/g'`
+ setstr=$2
+ files=$3
+ backups=$4
+ perl -pi -e "s/^(${cmmestr}.*)\$/\#\${1}/g" $files
+ cp $files $backups
+ echo "${setstr}" >> $files
+}
+echo "コメントリセット設定ファンクションの定義終了"
+echo "日本語ローケル変更開始root"
+cat /etc/locale.gen | egrep '^[^\#]+.*$'
+
+mkdir ${ROOTDIRS}/etc
+cmmeStr="ja_JP.UTF-8 UTF-8"
+comsetbkup "$cmmeStr" "$cmmeStr" /etc/locale.gen /etc/locale.gen.bak
+ 
+cat /etc/locale.gen | egrep '^[^\#]+.*$'
+
+locale-gen
+update-locale
+
+cmmeStr="export LANG=ja_JP.UTF-8"
+comsetbkup "$cmmeStr" "$cmmeStr" /root/.bashrc ${ROOTDIRS}/.bashrc.root
+echo "root/.bashrcリロード開始"
+source /root/.bashrc
+echo "root/.bashrcリロード終了"
