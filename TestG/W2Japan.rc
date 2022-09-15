@@ -17,7 +17,7 @@ function comsetbkup() {
 echo "コメントリセット設定ファンクションの定義終了"
 echo "日本語ローケル変更開始root"
 
-apt-get -q install language-pack-ja
+apt-get -qq install language-pack-ja
 cat /etc/locale.gen | egrep '^[^\#]+.*$'
 
 mkdir ${ROOTDIRS}/etc
