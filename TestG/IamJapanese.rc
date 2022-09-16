@@ -39,6 +39,9 @@ env > ${ROOTDIRS}/.env.root
 echo "環境変数の書き出し終了${ROOTDIRS}/.env.root"
 cat <<MSGEOF
 #Colabでは以下を実行してください
-******まだ思考中
-    %set_env $v
+from shlex import quote as fクート
+環境変数格納 = !cat ${ROOTDIRS}/.env.root
+for 個々の環境変数定義 in  環境変数格納 :
+      個々の環境変数定義=fクート(個々の環境変数定義)
+      %set_env $個々の環境変数定義
 MSGEOF
