@@ -5,7 +5,7 @@ ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 date
 echo "日本時間変更終了root"
 echo "コメントリセット設定ファンクションの定義"
-function comsetbkup() {
+comsetbkup() {
  cmmestr=`echo "${1}"|perl -pe 's/([\.]|[\-]|[\$]|[\/]|[\:]|[\[]|[\]][\(]|[\)])/\\\\$1/g'`
  setstr=$2
  files=$3
@@ -14,6 +14,7 @@ function comsetbkup() {
  cp $files $backups
  echo "${setstr}" >> $files
 }
+
 echo "コメントリセット設定ファンクションの定義終了"
 echo "日本語ローケルインストールと変更設定開始root"
 
@@ -33,3 +34,11 @@ cmmeStr="export LANG=ja_JP.UTF-8"
 export LANG=ja_JP.UTF-8
 comsetbkup "$cmmeStr" "$cmmeStr" /root/.bashrc ${ROOTDIRS}/.bashrc.root
 echo "日本語ローケルインストールと変更設定終了root"
+echo "環境変数の書き出し${ROOTDIRS}/.env.root"
+env > ${ROOTDIRS}/.env.root
+echo "環境変数の書き出し終了${ROOTDIRS}/.env.root"
+cat <<MSGEOF
+#Colabでは以下を実行してください
+******まだ思考中
+    %set_env $v
+MSGEOF
