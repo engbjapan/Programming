@@ -35,4 +35,11 @@ comsetbkup "$cmmeStr" "$cmmeStr" /root/.bashrc ${ROOTDIRS}/.bashrc.root
 echo "root/.bashrcリロード開始"
 source /root/.bashrc
 echo "root/.bashrcリロード終了"
-
+echo "Notebookの環境にも反映"
+python3 <(cat <<EOF
+import  os
+os.environ["LANG"]="ja_JP.UTF-8"
+EOF
+)
+date
+echo "Notebookの環境にも反映終了"
