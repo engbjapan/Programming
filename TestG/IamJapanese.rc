@@ -15,7 +15,7 @@ function comsetbkup() {
  echo "${setstr}" >> $files
 }
 echo "コメントリセット設定ファンクションの定義終了"
-echo "日本語ローケル変更開始root"
+echo "日本語ローケルインストールと変更設定開始root"
 
 apt-get -qq install language-pack-ja
 cat /etc/locale.gen | egrep '^[^\#]+.*$'
@@ -32,14 +32,4 @@ update-locale
 cmmeStr="export LANG=ja_JP.UTF-8"
 export LANG=ja_JP.UTF-8
 comsetbkup "$cmmeStr" "$cmmeStr" /root/.bashrc ${ROOTDIRS}/.bashrc.root
-echo "root/.bashrcリロード開始"
-source /root/.bashrc
-echo "root/.bashrcリロード終了"
-echo "Notebookの環境にも反映"
-python3 <(cat <<EOF
-import  os
-os.environ["LANG"]="ja_JP.UTF-8"
-EOF
-)
-date
-echo "Notebookの環境にも反映終了"
+echo "日本語ローケルインストールと変更設定終了root"
