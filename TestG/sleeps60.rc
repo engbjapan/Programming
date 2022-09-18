@@ -1,0 +1,4 @@
+echo "sleeps60 start"
+sleep 60 &
+echo "sleeps60 start EMD"
+ps -AF
