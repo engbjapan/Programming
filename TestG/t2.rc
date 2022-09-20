@@ -46,17 +46,20 @@ printf "ＮＧＲＯＫ設定開始\n"
 chmod 777 /content/${ENGBJ_anata}/ngrok
 ln -sf ${ROOTDIRS}/${ENGBJ_anata}/ngrok ${ROOTDIRS}/${ENGBJ_anata}/grocky
 ${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml config add-authtoken $ENGBJ_token
-if [ "$ENGBJ_simasutoken" != "" ]; then
-${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grockysimasu.yml config add-authtoken $ENGBJ_simasutoken
-fi
+cat <<EOF >> ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml
+tunnels:
+  grocky:
+    proto: http
+    addr: localhost:${ENGBJ_WWWPort}
+  kogule:
+    proto: tcp
+    addr: localhost:${ENGBJ_Port}
+EOF
 printf "ＮＧＲＯＫ設定終了\n"
 
 env | grep "ENGBJ" | sort
 echo "*********************"
 echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです"
-printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml  http ${ENGBJ_WWWPort} &'\n"
-if [ "$ENGBJ_simasutoken" != "" ]; then
 printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/kogule -D &'\n"
-printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grockysimasu.yml  tcp ${ENGBJ_Port} &'\n"
-fi
+printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/grocky start --all --config ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml &'¥n"
 echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです終了"
