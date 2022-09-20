@@ -43,9 +43,9 @@ killall grocky
 printf "小暮とグロッキーのプロセス切る終了\n"
 
 printf "ＮＧＲＯＫ設定開始\n"
-chmod 777 /content/${ENGBJ_anata}/ngrok
-ln -sf ${ROOTDIRS}/${ENGBJ_anata}/ngrok ${ROOTDIRS}/${ENGBJ_anata}/grocky
-${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml config add-authtoken $ENGBJ_token
+chmod 777 ${ROOTDIRS}/ngrok
+ln -sf ${ROOTDIRS}/ngrok ${ROOTDIRS}/${ENGBJ_anata}/grocky
+${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml config add-authtoken ${ENGBJ_token}
 cat <<EOF >> ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml
 tunnels:
   grocky:
@@ -61,5 +61,5 @@ env | grep "ENGBJ" | sort
 echo "*********************"
 echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです"
 printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/kogule -D &'\n"
-printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/grocky start --all --config ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml &'¥n"
+printf "bash -c '${ROOTDIRS}/${ENGBJ_anata}/grocky start --all --config ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml &'\n"
 echo "ｓｓｈデーモンとグロッキーデーモン起動はこれです終了"
