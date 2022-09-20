@@ -1,7 +1,7 @@
 ROOTDIRS=/content
 export PWD=${ROOTDIRS}
 cd ${ROOTDIRS}
-printf "ＶＮＣサーバセッティングと起動開始\n"
+printf "ＶＮＣサーバセッティング\n"
 rm -fr /tmp/.X11-unix 
 mkdir /tmp/.X11-unix
 chmod -fr 777 /tmp/.X11-unix
@@ -15,12 +15,11 @@ printf "ＶＮＣパスワードを登録します。覚えておいてくいだ
 mkdir ${ROOTDIRS}/${ENGBJ_anata}/.vnc/
 chmod -fr 777 ${ROOTDIRS}/${ENGBJ_anata}/.vnc/
 vncpasswd -f ${ROOTDIRS}/${ENGBJ_anata}/.vnc/passwd
-printf "ＶＮＣパスワードを登録終了、サーバ起動\n"
-export DISPLAY=:99.0 
-echo "DISPLAY=${DISPLAY}"
+printf "ＶＮＣパスワードを登録終了\n"
 echo " ノボックサーバーを切る"
 killall websockify
 echo " ノボックサーバーを切る終了"
-printf "サーバセッティングと起動終了\n"
-echo "vncserver -PasswordFile=/content/${ENGBJ_anata}/.vnc/passwd -localhost no -xstartup `which fluxbox` -geometry 900x600 :99"
-echo "websockify --web=/usr/share/novnc localhost:${ENGBJ_WWWPort} localhost:5999 &"
+printf "サーバセッティング終了\n"
+printf "サーバセッティング起動は以下です\n"
+echo "vncserver -PasswordFile=${ROOTDIRS}/${ENGBJ_anata}/.vnc/passwd -localhost yes -xstartup `which fluxbox` -geometry 900x600 :99"
+echo "websockify -D --web=/usr/share/novnc localhost:${ENGBJ_WWWPort} localhost:5999"
