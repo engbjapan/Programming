@@ -4,16 +4,16 @@ cd ${ROOTDIRS}
 printf "ＶＮＣサーバセッティング\n"
 rm -fr /tmp/.X11-unix 
 mkdir /tmp/.X11-unix
-chmod -fr 777 /tmp/.X11-unix
+chmod -fR 777 /tmp/.X11-unix
 cd ${ROOTDIRS}/${ENGBJ_anata}
 export HOME=${ROOTDIRS}/${ENGBJ_anata}
 export PATH=${PATH}:${HOME}
 echo "ＶＮＣサーバー９９を切る"
 vncserver -kill :99
 echo "ＶＮＣサーバー９９を切る終了"
-printf "ＶＮＣパスワードを登録します。覚えておいてくいださいね\n"
 mkdir ${ROOTDIRS}/${ENGBJ_anata}/.vnc/
-chmod -fr 777 ${ROOTDIRS}/${ENGBJ_anata}/.vnc/
+chmod -fR 777 ${ROOTDIRS}/${ENGBJ_anata}/.vnc/
+printf "ＶＮＣパスワードを登録します。覚えておいてくいださいね\n"
 vncpasswd -f ${ROOTDIRS}/${ENGBJ_anata}/.vnc/passwd
 printf "ＶＮＣパスワードを登録終了\n"
 echo " ノボックサーバーを切る"
