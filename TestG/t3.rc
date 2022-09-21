@@ -23,7 +23,7 @@ echo " ノボックサーバーを切る終了"
 printf "サーバセッティング終了\n"
 printf "サーバセッティング起動は以下です\n"
 echo "vncserver -PasswordFile=${ROOTDIRS}/${ENGBJ_anata}/.vnc/passwd -localhost yes -xstartup `which fluxbox` -geometry 900x600 :99"
-echo "websockify -D --web=/usr/share/novnc localhost:${ENGBJ_WWWPort} localhost:5999"
+echo "websockify -D --web=${ROOTDIRS}/${ENGBJ_anata}/gunsuke localhost:${ENGBJ_WWWPort} localhost:5999"
 mv /usr/share/novnc/vnc.html /usr/share/novnc/guntyan.html 
 mv /usr/share/novnc/vnc_auto.html /usr/share/novnc/guntyanikinari.html 
-ln -sf /usr/share/novnc ${ROOTDIRS}/${ENGBJ_anata}/.vnc/gunsuke
+ln -sf /usr/share/novnc ${ROOTDIRS}/${ENGBJ_anata}/gunsuke
