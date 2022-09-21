@@ -11,19 +11,20 @@ export PATH=${PATH}:${HOME}
 echo "ＶＮＣサーバー９９を切る"
 vncserver -kill :99
 echo "ＶＮＣサーバー９９を切る終了"
-mkdir ${ROOTDIRS}/${ENGBJ_anata}/.vnc/
-chmod -fR 777 ${ROOTDIRS}/${ENGBJ_anata}/.vnc/
+rm -fr ${ROOTDIRS}/${ENGBJ_anata}/.bunsuke/
+mkdir ${ROOTDIRS}/${ENGBJ_anata}/.bunsuke/
+chmod -fR 777 ${ROOTDIRS}/${ENGBJ_anata}/.bunsuke/
 printf "ＶＮＣパスワードを登録します。覚えておいてくいださいね\n"
-vncpasswd ${ROOTDIRS}/${ENGBJ_anata}/.vnc/passwd
-chmod 777 ${ROOTDIRS}/${ENGBJ_anata}/.vnc/passwd
+vncpasswd ${ROOTDIRS}/${ENGBJ_anata}/.bunsuke/passwd
+chmod 777 ${ROOTDIRS}/${ENGBJ_anata}/.bunsuke/passwd
 printf "ＶＮＣパスワードを登録終了\n"
 echo " ノボックサーバーを切る"
 killall websockify
 echo " ノボックサーバーを切る終了"
 printf "サーバセッティング終了\n"
 printf "サーバセッティング起動は以下です\n"
-echo "vncserver -PasswordFile=${ROOTDIRS}/${ENGBJ_anata}/.vnc/passwd -localhost yes -xstartup `which fluxbox` -geometry 900x600 :99"
+echo "vncserver -PasswordFile=${ROOTDIRS}/${ENGBJ_anata}/.bunsuke/passwd -localhost yes -xstartup `which fluxbox` -geometry 900x600 :99"
 echo "websockify -D --web=${ROOTDIRS}/${ENGBJ_anata}/gunsuke localhost:${ENGBJ_WWWPort} localhost:5999"
-mv /usr/share/novnc/vnc.html /usr/share/novnc/guntyan.html 
-mv /usr/share/novnc/vnc_auto.html /usr/share/novnc/guntyanikinari.html 
+mv -f /usr/share/novnc/vnc.html /usr/share/novnc/guntyan.html 
+mv -f /usr/share/novnc/vnc_auto.html /usr/share/novnc/guntyanikinari.html 
 ln -sf /usr/share/novnc ${ROOTDIRS}/${ENGBJ_anata}/gunsuke
