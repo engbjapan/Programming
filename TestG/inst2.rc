@@ -1,0 +1,5 @@
+ROOTDIR=/content
+rm -fr /tmp/.X11-unix 
+mkdir /tmp/.X11-unix
+chmod -fR 777 /tmp/.X11-unix
+vncpasswd ${ROOTDIR}/passwd
