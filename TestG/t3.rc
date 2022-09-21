@@ -15,6 +15,7 @@ mkdir ${ROOTDIRS}/${ENGBJ_anata}/.vnc/
 chmod -fR 777 ${ROOTDIRS}/${ENGBJ_anata}/.vnc/
 printf "ＶＮＣパスワードを登録します。覚えておいてくいださいね\n"
 vncpasswd ${ROOTDIRS}/${ENGBJ_anata}/.vnc/passwd
+chmod 777 ${ROOTDIRS}/${ENGBJ_anata}/.vnc/passwd
 printf "ＶＮＣパスワードを登録終了\n"
 echo " ノボックサーバーを切る"
 killall websockify
