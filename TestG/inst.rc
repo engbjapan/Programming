@@ -1,0 +1,6 @@
+apt-get install -yf -qq \
+  openssh-server pwgen\
+    net-tools iproute2\
+      x11-apps aterm tigervnc-standalone-server fluxbox\
+       novnc
+apt-get upgrade
