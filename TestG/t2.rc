@@ -28,11 +28,11 @@ comsetbkup "$cmsStrNidia" "$cmsStrNidia" /root/.bashrc /root/.bashrc.bak
 cmsStrLdLP="export LD_LIBRARY_PATH"
 comsetbkup "$cmsStrLdLP" "$cmsStrLdLP" /root/.bashrc /root/.bashrc.bak.2
 
-comsetbkup "export DISPLAY" "export DISPLAY:99.0" /root/.bashrc /root/.bashrc.bak.3
+comsetbkup "export DISPLAY" "export DISPLAY=:99.0" /root/.bashrc /root/.bashrc.bak.3
 comsetbkup "$cmsStrNidia" "$cmsStrNidia" ${ROOTDIRS}/${ENGBJ_anata}/.bashrc ${ROOTDIRS}/${ENGBJ_anata}/.bashrc.bak
  
 comsetbkup "$cmsStrLdLP" "$cmsStrLdLP" ${ROOTDIRS}/${ENGBJ_anata}/.bashrc ${ROOTDIRS}/${ENGBJ_anata}/.bashrc.bak.2
-comsetbkup "export DISPLAY" "export DISPLAY:99.0" ${ROOTDIRS}/${ENGBJ_anata}/.bashrc ${ROOTDIRS}/${ENGBJ_anata}/.bashrc.bak.3
+comsetbkup "export DISPLAY" "export DISPLAY=:99.0" ${ROOTDIRS}/${ENGBJ_anata}/.bashrc ${ROOTDIRS}/${ENGBJ_anata}/.bashrc.bak.3
 
 ln -sf `which sshd` ${ROOTDIRS}/${ENGBJ_anata}/kogule
 printf "ｓｓｈ設定とログインシェル設定終了\n"
