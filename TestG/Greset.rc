@@ -1,0 +1,14 @@
+printf "ＮＧＲＯＫトークン再設定開始\n"
+rm -f ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml
+${ROOTDIRS}/${ENGBJ_anata}/grocky --config ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml config add-authtoken ${ENGBJ_token}
+chmod 777 ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml
+cat <<EOF >> ${ROOTDIRS}/${ENGBJ_anata}/grocky.yml
+tunnels:
+  grocky:
+    proto: http
+    addr: localhost:${ENGBJ_WWWPort}
+  kogule:
+    proto: tcp
+    addr: localhost:${ENGBJ_Port}
+EOF
+printf "ＮＧＲＯＫトークン再設定終了\n"
