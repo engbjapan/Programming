@@ -1,0 +1,13 @@
+ROOTDIRS=/content
+killall ngrok
+printf "ＮＧＲＯＫトンネル設定開始\n"
+chmod 777 ${ROOTDIRS}/ngrok
+rm -f ${ROOTDIRS}/grocky.yml
+${ROOTDIRS}/ngrok --config ${ROOTDIRS}/grocky.yml config add-authtoken ${ENGBJ_token}
+cat <<EOF >> ${ROOTDIRS}/grocky.yml
+tunnels:
+  grocky:
+    proto: http
+    addr: localhost:${ENGBJ_WWWPort}
+EOF
+printf "ＮＧＲＯＫトンネル設定終了\n"
