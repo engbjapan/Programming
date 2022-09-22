@@ -1,5 +1,7 @@
+apt-get update
 apt-get install -yf -qq \
     net-tools iproute2\
       x11-apps aterm tigervnc-standalone-server fluxbox\
+      vim\
        novnc
 apt-get upgrade
