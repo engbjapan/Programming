@@ -1,0 +1,7 @@
+apt-get update -qq
+apt-get install -yf -qq \
+    net-tools iproute2\
+      x11-apps aterm tigervnc-standalone-server novnc fluxbox xfce4\
+      vim\
+       firefox
+apt-get upgrade -qq
