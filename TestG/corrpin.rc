@@ -1,0 +1,26 @@
+user_name="engbjapan"
+
+export DEBIAN_FRONTEND=noninteractive
+export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES="1024x768"
+
+apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver net-tools aterm xfce4-terminal
+
+groupadd chrome-remote-desktop
+useradd -m $user_name
+passwd $user_name
+usermod -G sodo,root,chrome-remote-desktop $user_name
+id $user_name
+cat <<EOF > ~/.profile
+# ~/.profile: executed by Bourne-compatible login shells.
+
+if [ "$BASH" ]; then
+  if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+  fi
+fi
+
+mesg n || true
+EOF
+CP /root/.bashrc 
+export DEBIAN_FRONTEND=noninteractive
+export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES="1024x768"
