@@ -1,0 +1,1283 @@
+/content>>apt install xserver-xorg-video-dummy
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libnvidia-common-460
+Use 'apt autoremove' to remove it.
+The following additional packages will be installed:
+  xserver-xorg-core
+Suggested packages:
+  xfonts-100dpi | xfonts-75dpi xfonts-scalable
+The following packages will be REMOVED:
+  xserver-xorg-core-hwe-18.04
+The following NEW packages will be installed:
+  xserver-xorg-core xserver-xorg-video-dummy
+0 upgraded, 2 newly installed, 1 to remove and 29 not upgraded.
+Need to get 1,360 kB of archives.
+After this operation, 111 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 xserver-xorg-core amd64 2:1.19.6-1ubuntu4.11 [1,351 kB]
+Get:2 http://archive.ubuntu.com/ubuntu bionic/main amd64 xserver-xorg-video-dummy amd64 1:0.3.8-1build1 [9,002 B]
+Fetched 1,360 kB in 2s (557 kB/s)
+dpkg: xserver-xorg-core-hwe-18.04: dependency problems, but removing anyway as you requested:
+ xserver-xorg-video-nvidia-520 depends on xorg-video-abi-26 | xorg-video-abi-25 | xorg-video-abi-24 | xorg-video-abi-23 | xorg-video-abi-20 | xorg-video-abi-19 | xorg-video-abi-18 | xorg-video-abi-15 | xorg-video-abi-14 | xorg-video-abi-13 | xorg-video-abi-12 | xorg-video-abi-11 | xorg-video-abi-10 | xorg-video-abi-8 | xorg-video-abi-6.0; however:
+  Package xorg-video-abi-26 is not installed.
+  Package xorg-video-abi-25 is not installed.
+  Package xorg-video-abi-24 is not installed.
+  Package xserver-xorg-core-hwe-18.04 which provides xorg-video-abi-24 is to be removed.
+  Package xorg-video-abi-23 is not installed.
+  Package xorg-video-abi-20 is not installed.
+  Package xorg-video-abi-19 is not installed.
+  Package xorg-video-abi-18 is not installed.
+  Package xorg-video-abi-15 is not installed.
+  Package xorg-video-abi-14 is not installed.
+  Package xorg-video-abi-13 is not installed.
+  Package xorg-video-abi-12 is not installed.
+  Package xorg-video-abi-11 is not installed.
+  Package xorg-video-abi-10 is not installed.
+  Package xorg-video-abi-8 is not installed.
+  Package xorg-video-abi-6.0 is not installed.
+ xserver-xorg-video-nvidia-520 depends on xserver-xorg-core (>= 2:1.19.6-1ubuntu2~) | xserver-xorg-core-hwe-18.04; however:
+  Package xserver-xorg-core is not installed.
+  Package xserver-xorg-core-hwe-18.04 which provides xserver-xorg-core is to be removed.
+  Package xserver-xorg-core-hwe-18.04 is to be removed.
+ xserver-xorg-video-nvidia-520 depends on xorg-video-abi-26 | xorg-video-abi-25 | xorg-video-abi-24 | xorg-video-abi-23 | xorg-video-abi-20 | xorg-video-abi-19 | xorg-video-abi-18 | xorg-video-abi-15 | xorg-video-abi-14 | xorg-video-abi-13 | xorg-video-abi-12 | xorg-video-abi-11 | xorg-video-abi-10 | xorg-video-abi-8 | xorg-video-abi-6.0; however:
+  Package xorg-video-abi-26 is not installed.
+  Package xorg-video-abi-25 is not installed.
+  Package xorg-video-abi-24 is not installed.
+  Package xserver-xorg-core-hwe-18.04 which provides xorg-video-abi-24 is to be removed.
+  Package xorg-video-abi-23 is not installed.
+  Package xorg-video-abi-20 is not installed.
+  Package xorg-video-abi-19 is not installed.
+  Package xorg-video-abi-18 is not installed.
+  Package xorg-video-abi-15 is not installed.
+  Package xorg-video-abi-14 is not installed.
+  Package xorg-video-abi-13 is not installed.
+  Package xorg-video-abi-12 is not installed.
+  Package xorg-video-abi-11 is not installed.
+  Package xorg-video-abi-10 is not installed.
+  Package xorg-video-abi-8 is not installed.
+  Package xorg-video-abi-6.0 is not installed.
+ xserver-xorg-video-nvidia-520 depends on xserver-xorg-core (>= 2:1.19.6-1ubuntu2~) | xserver-xorg-core-hwe-18.04; however:
+  Package xserver-xorg-core is not installed.
+  Package xserver-xorg-core-hwe-18.04 which provides xserver-xorg-core is to be removed.
+  Package xserver-xorg-core-hwe-18.04 is to be removed.
+ xserver-xorg-video-nvidia-520 depends on xorg-video-abi-26 | xorg-video-abi-25 | xorg-video-abi-24 | xorg-video-abi-23 | xorg-video-abi-20 | xorg-video-abi-19 | xorg-video-abi-18 | xorg-video-abi-15 | xorg-video-abi-14 | xorg-video-abi-13 | xorg-video-abi-12 | xorg-video-abi-11 | xorg-video-abi-10 | xorg-video-abi-8 | xorg-video-abi-6.0; however:
+  Package xorg-video-abi-26 is not installed.
+  Package xorg-video-abi-25 is not installed.
+  Package xorg-video-abi-24 is not installed.
+  Package xserver-xorg-core-hwe-18.04 which provides xorg-video-abi-24 is to be removed.
+  Package xorg-video-abi-23 is not installed.
+  Package xorg-video-abi-20 is not installed.
+  Package xorg-video-abi-19 is not installed.
+  Package xorg-video-abi-18 is not installed.
+  Package xorg-video-abi-15 is not installed.
+  Package xorg-video-abi-14 is not installed.
+  Package xorg-video-abi-13 is not installed.
+  Package xorg-video-abi-12 is not installed.
+  Package xorg-video-abi-11 is not installed.
+  Package xorg-video-abi-10 is not installed.
+  Package xorg-video-abi-8 is not installed.
+  Package xorg-video-abi-6.0 is not installed.
+ xserver-xorg-video-nvidia-520 depends on xserver-xorg-core (>= 2:1.19.6-1ubuntu2~) | xserver-xorg-core-hwe-18.04; however:
+  Package xserver-xorg-core is not installed.
+  Package xserver-xorg-core-hwe-18.04 which provides xserver-xorg-core is to be removed.
+  Package xserver-xorg-core-hwe-18.04 is to be removed.
+
+(Reading database ... 123942 files and directories currently installed.)
+Removing xserver-xorg-core-hwe-18.04 (2:1.20.8-2ubuntu2.2~18.04.7) ...
+Selecting previously unselected package xserver-xorg-core.
+(Reading database ... 123903 files and directories currently installed.)
+Preparing to unpack .../xserver-xorg-core_2%3a1.19.6-1ubuntu4.11_amd64.deb ...
+Unpacking xserver-xorg-core (2:1.19.6-1ubuntu4.11) ...
+Selecting previously unselected package xserver-xorg-video-dummy.
+Preparing to unpack .../xserver-xorg-video-dummy_1%3a0.3.8-1build1_amd64.deb ...
+Unpacking xserver-xorg-video-dummy (1:0.3.8-1build1) ...
+Setting up xserver-xorg-core (2:1.19.6-1ubuntu4.11) ...
+Setting up xserver-xorg-video-dummy (1:0.3.8-1build1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+/content>>mkdir /tmp/.X11-unix
+/content>>export DEBIAN_FRONTEND=noninteractive
+/content>>export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES="1024x768"
+/content>>wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+--2022-10-29 04:12:09--  https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+Resolving dl.google.com (dl.google.com)... 64.233.188.91, 64.233.188.190, 64.233.188.93, ...
+Connecting to dl.google.com (dl.google.com)|64.233.188.91|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 17371340 (17M) [application/vnd.debian.binary-package]
+Saving to: ‘chrome-remote-desktop_current_amd64.deb’
+
+chrome-remote-deskt 100%[===================>]  16.57M  --.-KB/s    in 0.05s   
+
+2022-10-29 04:12:10 (338 MB/s) - ‘chrome-remote-desktop_current_amd64.deb’ saved [17371340/17371340]
+
+/content>>apt install ./chrome-remote-desktop_current_amd64.deb
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Note, selecting 'chrome-remote-desktop' instead of './chrome-remote-desktop_current_amd64.deb'
+The following package was automatically installed and is no longer required:
+  libnvidia-common-460
+Use 'apt autoremove' to remove it.
+The following additional packages will be installed:
+  aspell aspell-en dbus dbus-user-session desktop-file-utils
+  dictionaries-common dosfstools eject emacsen-common enchant gdisk
+  gnome-terminal gnome-terminal-data gstreamer1.0-gl gstreamer1.0-plugins-base
+  gstreamer1.0-plugins-good gstreamer1.0-pulseaudio gstreamer1.0-x gvfs
+  gvfs-common gvfs-daemons gvfs-libs hunspell-en-us libaa1 libaspell15
+  libatasmart4 libblockdev-crypto2 libblockdev-fs2 libblockdev-loop2
+  libblockdev-part-err2 libblockdev-part2 libblockdev-swap2 libblockdev-utils2
+  libblockdev2 libbrotli1 libcap2-bin libcdparanoia0 libdbus-1-3 libdv4
+  libenchant1c2a libgck-1-0 libgcr-base-3-1 libgpgme11 libgraphene-1.0-0
+  libgstreamer-gl1.0-0 libgstreamer-plugins-base1.0-0
+  libgstreamer-plugins-good1.0-0 libgstreamer1.0-0 libhunspell-1.6-0
+  libhyphen0 libjavascriptcoregtk-4.0-18 libnautilus-extension1a libnotify4
+  libntfs-3g88 liborc-0.4-0 libpam-cap libparted-fs-resize0 libparted2
+  libsecret-1-0 libsecret-common libshout3 libtag1v5 libtag1v5-vanilla
+  libtext-iconv-perl libudisks2-0 libv4l-0 libv4lconvert0 libvisual-0.4-0
+  libvolume-key1 libvte-2.91-0 libvte-2.91-common libwebkit2gtk-4.0-37
+  libwoff1 libxxf86dga1 libyelp0 nautilus-extension-gnome-terminal
+  notification-daemon ntfs-3g parted python3-psutil udisks2 x11-apps
+  x11-session-utils x11-utils x11-xserver-utils xbase-clients xbitmaps xinit
+  xvfb yelp yelp-xsl
+Suggested packages:
+  aspell-doc spellutils google-chrome-stable | google-chrome-beta
+  | google-chrome-unstable wordlist cdtool setcd gvfs-backends hunspell
+  openoffice.org-hunspell | openoffice.org-core libdv-bin oss-compat
+  libenchant-voikko libvisual-0.4-plugins gstreamer1.0-tools libparted-dev
+  libparted-i18n libwebkit2gtk-4.0-37-gtk2 parted-doc python-psutil-doc
+  exfat-utils btrfs-progs f2fs-tools mdadm libblockdev-mdraid2 nilfs-tools
+  reiserfsprogs xfsprogs udftools udisks2-btrfs udisks2-lvm2 mesa-utils nickle
+  cairo-5c xorg-docs-core x11-xfs-utils
+Recommended packages:
+  xserver-xorg-video-dummy
+The following NEW packages will be installed:
+  aspell aspell-en chrome-remote-desktop dbus-user-session desktop-file-utils
+  dictionaries-common dosfstools eject emacsen-common enchant gdisk
+  gnome-terminal gnome-terminal-data gstreamer1.0-gl gstreamer1.0-plugins-base
+  gstreamer1.0-plugins-good gstreamer1.0-pulseaudio gstreamer1.0-x gvfs
+  gvfs-common gvfs-daemons gvfs-libs hunspell-en-us libaa1 libaspell15
+  libatasmart4 libblockdev-crypto2 libblockdev-fs2 libblockdev-loop2
+  libblockdev-part-err2 libblockdev-part2 libblockdev-swap2 libblockdev-utils2
+  libblockdev2 libbrotli1 libcap2-bin libcdparanoia0 libdv4 libenchant1c2a
+  libgck-1-0 libgcr-base-3-1 libgpgme11 libgraphene-1.0-0 libgstreamer-gl1.0-0
+  libgstreamer-plugins-base1.0-0 libgstreamer-plugins-good1.0-0
+  libgstreamer1.0-0 libhunspell-1.6-0 libhyphen0 libjavascriptcoregtk-4.0-18
+  libnautilus-extension1a libnotify4 libntfs-3g88 liborc-0.4-0 libpam-cap
+  libparted-fs-resize0 libparted2 libsecret-1-0 libsecret-common libshout3
+  libtag1v5 libtag1v5-vanilla libtext-iconv-perl libudisks2-0 libv4l-0
+  libv4lconvert0 libvisual-0.4-0 libvolume-key1 libvte-2.91-0
+  libvte-2.91-common libwebkit2gtk-4.0-37 libwoff1 libxxf86dga1 libyelp0
+  nautilus-extension-gnome-terminal notification-daemon ntfs-3g parted
+  python3-psutil udisks2 x11-apps x11-session-utils x11-utils
+  x11-xserver-utils xbase-clients xbitmaps xinit xvfb yelp yelp-xsl
+The following packages will be upgraded:
+  dbus libdbus-1-3
+2 upgraded, 90 newly installed, 0 to remove and 27 not upgraded.
+Need to get 32.2 MB/49.6 MB of archives.
+After this operation, 180 MB of additional disk space will be used.
+Get:1 /content/chrome-remote-desktop_current_amd64.deb chrome-remote-desktop amd64 108.0.5359.16 [17.4 MB]
+Get:2 http://security.ubuntu.com/ubuntu bionic-security/main amd64 dbus amd64 1.12.2-1ubuntu1.4 [150 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libntfs-3g88 amd64 1:2017.3.23-2ubuntu0.18.04.4 [148 kB]
+Get:4 http://security.ubuntu.com/ubuntu bionic-security/main amd64 libdbus-1-3 amd64 1.12.2-1ubuntu1.4 [175 kB]
+Get:5 http://security.ubuntu.com/ubuntu bionic-security/main amd64 dbus-user-session amd64 1.12.2-1ubuntu1.4 [9,388 B]
+Get:6 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 ntfs-3g amd64 1:2017.3.23-2ubuntu0.18.04.4 [385 kB]
+Get:7 http://archive.ubuntu.com/ubuntu bionic/main amd64 libxxf86dga1 amd64 2:1.1.4-1 [13.7 kB]
+Get:8 http://archive.ubuntu.com/ubuntu bionic/main amd64 eject amd64 2.1.5+deb1+cvs20081104-13.2 [22.8 kB]
+Get:9 http://archive.ubuntu.com/ubuntu bionic/main amd64 libcap2-bin amd64 1:2.25-1.2 [20.6 kB]
+Get:10 http://archive.ubuntu.com/ubuntu bionic/main amd64 libpam-cap amd64 1:2.25-1.2 [7,268 B]
+Get:11 http://archive.ubuntu.com/ubuntu bionic/main amd64 libtext-iconv-perl amd64 1.7-5build6 [13.0 kB]
+Get:12 http://archive.ubuntu.com/ubuntu bionic/main amd64 dosfstools amd64 4.1-1 [58.1 kB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libparted2 amd64 3.2-20ubuntu0.2 [123 kB]
+Get:14 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 parted amd64 3.2-20ubuntu0.2 [42.4 kB]
+Get:15 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libaspell15 amd64 0.60.7~20110707-4ubuntu0.2 [310 kB]
+Get:16 http://archive.ubuntu.com/ubuntu bionic/main amd64 emacsen-common all 2.0.8 [17.6 kB]
+Get:17 http://archive.ubuntu.com/ubuntu bionic/main amd64 dictionaries-common all 1.27.2 [186 kB]
+Get:18 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 aspell amd64 0.60.7~20110707-4ubuntu0.2 [87.7 kB]
+Get:19 http://archive.ubuntu.com/ubuntu bionic/main amd64 aspell-en all 2017.08.24-0-0.1 [298 kB]
+Get:20 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 xvfb amd64 2:1.19.6-1ubuntu4.11 [785 kB]
+Get:21 http://archive.ubuntu.com/ubuntu bionic/main amd64 x11-apps amd64 7.7+6ubuntu1 [653 kB]
+Get:22 http://archive.ubuntu.com/ubuntu bionic/main amd64 x11-session-utils amd64 7.7+2build1 [68.0 kB]
+Get:23 http://archive.ubuntu.com/ubuntu bionic/main amd64 x11-utils amd64 7.7+3build1 [196 kB]
+Get:24 http://archive.ubuntu.com/ubuntu bionic/main amd64 x11-xserver-utils amd64 7.7+7build1 [159 kB]
+Get:25 http://archive.ubuntu.com/ubuntu bionic/main amd64 xinit amd64 1.3.4-3ubuntu3 [18.2 kB]
+Get:26 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 xbase-clients all 1:7.7+19ubuntu7.1 [4,280 B]
+Get:27 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3-psutil amd64 5.4.2-1ubuntu0.1 [136 kB]
+Get:28 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 desktop-file-utils amd64 0.23-1ubuntu3.18.04.2 [51.4 kB]
+Get:29 http://archive.ubuntu.com/ubuntu bionic/main amd64 hunspell-en-us all 1:2017.08.24 [168 kB]
+Get:30 http://archive.ubuntu.com/ubuntu bionic/main amd64 libhunspell-1.6-0 amd64 1.6.2-1 [154 kB]
+Get:31 http://archive.ubuntu.com/ubuntu bionic/main amd64 libenchant1c2a amd64 1.6.0-11.1 [64.4 kB]
+Get:32 http://archive.ubuntu.com/ubuntu bionic/main amd64 enchant amd64 1.6.0-11.1 [12.2 kB]
+Get:33 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libvte-2.91-common all 0.52.2-1ubuntu1~18.04.2 [4,288 B]
+Get:34 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libvte-2.91-0 amd64 0.52.2-1ubuntu1~18.04.2 [160 kB]
+Get:35 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gnome-terminal-data all 3.28.2-1ubuntu1~18.04.1 [32.1 kB]
+Get:36 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gnome-terminal amd64 3.28.2-1ubuntu1~18.04.1 [160 kB]
+Get:37 http://archive.ubuntu.com/ubuntu bionic/main amd64 libgraphene-1.0-0 amd64 1.8.0-1 [37.4 kB]
+Get:38 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgstreamer1.0-0 amd64 1.14.5-0ubuntu1~18.04.2 [865 kB]
+Get:39 http://archive.ubuntu.com/ubuntu bionic/main amd64 liborc-0.4-0 amd64 1:0.4.28-1 [137 kB]
+Get:40 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgstreamer-plugins-base1.0-0 amd64 1.14.5-0ubuntu1~18.04.3 [689 kB]
+Get:41 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgstreamer-gl1.0-0 amd64 1.14.5-0ubuntu1~18.04.3 [147 kB]
+Get:42 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gstreamer1.0-gl amd64 1.14.5-0ubuntu1~18.04.3 [84.0 kB]
+Get:43 http://archive.ubuntu.com/ubuntu bionic/main amd64 libcdparanoia0 amd64 3.10.2+debian-13 [46.7 kB]
+Get:44 http://archive.ubuntu.com/ubuntu bionic/main amd64 libvisual-0.4-0 amd64 0.4.0-11 [99.2 kB]
+Get:45 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gstreamer1.0-plugins-base amd64 1.14.5-0ubuntu1~18.04.3 [586 kB]
+Get:46 http://archive.ubuntu.com/ubuntu bionic/main amd64 libaa1 amd64 1.4p5-44build2 [47.2 kB]
+Get:47 http://archive.ubuntu.com/ubuntu bionic/main amd64 libdv4 amd64 1.0.0-11 [57.8 kB]
+Get:48 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgstreamer-plugins-good1.0-0 amd64 1.14.5-0ubuntu1~18.04.3 [62.9 kB]
+Get:49 http://archive.ubuntu.com/ubuntu bionic/main amd64 libshout3 amd64 2.4.1-2build1 [43.1 kB]
+Get:50 http://archive.ubuntu.com/ubuntu bionic/main amd64 libtag1v5-vanilla amd64 1.11.1+dfsg.1-0.2build2 [265 kB]
+Get:51 http://archive.ubuntu.com/ubuntu bionic/main amd64 libtag1v5 amd64 1.11.1+dfsg.1-0.2build2 [10.9 kB]
+Get:52 http://archive.ubuntu.com/ubuntu bionic/main amd64 libv4lconvert0 amd64 1.14.2-1 [76.1 kB]
+Get:53 http://archive.ubuntu.com/ubuntu bionic/main amd64 libv4l-0 amd64 1.14.2-1 [41.7 kB]
+Get:54 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gstreamer1.0-plugins-good amd64 1.14.5-0ubuntu1~18.04.3 [1,692 kB]
+Get:55 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gstreamer1.0-pulseaudio amd64 1.14.5-0ubuntu1~18.04.3 [86.6 kB]
+Get:56 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gstreamer1.0-x amd64 1.14.5-0ubuntu1~18.04.3 [74.3 kB]
+Get:57 http://archive.ubuntu.com/ubuntu bionic/main amd64 libsecret-common all 0.18.6-1 [4,452 B]
+Get:58 http://archive.ubuntu.com/ubuntu bionic/main amd64 libsecret-1-0 amd64 0.18.6-1 [94.6 kB]
+Get:59 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libudisks2-0 amd64 2.7.6-3ubuntu0.2 [98.1 kB]
+Get:60 http://archive.ubuntu.com/ubuntu bionic/main amd64 libblockdev-part-err2 amd64 2.16-2 [4,892 B]
+Get:61 http://archive.ubuntu.com/ubuntu bionic/main amd64 libblockdev-utils2 amd64 2.16-2 [12.1 kB]
+Get:62 http://archive.ubuntu.com/ubuntu bionic/main amd64 gdisk amd64 1.0.3-1 [205 kB]
+Get:63 http://archive.ubuntu.com/ubuntu bionic/main amd64 libblockdev-part2 amd64 2.16-2 [14.4 kB]
+Get:64 http://archive.ubuntu.com/ubuntu bionic/main amd64 libblockdev-swap2 amd64 2.16-2 [6,616 B]
+Get:65 http://archive.ubuntu.com/ubuntu bionic/main amd64 libblockdev-loop2 amd64 2.16-2 [6,292 B]
+Get:66 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libparted-fs-resize0 amd64 3.2-20ubuntu0.2 [47.0 kB]
+Get:67 http://archive.ubuntu.com/ubuntu bionic/main amd64 libblockdev-fs2 amd64 2.16-2 [18.8 kB]
+Get:68 http://archive.ubuntu.com/ubuntu bionic/main amd64 libatasmart4 amd64 0.19-4 [23.7 kB]
+Get:69 http://archive.ubuntu.com/ubuntu bionic/main amd64 libblockdev2 amd64 2.16-2 [39.0 kB]
+Get:70 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 udisks2 amd64 2.7.6-3ubuntu0.2 [231 kB]
+Get:71 http://archive.ubuntu.com/ubuntu bionic/main amd64 libgck-1-0 amd64 3.28.0-1 [74.2 kB]
+Get:72 http://archive.ubuntu.com/ubuntu bionic/main amd64 libgcr-base-3-1 amd64 3.28.0-1 [188 kB]
+Get:73 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gvfs-common all 1.36.1-0ubuntu1.3.3 [20.5 kB]
+Get:74 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gvfs-libs amd64 1.36.1-0ubuntu1.3.3 [96.0 kB]
+Get:75 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gvfs-daemons amd64 1.36.1-0ubuntu1.3.3 [117 kB]
+Get:76 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 gvfs amd64 1.36.1-0ubuntu1.3.3 [111 kB]
+Get:77 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgpgme11 amd64 1.10.0-1ubuntu2 [111 kB]
+Get:78 http://archive.ubuntu.com/ubuntu bionic/main amd64 libvolume-key1 amd64 0.3.9-4 [113 kB]
+Get:79 http://archive.ubuntu.com/ubuntu bionic/main amd64 libblockdev-crypto2 amd64 2.16-2 [10.6 kB]
+Get:80 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libbrotli1 amd64 1.0.3-1ubuntu1.3 [262 kB]
+Get:81 http://archive.ubuntu.com/ubuntu bionic/main amd64 libhyphen0 amd64 2.8.8-5 [26.5 kB]
+Get:82 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libjavascriptcoregtk-4.0-18 amd64 2.32.4-0ubuntu0.18.04.1 [5,752 kB]
+Get:83 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libnautilus-extension1a amd64 1:3.26.4-0~ubuntu18.04.5 [15.1 kB]
+Get:84 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libnotify4 amd64 0.7.7-3ubuntu0.18.04.1 [18.7 kB]
+Get:85 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libwoff1 amd64 1.0.2-1build0.1 [43.0 kB]
+Get:86 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 libwebkit2gtk-4.0-37 amd64 2.32.4-0ubuntu0.18.04.1 [13.4 MB]
+Get:87 http://archive.ubuntu.com/ubuntu bionic/main amd64 libyelp0 amd64 3.26.0-1ubuntu2 [93.5 kB]
+Get:88 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 nautilus-extension-gnome-terminal amd64 3.28.2-1ubuntu1~18.04.1 [23.8 kB]
+Get:89 http://archive.ubuntu.com/ubuntu bionic/main amd64 notification-daemon amd64 3.20.0-3 [36.9 kB]
+Get:90 http://archive.ubuntu.com/ubuntu bionic/main amd64 xbitmaps all 1.1.1-2 [28.1 kB]
+Get:91 http://archive.ubuntu.com/ubuntu bionic/main amd64 yelp-xsl all 3.20.1-4 [238 kB]
+Get:92 http://archive.ubuntu.com/ubuntu bionic/main amd64 yelp amd64 3.26.0-1ubuntu2 [514 kB]
+Fetched 32.2 MB in 7s (4,605 kB/s)
+Extracting templates from packages: 100%
+Preconfiguring packages ...
+Selecting previously unselected package libntfs-3g88.
+(Reading database ... 123946 files and directories currently installed.)
+Preparing to unpack .../00-libntfs-3g88_1%3a2017.3.23-2ubuntu0.18.04.4_amd64.deb ...
+Unpacking libntfs-3g88 (1:2017.3.23-2ubuntu0.18.04.4) ...
+Selecting previously unselected package ntfs-3g.
+Preparing to unpack .../01-ntfs-3g_1%3a2017.3.23-2ubuntu0.18.04.4_amd64.deb ...
+Unpacking ntfs-3g (1:2017.3.23-2ubuntu0.18.04.4) ...
+Selecting previously unselected package libxxf86dga1:amd64.
+Preparing to unpack .../02-libxxf86dga1_2%3a1.1.4-1_amd64.deb ...
+Unpacking libxxf86dga1:amd64 (2:1.1.4-1) ...
+Preparing to unpack .../03-dbus_1.12.2-1ubuntu1.4_amd64.deb ...
+Unpacking dbus (1.12.2-1ubuntu1.4) over (1.12.2-1ubuntu1.3) ...
+Preparing to unpack .../04-libdbus-1-3_1.12.2-1ubuntu1.4_amd64.deb ...
+Unpacking libdbus-1-3:amd64 (1.12.2-1ubuntu1.4) over (1.12.2-1ubuntu1.3) ...
+Selecting previously unselected package eject.
+Preparing to unpack .../05-eject_2.1.5+deb1+cvs20081104-13.2_amd64.deb ...
+Unpacking eject (2.1.5+deb1+cvs20081104-13.2) ...
+Selecting previously unselected package libcap2-bin.
+Preparing to unpack .../06-libcap2-bin_1%3a2.25-1.2_amd64.deb ...
+Unpacking libcap2-bin (1:2.25-1.2) ...
+Selecting previously unselected package libpam-cap:amd64.
+Preparing to unpack .../07-libpam-cap_1%3a2.25-1.2_amd64.deb ...
+Unpacking libpam-cap:amd64 (1:2.25-1.2) ...
+Selecting previously unselected package libtext-iconv-perl.
+Preparing to unpack .../08-libtext-iconv-perl_1.7-5build6_amd64.deb ...
+Unpacking libtext-iconv-perl (1.7-5build6) ...
+Selecting previously unselected package dosfstools.
+Preparing to unpack .../09-dosfstools_4.1-1_amd64.deb ...
+Unpacking dosfstools (4.1-1) ...
+Selecting previously unselected package libparted2:amd64.
+Preparing to unpack .../10-libparted2_3.2-20ubuntu0.2_amd64.deb ...
+Unpacking libparted2:amd64 (3.2-20ubuntu0.2) ...
+Selecting previously unselected package parted.
+Preparing to unpack .../11-parted_3.2-20ubuntu0.2_amd64.deb ...
+Unpacking parted (3.2-20ubuntu0.2) ...
+Selecting previously unselected package libaspell15:amd64.
+Preparing to unpack .../12-libaspell15_0.60.7~20110707-4ubuntu0.2_amd64.deb ...
+Unpacking libaspell15:amd64 (0.60.7~20110707-4ubuntu0.2) ...
+Selecting previously unselected package emacsen-common.
+Preparing to unpack .../13-emacsen-common_2.0.8_all.deb ...
+Unpacking emacsen-common (2.0.8) ...
+Selecting previously unselected package dictionaries-common.
+Preparing to unpack .../14-dictionaries-common_1.27.2_all.deb ...
+Adding 'diversion of /usr/share/dict/words to /usr/share/dict/words.pre-dictionaries-common by dictionaries-common'
+Unpacking dictionaries-common (1.27.2) ...
+Selecting previously unselected package aspell.
+Preparing to unpack .../15-aspell_0.60.7~20110707-4ubuntu0.2_amd64.deb ...
+Unpacking aspell (0.60.7~20110707-4ubuntu0.2) ...
+Selecting previously unselected package aspell-en.
+Preparing to unpack .../16-aspell-en_2017.08.24-0-0.1_all.deb ...
+Unpacking aspell-en (2017.08.24-0-0.1) ...
+Selecting previously unselected package xvfb.
+Preparing to unpack .../17-xvfb_2%3a1.19.6-1ubuntu4.11_amd64.deb ...
+Unpacking xvfb (2:1.19.6-1ubuntu4.11) ...
+Selecting previously unselected package x11-apps.
+Preparing to unpack .../18-x11-apps_7.7+6ubuntu1_amd64.deb ...
+Unpacking x11-apps (7.7+6ubuntu1) ...
+Selecting previously unselected package x11-session-utils.
+Preparing to unpack .../19-x11-session-utils_7.7+2build1_amd64.deb ...
+Unpacking x11-session-utils (7.7+2build1) ...
+Selecting previously unselected package x11-utils.
+Preparing to unpack .../20-x11-utils_7.7+3build1_amd64.deb ...
+Unpacking x11-utils (7.7+3build1) ...
+Selecting previously unselected package x11-xserver-utils.
+Preparing to unpack .../21-x11-xserver-utils_7.7+7build1_amd64.deb ...
+Unpacking x11-xserver-utils (7.7+7build1) ...
+Selecting previously unselected package xinit.
+Preparing to unpack .../22-xinit_1.3.4-3ubuntu3_amd64.deb ...
+Unpacking xinit (1.3.4-3ubuntu3) ...
+Selecting previously unselected package xbase-clients.
+Preparing to unpack .../23-xbase-clients_1%3a7.7+19ubuntu7.1_all.deb ...
+Unpacking xbase-clients (1:7.7+19ubuntu7.1) ...
+Selecting previously unselected package python3-psutil.
+Preparing to unpack .../24-python3-psutil_5.4.2-1ubuntu0.1_amd64.deb ...
+Unpacking python3-psutil (5.4.2-1ubuntu0.1) ...
+Selecting previously unselected package chrome-remote-desktop.
+Preparing to unpack .../25-chrome-remote-desktop_current_amd64.deb ...
+Unpacking chrome-remote-desktop (108.0.5359.16) ...
+Selecting previously unselected package dbus-user-session.
+Preparing to unpack .../26-dbus-user-session_1.12.2-1ubuntu1.4_amd64.deb ...
+Unpacking dbus-user-session (1.12.2-1ubuntu1.4) ...
+Selecting previously unselected package desktop-file-utils.
+Preparing to unpack .../27-desktop-file-utils_0.23-1ubuntu3.18.04.2_amd64.deb ...
+Unpacking desktop-file-utils (0.23-1ubuntu3.18.04.2) ...
+Selecting previously unselected package hunspell-en-us.
+Preparing to unpack .../28-hunspell-en-us_1%3a2017.08.24_all.deb ...
+Unpacking hunspell-en-us (1:2017.08.24) ...
+Selecting previously unselected package libhunspell-1.6-0:amd64.
+Preparing to unpack .../29-libhunspell-1.6-0_1.6.2-1_amd64.deb ...
+Unpacking libhunspell-1.6-0:amd64 (1.6.2-1) ...
+Selecting previously unselected package libenchant1c2a:amd64.
+Preparing to unpack .../30-libenchant1c2a_1.6.0-11.1_amd64.deb ...
+Unpacking libenchant1c2a:amd64 (1.6.0-11.1) ...
+Selecting previously unselected package enchant.
+Preparing to unpack .../31-enchant_1.6.0-11.1_amd64.deb ...
+Unpacking enchant (1.6.0-11.1) ...
+Selecting previously unselected package libvte-2.91-common.
+Preparing to unpack .../32-libvte-2.91-common_0.52.2-1ubuntu1~18.04.2_all.deb ...
+Unpacking libvte-2.91-common (0.52.2-1ubuntu1~18.04.2) ...
+Selecting previously unselected package libvte-2.91-0:amd64.
+Preparing to unpack .../33-libvte-2.91-0_0.52.2-1ubuntu1~18.04.2_amd64.deb ...
+Unpacking libvte-2.91-0:amd64 (0.52.2-1ubuntu1~18.04.2) ...
+Selecting previously unselected package gnome-terminal-data.
+Preparing to unpack .../34-gnome-terminal-data_3.28.2-1ubuntu1~18.04.1_all.deb ...
+Unpacking gnome-terminal-data (3.28.2-1ubuntu1~18.04.1) ...
+Selecting previously unselected package gnome-terminal.
+Preparing to unpack .../35-gnome-terminal_3.28.2-1ubuntu1~18.04.1_amd64.deb ...
+Unpacking gnome-terminal (3.28.2-1ubuntu1~18.04.1) ...
+Selecting previously unselected package libgraphene-1.0-0:amd64.
+Preparing to unpack .../36-libgraphene-1.0-0_1.8.0-1_amd64.deb ...
+Unpacking libgraphene-1.0-0:amd64 (1.8.0-1) ...
+Selecting previously unselected package libgstreamer1.0-0:amd64.
+Preparing to unpack .../37-libgstreamer1.0-0_1.14.5-0ubuntu1~18.04.2_amd64.deb ...
+Unpacking libgstreamer1.0-0:amd64 (1.14.5-0ubuntu1~18.04.2) ...
+Selecting previously unselected package liborc-0.4-0:amd64.
+Preparing to unpack .../38-liborc-0.4-0_1%3a0.4.28-1_amd64.deb ...
+Unpacking liborc-0.4-0:amd64 (1:0.4.28-1) ...
+Selecting previously unselected package libgstreamer-plugins-base1.0-0:amd64.
+Preparing to unpack .../39-libgstreamer-plugins-base1.0-0_1.14.5-0ubuntu1~18.04.3_amd64.deb ...
+Unpacking libgstreamer-plugins-base1.0-0:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Selecting previously unselected package libgstreamer-gl1.0-0:amd64.
+Preparing to unpack .../40-libgstreamer-gl1.0-0_1.14.5-0ubuntu1~18.04.3_amd64.deb ...
+Unpacking libgstreamer-gl1.0-0:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Selecting previously unselected package gstreamer1.0-gl:amd64.
+Preparing to unpack .../41-gstreamer1.0-gl_1.14.5-0ubuntu1~18.04.3_amd64.deb ...
+Unpacking gstreamer1.0-gl:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Selecting previously unselected package libcdparanoia0:amd64.
+Preparing to unpack .../42-libcdparanoia0_3.10.2+debian-13_amd64.deb ...
+Unpacking libcdparanoia0:amd64 (3.10.2+debian-13) ...
+Selecting previously unselected package libvisual-0.4-0:amd64.
+Preparing to unpack .../43-libvisual-0.4-0_0.4.0-11_amd64.deb ...
+Unpacking libvisual-0.4-0:amd64 (0.4.0-11) ...
+Selecting previously unselected package gstreamer1.0-plugins-base:amd64.
+Preparing to unpack .../44-gstreamer1.0-plugins-base_1.14.5-0ubuntu1~18.04.3_amd64.deb ...
+Unpacking gstreamer1.0-plugins-base:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Selecting previously unselected package libaa1:amd64.
+Preparing to unpack .../45-libaa1_1.4p5-44build2_amd64.deb ...
+Unpacking libaa1:amd64 (1.4p5-44build2) ...
+Selecting previously unselected package libdv4:amd64.
+Preparing to unpack .../46-libdv4_1.0.0-11_amd64.deb ...
+Unpacking libdv4:amd64 (1.0.0-11) ...
+Selecting previously unselected package libgstreamer-plugins-good1.0-0:amd64.
+Preparing to unpack .../47-libgstreamer-plugins-good1.0-0_1.14.5-0ubuntu1~18.04.3_amd64.deb ...
+Unpacking libgstreamer-plugins-good1.0-0:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Selecting previously unselected package libshout3:amd64.
+Preparing to unpack .../48-libshout3_2.4.1-2build1_amd64.deb ...
+Unpacking libshout3:amd64 (2.4.1-2build1) ...
+Selecting previously unselected package libtag1v5-vanilla:amd64.
+Preparing to unpack .../49-libtag1v5-vanilla_1.11.1+dfsg.1-0.2build2_amd64.deb ...
+Unpacking libtag1v5-vanilla:amd64 (1.11.1+dfsg.1-0.2build2) ...
+Selecting previously unselected package libtag1v5:amd64.
+Preparing to unpack .../50-libtag1v5_1.11.1+dfsg.1-0.2build2_amd64.deb ...
+Unpacking libtag1v5:amd64 (1.11.1+dfsg.1-0.2build2) ...
+Selecting previously unselected package libv4lconvert0:amd64.
+Preparing to unpack .../51-libv4lconvert0_1.14.2-1_amd64.deb ...
+Unpacking libv4lconvert0:amd64 (1.14.2-1) ...
+Selecting previously unselected package libv4l-0:amd64.
+Preparing to unpack .../52-libv4l-0_1.14.2-1_amd64.deb ...
+Unpacking libv4l-0:amd64 (1.14.2-1) ...
+Selecting previously unselected package gstreamer1.0-plugins-good:amd64.
+Preparing to unpack .../53-gstreamer1.0-plugins-good_1.14.5-0ubuntu1~18.04.3_amd64.deb ...
+Unpacking gstreamer1.0-plugins-good:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Selecting previously unselected package gstreamer1.0-pulseaudio:amd64.
+Preparing to unpack .../54-gstreamer1.0-pulseaudio_1.14.5-0ubuntu1~18.04.3_amd64.deb ...
+Unpacking gstreamer1.0-pulseaudio:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Selecting previously unselected package gstreamer1.0-x:amd64.
+Preparing to unpack .../55-gstreamer1.0-x_1.14.5-0ubuntu1~18.04.3_amd64.deb ...
+Unpacking gstreamer1.0-x:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Selecting previously unselected package libsecret-common.
+Preparing to unpack .../56-libsecret-common_0.18.6-1_all.deb ...
+Unpacking libsecret-common (0.18.6-1) ...
+Selecting previously unselected package libsecret-1-0:amd64.
+Preparing to unpack .../57-libsecret-1-0_0.18.6-1_amd64.deb ...
+Unpacking libsecret-1-0:amd64 (0.18.6-1) ...
+Selecting previously unselected package libudisks2-0:amd64.
+Preparing to unpack .../58-libudisks2-0_2.7.6-3ubuntu0.2_amd64.deb ...
+Unpacking libudisks2-0:amd64 (2.7.6-3ubuntu0.2) ...
+Selecting previously unselected package libblockdev-part-err2:amd64.
+Preparing to unpack .../59-libblockdev-part-err2_2.16-2_amd64.deb ...
+Unpacking libblockdev-part-err2:amd64 (2.16-2) ...
+Selecting previously unselected package libblockdev-utils2:amd64.
+Preparing to unpack .../60-libblockdev-utils2_2.16-2_amd64.deb ...
+Unpacking libblockdev-utils2:amd64 (2.16-2) ...
+Selecting previously unselected package gdisk.
+Preparing to unpack .../61-gdisk_1.0.3-1_amd64.deb ...
+Unpacking gdisk (1.0.3-1) ...
+Selecting previously unselected package libblockdev-part2:amd64.
+Preparing to unpack .../62-libblockdev-part2_2.16-2_amd64.deb ...
+Unpacking libblockdev-part2:amd64 (2.16-2) ...
+Selecting previously unselected package libblockdev-swap2:amd64.
+Preparing to unpack .../63-libblockdev-swap2_2.16-2_amd64.deb ...
+Unpacking libblockdev-swap2:amd64 (2.16-2) ...
+Selecting previously unselected package libblockdev-loop2:amd64.
+Preparing to unpack .../64-libblockdev-loop2_2.16-2_amd64.deb ...
+Unpacking libblockdev-loop2:amd64 (2.16-2) ...
+Selecting previously unselected package libparted-fs-resize0:amd64.
+Preparing to unpack .../65-libparted-fs-resize0_3.2-20ubuntu0.2_amd64.deb ...
+Unpacking libparted-fs-resize0:amd64 (3.2-20ubuntu0.2) ...
+Selecting previously unselected package libblockdev-fs2:amd64.
+Preparing to unpack .../66-libblockdev-fs2_2.16-2_amd64.deb ...
+Unpacking libblockdev-fs2:amd64 (2.16-2) ...
+Selecting previously unselected package libatasmart4:amd64.
+Preparing to unpack .../67-libatasmart4_0.19-4_amd64.deb ...
+Unpacking libatasmart4:amd64 (0.19-4) ...
+Selecting previously unselected package libblockdev2:amd64.
+Preparing to unpack .../68-libblockdev2_2.16-2_amd64.deb ...
+Unpacking libblockdev2:amd64 (2.16-2) ...
+Selecting previously unselected package udisks2.
+Preparing to unpack .../69-udisks2_2.7.6-3ubuntu0.2_amd64.deb ...
+Unpacking udisks2 (2.7.6-3ubuntu0.2) ...
+Selecting previously unselected package libgck-1-0:amd64.
+Preparing to unpack .../70-libgck-1-0_3.28.0-1_amd64.deb ...
+Unpacking libgck-1-0:amd64 (3.28.0-1) ...
+Selecting previously unselected package libgcr-base-3-1:amd64.
+Preparing to unpack .../71-libgcr-base-3-1_3.28.0-1_amd64.deb ...
+Unpacking libgcr-base-3-1:amd64 (3.28.0-1) ...
+Selecting previously unselected package gvfs-common.
+Preparing to unpack .../72-gvfs-common_1.36.1-0ubuntu1.3.3_all.deb ...
+Unpacking gvfs-common (1.36.1-0ubuntu1.3.3) ...
+Selecting previously unselected package gvfs-libs:amd64.
+Preparing to unpack .../73-gvfs-libs_1.36.1-0ubuntu1.3.3_amd64.deb ...
+Unpacking gvfs-libs:amd64 (1.36.1-0ubuntu1.3.3) ...
+Selecting previously unselected package gvfs-daemons.
+Preparing to unpack .../74-gvfs-daemons_1.36.1-0ubuntu1.3.3_amd64.deb ...
+Unpacking gvfs-daemons (1.36.1-0ubuntu1.3.3) ...
+Selecting previously unselected package gvfs:amd64.
+Preparing to unpack .../75-gvfs_1.36.1-0ubuntu1.3.3_amd64.deb ...
+Unpacking gvfs:amd64 (1.36.1-0ubuntu1.3.3) ...
+Selecting previously unselected package libgpgme11:amd64.
+Preparing to unpack .../76-libgpgme11_1.10.0-1ubuntu2_amd64.deb ...
+Unpacking libgpgme11:amd64 (1.10.0-1ubuntu2) ...
+Selecting previously unselected package libvolume-key1.
+Preparing to unpack .../77-libvolume-key1_0.3.9-4_amd64.deb ...
+Unpacking libvolume-key1 (0.3.9-4) ...
+Selecting previously unselected package libblockdev-crypto2:amd64.
+Preparing to unpack .../78-libblockdev-crypto2_2.16-2_amd64.deb ...
+Unpacking libblockdev-crypto2:amd64 (2.16-2) ...
+Selecting previously unselected package libbrotli1:amd64.
+Preparing to unpack .../79-libbrotli1_1.0.3-1ubuntu1.3_amd64.deb ...
+Unpacking libbrotli1:amd64 (1.0.3-1ubuntu1.3) ...
+Selecting previously unselected package libhyphen0:amd64.
+Preparing to unpack .../80-libhyphen0_2.8.8-5_amd64.deb ...
+Unpacking libhyphen0:amd64 (2.8.8-5) ...
+Selecting previously unselected package libjavascriptcoregtk-4.0-18:amd64.
+Preparing to unpack .../81-libjavascriptcoregtk-4.0-18_2.32.4-0ubuntu0.18.04.1_amd64.deb ...
+Unpacking libjavascriptcoregtk-4.0-18:amd64 (2.32.4-0ubuntu0.18.04.1) ...
+Selecting previously unselected package libnautilus-extension1a:amd64.
+Preparing to unpack .../82-libnautilus-extension1a_1%3a3.26.4-0~ubuntu18.04.5_amd64.deb ...
+Unpacking libnautilus-extension1a:amd64 (1:3.26.4-0~ubuntu18.04.5) ...
+Selecting previously unselected package libnotify4:amd64.
+Preparing to unpack .../83-libnotify4_0.7.7-3ubuntu0.18.04.1_amd64.deb ...
+Unpacking libnotify4:amd64 (0.7.7-3ubuntu0.18.04.1) ...
+Selecting previously unselected package libwoff1:amd64.
+Preparing to unpack .../84-libwoff1_1.0.2-1build0.1_amd64.deb ...
+Unpacking libwoff1:amd64 (1.0.2-1build0.1) ...
+Selecting previously unselected package libwebkit2gtk-4.0-37:amd64.
+Preparing to unpack .../85-libwebkit2gtk-4.0-37_2.32.4-0ubuntu0.18.04.1_amd64.deb ...
+Unpacking libwebkit2gtk-4.0-37:amd64 (2.32.4-0ubuntu0.18.04.1) ...
+Selecting previously unselected package libyelp0:amd64.
+Preparing to unpack .../86-libyelp0_3.26.0-1ubuntu2_amd64.deb ...
+Unpacking libyelp0:amd64 (3.26.0-1ubuntu2) ...
+Selecting previously unselected package nautilus-extension-gnome-terminal.
+Preparing to unpack .../87-nautilus-extension-gnome-terminal_3.28.2-1ubuntu1~18.04.1_amd64.deb ...
+Unpacking nautilus-extension-gnome-terminal (3.28.2-1ubuntu1~18.04.1) ...
+Selecting previously unselected package notification-daemon.
+Preparing to unpack .../88-notification-daemon_3.20.0-3_amd64.deb ...
+Unpacking notification-daemon (3.20.0-3) ...
+Selecting previously unselected package xbitmaps.
+Preparing to unpack .../89-xbitmaps_1.1.1-2_all.deb ...
+Unpacking xbitmaps (1.1.1-2) ...
+Selecting previously unselected package yelp-xsl.
+Preparing to unpack .../90-yelp-xsl_3.20.1-4_all.deb ...
+Unpacking yelp-xsl (3.20.1-4) ...
+Selecting previously unselected package yelp.
+Preparing to unpack .../91-yelp_3.26.0-1ubuntu2_amd64.deb ...
+Unpacking yelp (3.26.0-1ubuntu2) ...
+Setting up libbrotli1:amd64 (1.0.3-1ubuntu1.3) ...
+Setting up libnotify4:amd64 (0.7.7-3ubuntu0.18.04.1) ...
+Setting up libsecret-common (0.18.6-1) ...
+Setting up libatasmart4:amd64 (0.19-4) ...
+Setting up libparted2:amd64 (3.2-20ubuntu0.2) ...
+Setting up libblockdev-utils2:amd64 (2.16-2) ...
+Setting up libpam-cap:amd64 (1:2.25-1.2) ...
+Setting up x11-session-utils (7.7+2build1) ...
+Setting up dosfstools (4.1-1) ...
+Setting up libparted-fs-resize0:amd64 (3.2-20ubuntu0.2) ...
+Setting up libwoff1:amd64 (1.0.2-1build0.1) ...
+Setting up desktop-file-utils (0.23-1ubuntu3.18.04.2) ...
+Setting up xinit (1.3.4-3ubuntu3) ...
+Setting up libhunspell-1.6-0:amd64 (1.6.2-1) ...
+Setting up libaspell15:amd64 (0.60.7~20110707-4ubuntu0.2) ...
+Setting up xbitmaps (1.1.1-2) ...
+Setting up libcap2-bin (1:2.25-1.2) ...
+Setting up xvfb (2:1.19.6-1ubuntu4.11) ...
+Setting up libblockdev-part-err2:amd64 (2.16-2) ...
+Setting up libblockdev-fs2:amd64 (2.16-2) ...
+Setting up libv4lconvert0:amd64 (1.14.2-1) ...
+Setting up emacsen-common (2.0.8) ...
+Setting up libudisks2-0:amd64 (2.7.6-3ubuntu0.2) ...
+Setting up gnome-terminal-data (3.28.2-1ubuntu1~18.04.1) ...
+Setting up libblockdev2:amd64 (2.16-2) ...
+Setting up parted (3.2-20ubuntu0.2) ...
+Setting up libcdparanoia0:amd64 (3.10.2+debian-13) ...
+Setting up libblockdev-loop2:amd64 (2.16-2) ...
+Setting up python3-psutil (5.4.2-1ubuntu0.1) ...
+Setting up libblockdev-swap2:amd64 (2.16-2) ...
+Setting up libgck-1-0:amd64 (3.28.0-1) ...
+Setting up libgpgme11:amd64 (1.10.0-1ubuntu2) ...
+Setting up libhyphen0:amd64 (2.8.8-5) ...
+Setting up libvte-2.91-common (0.52.2-1ubuntu1~18.04.2) ...
+Setting up libaa1:amd64 (1.4p5-44build2) ...
+Setting up libxxf86dga1:amd64 (2:1.1.4-1) ...
+Setting up libtext-iconv-perl (1.7-5build6) ...
+Setting up libnautilus-extension1a:amd64 (1:3.26.4-0~ubuntu18.04.5) ...
+Setting up gdisk (1.0.3-1) ...
+Setting up libvisual-0.4-0:amd64 (0.4.0-11) ...
+Setting up x11-xserver-utils (7.7+7build1) ...
+Setting up libjavascriptcoregtk-4.0-18:amd64 (2.32.4-0ubuntu0.18.04.1) ...
+Setting up yelp-xsl (3.20.1-4) ...
+Setting up libntfs-3g88 (1:2017.3.23-2ubuntu0.18.04.4) ...
+Setting up libgraphene-1.0-0:amd64 (1.8.0-1) ...
+Setting up x11-apps (7.7+6ubuntu1) ...
+Setting up liborc-0.4-0:amd64 (1:0.4.28-1) ...
+Setting up libblockdev-part2:amd64 (2.16-2) ...
+Setting up libshout3:amd64 (2.4.1-2build1) ...
+Setting up libsecret-1-0:amd64 (0.18.6-1) ...
+Setting up libdbus-1-3:amd64 (1.12.2-1ubuntu1.4) ...
+Setting up libdv4:amd64 (1.0.0-11) ...
+Setting up libtag1v5-vanilla:amd64 (1.11.1+dfsg.1-0.2build2) ...
+Setting up notification-daemon (3.20.0-3) ...
+Setting up eject (2.1.5+deb1+cvs20081104-13.2) ...
+Setting up libvolume-key1 (0.3.9-4) ...
+Setting up libtag1v5:amd64 (1.11.1+dfsg.1-0.2build2) ...
+Setting up libgstreamer1.0-0:amd64 (1.14.5-0ubuntu1~18.04.2) ...
+Setcap worked! gst-ptp-helper is not suid!
+Setting up libgcr-base-3-1:amd64 (3.28.0-1) ...
+Setting up gvfs-common (1.36.1-0ubuntu1.3.3) ...
+Setting up libv4l-0:amd64 (1.14.2-1) ...
+Setting up dictionaries-common (1.27.2) ...
+Setting up libvte-2.91-0:amd64 (0.52.2-1ubuntu1~18.04.2) ...
+Setting up x11-utils (7.7+3build1) ...
+Setting up libblockdev-crypto2:amd64 (2.16-2) ...
+Setting up gvfs-libs:amd64 (1.36.1-0ubuntu1.3.3) ...
+Setting up ntfs-3g (1:2017.3.23-2ubuntu0.18.04.4) ...
+Setting up dbus (1.12.2-1ubuntu1.4) ...
+Setting up aspell (0.60.7~20110707-4ubuntu0.2) ...
+Setting up hunspell-en-us (1:2017.08.24) ...
+Setting up libenchant1c2a:amd64 (1.6.0-11.1) ...
+Setting up libgstreamer-plugins-base1.0-0:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Setting up gstreamer1.0-plugins-base:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Setting up gstreamer1.0-pulseaudio:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Setting up libgstreamer-gl1.0-0:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Setting up xbase-clients (1:7.7+19ubuntu7.1) ...
+Setting up gstreamer1.0-gl:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Setting up udisks2 (2.7.6-3ubuntu0.2) ...
+Created symlink /etc/systemd/system/graphical.target.wants/udisks2.service → /lib/systemd/system/udisks2.service.
+Setting up chrome-remote-desktop (108.0.5359.16) ...
+Adding group `chrome-remote-desktop' (GID 109) ...
+Done.
+Restarting Chrome Remote Desktop hosts (sessions will be unaffected)...
+invoke-rc.d: could not determine current runlevel
+invoke-rc.d: policy-rc.d denied execution of start.
+Setting up dbus-user-session (1.12.2-1ubuntu1.4) ...
+Setting up gnome-terminal (3.28.2-1ubuntu1~18.04.1) ...
+update-alternatives: using /usr/bin/gnome-terminal.wrapper to provide /usr/bin/x-terminal-emulator (x-terminal-emulator) in auto mode
+Setting up aspell-en (2017.08.24-0-0.1) ...
+Setting up enchant (1.6.0-11.1) ...
+Setting up gstreamer1.0-x:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Setting up libgstreamer-plugins-good1.0-0:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Setting up gvfs-daemons (1.36.1-0ubuntu1.3.3) ...
+Setting up libwebkit2gtk-4.0-37:amd64 (2.32.4-0ubuntu0.18.04.1) ...
+Setting up libyelp0:amd64 (3.26.0-1ubuntu2) ...
+Setting up gvfs:amd64 (1.36.1-0ubuntu1.3.3) ...
+Setting up gstreamer1.0-plugins-good:amd64 (1.14.5-0ubuntu1~18.04.3) ...
+Setting up yelp (3.26.0-1ubuntu2) ...
+Processing triggers for mime-support (3.60ubuntu1) ...
+Processing triggers for libglib2.0-0:amd64 (2.56.4-0ubuntu0.18.04.9) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.6) ...
+Processing triggers for systemd (237-3ubuntu10.56) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Setting up nautilus-extension-gnome-terminal (3.28.2-1ubuntu1~18.04.1) ...
+Processing triggers for dictionaries-common (1.27.2) ...
+aspell-autobuildhash: processing: en [en-common].
+aspell-autobuildhash: processing: en [en-variant_0].
+aspell-autobuildhash: processing: en [en-variant_1].
+aspell-autobuildhash: processing: en [en-variant_2].
+aspell-autobuildhash: processing: en [en-w_accents-only].
+aspell-autobuildhash: processing: en [en-wo_accents-only].
+aspell-autobuildhash: processing: en [en_AU-variant_0].
+aspell-autobuildhash: processing: en [en_AU-variant_1].
+aspell-autobuildhash: processing: en [en_AU-w_accents-only].
+aspell-autobuildhash: processing: en [en_AU-wo_accents-only].
+aspell-autobuildhash: processing: en [en_CA-variant_0].
+aspell-autobuildhash: processing: en [en_CA-variant_1].
+aspell-autobuildhash: processing: en [en_CA-w_accents-only].
+aspell-autobuildhash: processing: en [en_CA-wo_accents-only].
+aspell-autobuildhash: processing: en [en_GB-ise-w_accents-only].
+aspell-autobuildhash: processing: en [en_GB-ise-wo_accents-only].
+aspell-autobuildhash: processing: en [en_GB-ize-w_accents-only].
+aspell-autobuildhash: processing: en [en_GB-ize-wo_accents-only].
+aspell-autobuildhash: processing: en [en_GB-variant_0].
+aspell-autobuildhash: processing: en [en_GB-variant_1].
+aspell-autobuildhash: processing: en [en_US-w_accents-only].
+aspell-autobuildhash: processing: en [en_US-wo_accents-only].
+Processing triggers for dbus (1.12.2-1ubuntu1.4) ...
+/content>>
+/content>>apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver net-tools aterm xfce4-terminal
+/content>>apt upgrade
+useradd -m engbjapan
+#不要 chrome-remote-desktopのインスコで作成さるgroupadd chrome-remote-desktop
+usermod -s /bin/bash -G sudo,root engbjapan
+passwd engbjapan
+
+
+
+
+su - engbjapan -c 'DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0ARtbsJoKNlM8TmHbwDCMA7j1rsao70dVaH7gEcjk0_JSjBbOg8KXZFLrH0Fj4iV6MS0Q0w" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=698314'
+
+su - engbjapan -c 'DISPLAY= /opt/google/chrome-remote-desktop/start-host --code="4/0ARtbsJpPqTgpSBtr307ODu0OVp_69PoDP0NQoclnBCTVmaAGEaglNm6lrthcfNKZiZ7Pog" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$(hostname) --pin=698314'
+
+.configディレクトリが出来ないときはRDPが使えないのでクライアント画面から「最初からやり直し」でその値をCOPY
+
+/home/engbjapan>>service chrome-remote-desktop stop
+ * Stopping Chrome Remote Desktop host for engbjapan...
+The daemon is not currently running
+   ...done.
+/home/engbjapan>>service chrome-remote-desktop start
+ * Starting Chrome Remote Desktop host for engbjapan...
+[1029/045819.894400:INFO:remoting_user_session.cc(752)] Daemon process started in the background, logging to '/tmp/chrome_remote_desktop_20221029_045819_APMcjt'
+Using host_id: 939ca2ac-4a15-4822-bf34-f786004167ce
+xserver-xorg-video-dummy is not up-to-date
+Launching X server and X session.
+Setting up and launching session
+Starting Xvfb on display :20
+X server is active.
+Launching X session: ['/opt/google/chrome-remote-desktop/chrome-remote-desktop-host', '--type=xsession_chooser']
+Launching host process
+['/opt/google/chrome-remote-desktop/chrome-remote-desktop-host', '--host-config=-', '--audio-pipe-name=/home/engbjapan/.config/chrome-remote-desktop/pulseaudio#7c6b3c3460/fifo_output', '--ssh-auth-sockname=/tmp/chromoting.engbjapan.ssh_auth_sock', '--signal-parent']
+Host ready to receive connections.
+Log file: /tmp/chrome_remote_desktop_20221029_045819_APMcjt
+   ...done.
+/home/engbjapan>
+起動は良さげだ・・・
+
+LOGはどうかな？
+home/engbjapan>>cat /tmp/chrome_remote_desktop_20221029_045819_APMcjt
+2022-10-29 04:58:19,997:INFO:Using host_id: 939ca2ac-4a15-4822-bf34-f786004167ce
+2022-10-29 04:58:20,029:INFO:xserver-xorg-video-dummy is not up-to-date
+2022-10-29 04:58:20,029:INFO:Launching X server and X session.
+2022-10-29 04:58:20,029:INFO:Setting up and launching session
+xauth:  file /home/engbjapan/.Xauthority does not exist
+2022-10-29 04:58:20,043:INFO:Starting Xvfb on display :20
+xdpyinfo:  unable to open display ":20".
+_XSERVTransmkdir: Mode of /tmp/.X11-unix should be set to 1777
+_XSERVTransmkdir: this may cause subsequent errors
+_XSERVTransSocketCreateListener: failed to bind listener
+_XSERVTransSocketUNIXCreateListener: ...SocketCreateListener() failed
+_XSERVTransMakeAllCOTSServerListeners: failed to create listener for unix
+2022-10-29 04:58:20,601:INFO:X server is active.
+2022-10-29 04:58:20,676:INFO:Launching X session: ['/opt/google/chrome-remote-desktop/chrome-remote-desktop-host', '--type=xsession_chooser']
+2022-10-29 04:58:20,687:INFO:Launching host process
+2022-10-29 04:58:20,687:INFO:['/opt/google/chrome-remote-desktop/chrome-remote-desktop-host', '--host-config=-', '--audio-pipe-name=/home/engbjapan/.config/chrome-remote-desktop/pulseaudio#7c6b3c3460/fifo_output', '--ssh-auth-sockname=/tmp/chromoting.engbjapan.ssh_auth_sock', '--signal-parent']
+[1029/045820.791456:INFO:remoting_me2me_host.cc(1943)] Starting host process: version 108.0.5359.16
+Session output: 
+Session output: (chrome-remote-desktop-host:9854): dbind-WARNING **: 04:58:20.964: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+Session output: Gtk-Message: 04:58:21.069: GtkDialog mapped without a transient parent. This is discouraged.
+
+(chrome-remote-desktop-host:9856): dbind-WARNING **: 04:58:23.964: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+[1029/045823.982871:INFO:file_host_settings.cc(30)] Host settings file /home/engbjapan/.config/chrome-remote-desktop/host#7c6b3c3460ee55c98c93350854d9a4c7.settings.json does not exist.
+[1029/045823.985770:INFO:remoting_me2me_host.cc(1458)] Policy does not require curtain-mode.
+[1029/045823.985820:INFO:remoting_me2me_host.cc(1381)] Policy enables NAT traversal.
+[1029/045823.985836:INFO:remoting_me2me_host.cc(1399)] Policy enables use of relay server.
+[1029/045823.985866:INFO:remoting_me2me_host.cc(1420)] Policy restricts UDP port range to: <no port range specified>
+[1029/045823.985883:INFO:remoting_me2me_host.cc(1470)] Policy sets third-party token URLs: <no 3rd party auth config specified>
+[1029/045823.985896:INFO:remoting_me2me_host.cc(1493)] Policy enables client pairing.
+[1029/045823.985907:INFO:remoting_me2me_host.cc(1510)] Policy enables security key auth.
+[1029/045823.985915:INFO:remoting_me2me_host.cc(1531)] Policy enables file transfer.
+[1029/045823.985922:INFO:remoting_me2me_host.cc(1553)] Policy enables user interface for non-curtained sessions.
+[1029/045823.985934:INFO:remoting_me2me_host.cc(1577)] Policy does not set a maximum session duration.
+[1029/045823.985948:INFO:remoting_me2me_host.cc(1599)] Policy does not set a maximum clipboard size.
+[1029/045823.986050:INFO:remoting_me2me_host.cc(639)] Parsing new host configuration.
+[1029/045823.986090:INFO:remoting_me2me_host.cc(664)] Applying new host configuration.
+[1029/045823.988255:INFO:chromoting_host.cc(114)] Starting host
+[1029/045823.988929:INFO:chromoting_host.cc(131)] ChromotingHostServices IPC server has been started.
+[1029/045823.990407:INFO:remoting_me2me_host.cc(1246)] Policy sets host domains: 
+[1029/045823.990430:INFO:remoting_me2me_host.cc(1350)] Policy does not require host username match.
+[1029/045823.990436:INFO:remoting_me2me_host.cc(1268)] Policy allows remote access connections: 1
+[1029/045823.990721:INFO:ftl_signaling_connector.cc(136)] Attempting to reconnect signaling.
+[1029/045825.823058:INFO:ftl_signaling_connector.cc(93)] Signaling connected. New JID: 939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129
+[1029/045825.823500:INFO:heartbeat_sender.cc(172)] Sending outgoing heartbeat.
+[1029/045826.573257:INFO:remoting_me2me_host.cc(1048)] Host ready to receive connections.
+2022-10-29 04:58:26,573:INFO:Host ready to receive connections.
+2022-10-29 04:58:50,971:INFO:wait() returned (9853,0)
+/home/engbjapan>>
+
+
+さて本題：
+追加；（多分Ｄｅｓｋｔｏｐの事）
+/home/engbjapan>>echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session
+
+最新のクライアントのDISPLAYのコマンドラインをroot以外のユーザで実行し。
+~/.config/chrome-remote-desktop ディレクトリが出来る迄やればよい
+後は
+export DISPLAY=:20.0
+service chrome-remote-desktop stop
+service chrome-remote-desktop start
+export DISPLAY=:20.0 && service chrome-remote-desktop restart
+はどうだろう？変わらない...rootからのaterm-xtermがColab側から起動不能
+
+service start前後
+/home/engbjapan>>ls -la /tmp/.X11-unix
+total 8
+drwxr-xr-x 2 root root 4096 Oct 29 04:09 .
+drwxrwxrwt 1 root root 4096 Oct 29 05:18 ..
+/home/engbjapan>>service chrome-remote-desktop start
+ * Starting Chrome Remote Desktop host for engbjapan...
+[1029/052221.138008:INFO:remoting_user_session.cc(752)] Daemon process started in the background, logging to '/tmp/chrome_remote_desktop_20221029_052221_mAfw5q'
+Using host_id: 939ca2ac-4a15-4822-bf34-f786004167ce
+xserver-xorg-video-dummy is not up-to-date
+Launching X server and X session.
+Setting up and launching session
+Starting Xvfb on display :20
+X server is active.
+Launching X session: ['/bin/sh', '/etc/chrome-remote-desktop-session']
+Launching host process
+['/opt/google/chrome-remote-desktop/chrome-remote-desktop-host', '--host-config=-', '--audio-pipe-name=/home/engbjapan/.config/chrome-remote-desktop/pulseaudio#7c6b3c3460/fifo_output', '--ssh-auth-sockname=/tmp/chromoting.engbjapan.ssh_auth_sock', '--signal-parent']
+Host ready to receive connections.
+Log file: /tmp/chrome_remote_desktop_20221029_052221_mAfw5q
+   ...done.
+/home/engbjapan>>
+ソケットは、サービス起動前は作られていない
+でサービス起動後もソケットは作られとらん
+/home/engbjapan>>ls -la /tmp/.X11-unix
+total 8
+drwxr-xr-x 2 root root 4096 Oct 29 04:09 .
+drwxrwxrwt 1 root root 4096 Oct 29 05:22 ..
+/home/engbjapan>>
+
+
+LOGはどうか？
+
+/home/engbjapan>>aterm-xterm
+No protocol specified
+urxvt: can't open display :20.0, aborting.
+
+/home/engbjapan>>cat /tmp/chrome_remote_desktop_20221029_052221_mAfw5q
+2022-10-29 05:22:21,235:INFO:Using host_id: 939ca2ac-4a15-4822-bf34-f786004167ce
+2022-10-29 05:22:21,264:INFO:xserver-xorg-video-dummy is not up-to-date
+2022-10-29 05:22:21,264:INFO:Launching X server and X session.
+2022-10-29 05:22:21,265:INFO:Setting up and launching session
+2022-10-29 05:22:21,272:INFO:Starting Xvfb on display :20
+xdpyinfo:  unable to open display ":20".
+_XSERVTransmkdir: Mode of /tmp/.X11-unix should be set to 1777
+_XSERVTransmkdir: this may cause subsequent errors
+_XSERVTransSocketCreateListener: failed to bind listener
+_XSERVTransSocketUNIXCreateListener: ...SocketCreateListener() failed
+_XSERVTransMakeAllCOTSServerListeners: failed to create listener for unix
+2022-10-29 05:22:21,783:INFO:X server is active.
+2022-10-29 05:22:21,836:INFO:Launching X session: ['/bin/sh', '/etc/chrome-remote-desktop-session']
+2022-10-29 05:22:21,840:INFO:Launching host process
+2022-10-29 05:22:21,840:INFO:['/opt/google/chrome-remote-desktop/chrome-remote-desktop-host', '--host-config=-', '--audio-pipe-name=/home/engbjapan/.config/chrome-remote-desktop/pulseaudio#7c6b3c3460/fifo_output', '--ssh-auth-sockname=/tmp/chromoting.engbjapan.ssh_auth_sock', '--signal-parent']
+[1029/052221.864931:INFO:remoting_me2me_host.cc(1943)] Starting host process: version 108.0.5359.16
+
+(chrome-remote-desktop-host:10764): dbind-WARNING **: 05:22:21.947: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The name org.a11y.Bus was not provided by any .service files
+[1029/052221.984207:INFO:file_host_settings.cc(30)] Host settings file /home/engbjapan/.config/chrome-remote-desktop/host#7c6b3c3460ee55c98c93350854d9a4c7.settings.json does not exist.
+[1029/052221.984542:INFO:remoting_me2me_host.cc(1458)] Policy does not require curtain-mode.
+[1029/052221.984569:INFO:remoting_me2me_host.cc(1381)] Policy enables NAT traversal.
+[1029/052221.984578:INFO:remoting_me2me_host.cc(1399)] Policy enables use of relay server.
+[1029/052221.984586:INFO:remoting_me2me_host.cc(1420)] Policy restricts UDP port range to: <no port range specified>
+[1029/052221.984596:INFO:remoting_me2me_host.cc(1470)] Policy sets third-party token URLs: <no 3rd party auth config specified>
+[1029/052221.984603:INFO:remoting_me2me_host.cc(1493)] Policy enables client pairing.
+[1029/052221.984610:INFO:remoting_me2me_host.cc(1510)] Policy enables security key auth.
+[1029/052221.984617:INFO:remoting_me2me_host.cc(1531)] Policy enables file transfer.
+[1029/052221.984623:INFO:remoting_me2me_host.cc(1553)] Policy enables user interface for non-curtained sessions.
+[1029/052221.984631:INFO:remoting_me2me_host.cc(1577)] Policy does not set a maximum session duration.
+[1029/052221.984639:INFO:remoting_me2me_host.cc(1599)] Policy does not set a maximum clipboard size.
+[1029/052221.984652:INFO:remoting_me2me_host.cc(639)] Parsing new host configuration.
+[1029/052221.984690:INFO:remoting_me2me_host.cc(664)] Applying new host configuration.
+[1029/052221.985730:INFO:chromoting_host.cc(114)] Starting host
+[1029/052221.986597:INFO:chromoting_host.cc(131)] ChromotingHostServices IPC server has been started.
+[1029/052221.990097:INFO:remoting_me2me_host.cc(1246)] Policy sets host domains: 
+[1029/052221.990126:INFO:remoting_me2me_host.cc(1350)] Policy does not require host username match.
+[1029/052221.990136:INFO:remoting_me2me_host.cc(1268)] Policy allows remote access connections: 1
+[1029/052221.990399:INFO:ftl_signaling_connector.cc(136)] Attempting to reconnect signaling.
+[1029/052224.189528:INFO:ftl_signaling_connector.cc(93)] Signaling connected. New JID: 939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129
+[1029/052224.189578:INFO:heartbeat_sender.cc(172)] Sending outgoing heartbeat.
+[1029/052224.553551:INFO:remoting_me2me_host.cc(1048)] Host ready to receive connections.
+2022-10-29 05:22:24,553:INFO:Host ready to receive connections.
+2022-10-29 05:22:52,161:INFO:wait() returned (10760,0)
+[1029/052713.653579:INFO:ftl_signal_strategy.cc(459)] Received incoming stanza:
+<iq xmlns="jabber:client" id="1q7d5mv5ifqt_0" from="XXXXF@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" to="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129" type="set"><jingle xmlns="urn:xmpp:jingle:1" sid="o1lhrkd956h2" action="session-initiate" initiator="XXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116"><content name="chromoting" creator="initiator"><description xmlns="google:remoting"><authentication xmlns="google:remoting" method="pair_spake2_curve25519" supported-methods="pair_spake2_curve25519,spake2_curve25519"><spake-message>6Rn/3FII8FNNvJadHZ/PKb95Frb3pb+FQ2H2jyBEQKY=</spake-message><pairing-info client-id="f7d2d143-9541-4058-8d9c-40c72803408a"/></authentication></description><transport xmlns="google:remoting:webrtc"/></content><attachments xmlns="google:remoting"><host-configuration>Detect-Updated-Region:false</host-configuration></attachments></jingle></iq>
+=========================================================
+[1029/052713.653710:INFO:ftl_signal_strategy.cc(373)] Sending outgoing message:
+Receiver: XXXXXX@gmail.com
+Receiver registration ID: d0124bb3-c4db-4f3e-b79c-346454cce116
+<iq xmlns="jabber:client" id="1q7d5mv5ifqt_0" type="result" to="XXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" from="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129"><jingle xmlns="urn:xmpp:jingle:1"/></iq>
+=========================================================
+[1029/052713.653870:INFO:chromoting_host.cc(280)] Client connected: XXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116
+[1029/052713.656593:INFO:ftl_signal_strategy.cc(373)] Sending outgoing message:
+Receiver: XXXXXXXXX@gmail.com
+Receiver registration ID: d0124bb3-c4db-4f3e-b79c-346454cce116
+<iq xmlns="jabber:client" type="set" to="XXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" id="11677028759573313198_1" from="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129"><jingle xmlns="urn:xmpp:jingle:1" sid="o1lhrkd956h2" action="session-accept"><rem:attachments xmlns:rem="google:remoting"><rem:host-attributes>ChromeBrand,OfficialBuild,HWEncoder</rem:host-attributes></rem:attachments><content name="chromoting" creator="initiator"><description xmlns="google:remoting"><authentication method="pair_spake2_curve25519"><certificate>MIICpjCCAY6gAwIBAgIEDm1OYzANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDDApjaHJvbW90aW5nMB4XDTIyMTAyOTA1MjIyMVoXDTIyMTAzMDA1MjIyMVowFTETMBEGA1UEAwwKY2hyb21vdGluZzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJEtXbL5hdSNgrnTigB76DgFZsNY+07zvVQX0vmmzUI7CrmtVY7X3Y6aNob5NPO4yJ+35GuxyFoCu//AZjaw6tMNTXdLJAppi44dFvOeDaWbpLF/A42lSklNs0FZh4pW+0RZKkMGTG9mYh9CrjRKX97TPKqTND4ZYOWAB8R0ky/Oh5SIknqogc6aRYxJA59Yg579DhsFhodsf5xJR8jWuAFp45U/28JFiQBkcbi7wtB+I/6LJ/FCL4qNHLKR5sbIOE+BrMToV6b4tosBW0T2sLrxR5V1pJkZVEnlGqX6a891N5JF3i+ji0Fwv9VsB0YO4Q8KqgXs8ZqRjtXXGB+2NskCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAAMK4mouBbEpbaYoW2J+YXDfj8DhNEr4J1tmY++4TnF/aLKqB0Hr2N1oIBluWXIVXM4gECAHSnBy9QnhK1jwE5neaOgKDZ7+psUQiMNcfyGBZIUMwjiRGQU06ebPPgmGfE+rHj/L52avtI1sq1LTyHYWYvy+0ncwn1QHZjlPnubgv6fO8rzW0vh7YrdnC01hAKBHXEnPmQjIp7eA0JvOwIoITcrlL+F1ZlnCBWxNqxTcs+KXsJthiD/XyIIt1av+H/wfg+1CH7WkUulL2uyAACev8HmdPQB2K24l3+GzB7ieD7ZYOw8TEqZKE8SwMwHmOWP449/xDL1nc5EdOwCZWmg==</certificate><spake-message>RGSkB4bwOX0oDpGmVFFYMirEVyKNp+hjn0rpgl/5JW0=</spake-message><verification-hash>dHBw/Kh3BjVRYE1MxCOqJifnf2sQCVB512ZRUodGo1M=</verification-hash></authentication></description><web:transport xmlns:web="google:remoting:webrtc"/></content></jingle></iq>
+=========================================================
+[1029/052714.880529:INFO:ftl_signal_strategy.cc(459)] Received incoming stanza:
+<iq xmlns="jabber:client" id="11677028759573313198_1" from="XXXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" to="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129" type="result"/>
+=========================================================
+[1029/052715.055678:INFO:ftl_signal_strategy.cc(459)] Received incoming stanza:
+<iq xmlns="jabber:client" id="1q7d5mv5ifqt_1" from="XXXXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" to="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129" type="set"><jingle xmlns="urn:xmpp:jingle:1" sid="o1lhrkd956h2" action="session-info"><authentication xmlns="google:remoting" method="pair_spake2_curve25519"><verification-hash>9/RJoIzqQqniGXlxo0yJGJ+O2Ww9L3n+5+bcKaBK3y8=</verification-hash><pairing-info client-id="f7d2d143-9541-4058-8d9c-40c72803408a"/></authentication></jingle></iq>
+=========================================================
+[1029/052715.055779:INFO:ftl_signal_strategy.cc(373)] Sending outgoing message:
+Receiver: XXXXXXXX@gmail.com
+Receiver registration ID: d0124bb3-c4db-4f3e-b79c-346454cce116
+<iq xmlns="jabber:client" id="1q7d5mv5ifqt_1" type="result" to="XXXXXXXXXXXX
+@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" from="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129"><jingle xmlns="urn:xmpp:jingle:1"/></iq>
+=========================================================
+[1029/052715.248323:INFO:pam_authorization_factory_posix.cc(130)] Local login check for engbjapan succeeded.
+[1029/052715.249589:INFO:x11_util.cc(137)] Non-dummy output found: screen�
+[1029/052715.250734:ERROR:webrtc_transport.cc(1111)] No encodings found for sender screen_stream
+[1029/052715.250767:ERROR:webrtc_transport.cc(151)] No encodings found for sender screen_stream
+[1029/052715.251601:WARNING:media_session.cc(949)] RED codec red is missing an associated payload type.
+[1029/052715.252533:INFO:ftl_signal_strategy.cc(373)] Sending outgoing message:
+Receiver: XXXXXXXX@gmail.com
+Receiver registration ID: d0124bb3-c4db-4f3e-b79c-346454cce116
+<iq xmlns="jabber:client" type="set" to="XXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" id="11677028759573313198_2" from="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129"><jingle xmlns="urn:xmpp:jingle:1" sid="o1lhrkd956h2" action="transport-info"><content name="chromoting" creator="initiator"><transport xmlns="google:remoting:webrtc"><session-description type="offer" signature="PUMqK8O7ru3UhHh/8Tlf2VlrFTacIqgRChfR9M/2Xdo=">v=0
+o=- 4412125878120855707 2 IN IP4 127.0.0.1
+s=-
+t=0 0
+a=group:BUNDLE 0 1 2
+a=extmap-allow-mixed
+a=msid-semantic: WMS audio_stream screen_stream
+m=video 9 UDP/TLS/RTP/SAVPF 96 97 98 99 35 36 45 46 47 48 112 113 114
+c=IN IP4 0.0.0.0
+a=rtcp:9 IN IP4 0.0.0.0
+a=ice-ufrag:XRdR
+a=ice-pwd:8IZtPJJV2iCaHbBCmEXhP0Xx
+a=ice-options:trickle
+a=fingerprint:sha-256 9C:D5:D5:80:E3:C2:74:E9:05:61:32:76:5E:0A:0B:3E:E9:B5:9A:05:7A:21:DB:1C:38:7B:0E:28:7B:61:B0:EC
+a=setup:actpass
+a=mid:0
+a=extmap:1 urn:ietf:params:rtp-hdrext:toffset
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 urn:3gpp:video-orientation
+a=extmap:4 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:5 http://www.webrtc.org/experiments/rtp-hdrext/playout-delay
+a=extmap:6 http://www.webrtc.org/experiments/rtp-hdrext/video-content-type
+a=extmap:7 http://www.webrtc.org/experiments/rtp-hdrext/video-timing
+a=extmap:8 http://www.webrtc.org/experiments/rtp-hdrext/color-space
+a=extmap:9 urn:ietf:params:rtp-hdrext:sdes:mid
+a=extmap:10 urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id
+a=extmap:11 urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id
+a=sendonly
+a=msid:screen_stream screen_stream
+a=rtcp-mux
+a=rtcp-rsize
+a=rtpmap:96 VP8/90000
+a=rtcp-fb:96 goog-remb
+a=rtcp-fb:96 transport-cc
+a=rtcp-fb:96 ccm fir
+a=rtcp-fb:96 nack
+a=rtcp-fb:96 nack pli
+a=rtpmap:97 rtx/90000
+a=fmtp:97 apt=96
+a=rtpmap:98 VP9/90000
+a=rtcp-fb:98 goog-remb
+a=rtcp-fb:98 transport-cc
+a=rtcp-fb:98 ccm fir
+a=rtcp-fb:98 nack
+a=rtcp-fb:98 nack pli
+a=fmtp:98 profile-id=0
+a=rtpmap:99 rtx/90000
+a=fmtp:99 apt=98
+a=rtpmap:35 VP9/90000
+a=rtcp-fb:35 goog-remb
+a=rtcp-fb:35 transport-cc
+a=rtcp-fb:35 ccm fir
+a=rtcp-fb:35 nack
+a=rtcp-fb:35 nack pli
+a=fmtp:35 profile-id=1
+a=rtpmap:36 rtx/90000
+a=fmtp:36 apt=35
+a=rtpmap:45 AV1/90000
+a=rtcp-fb:45 goog-remb
+a=rtcp-fb:45 transport-cc
+a=rtcp-fb:45 ccm fir
+a=rtcp-fb:45 nack
+a=rtcp-fb:45 nack pli
+a=rtpmap:46 rtx/90000
+a=fmtp:46 apt=45
+a=rtpmap:47 AV1/90000
+a=rtcp-fb:47 goog-remb
+a=rtcp-fb:47 transport-cc
+a=rtcp-fb:47 ccm fir
+a=rtcp-fb:47 nack
+a=rtcp-fb:47 nack pli
+a=fmtp:47 profile=1
+a=rtpmap:48 rtx/90000
+a=fmtp:48 apt=47
+a=rtpmap:112 red/90000
+a=rtpmap:113 rtx/90000
+a=fmtp:113 apt=112
+a=rtpmap:114 ulpfec/90000
+a=ssrc-group:FID 2697802120 1320677643
+a=ssrc:2697802120 cname:aWOjAw14girkfI/W
+a=ssrc:2697802120 msid:screen_stream screen_stream
+a=ssrc:1320677643 cname:aWOjAw14girkfI/W
+a=ssrc:1320677643 msid:screen_stream screen_stream
+m=audio 9 UDP/TLS/RTP/SAVPF 111 63 110
+c=IN IP4 0.0.0.0
+a=rtcp:9 IN IP4 0.0.0.0
+a=ice-ufrag:XRdR
+a=ice-pwd:8IZtPJJV2iCaHbBCmEXhP0Xx
+a=ice-options:trickle
+a=fingerprint:sha-256 9C:D5:D5:80:E3:C2:74:E9:05:61:32:76:5E:0A:0B:3E:E9:B5:9A:05:7A:21:DB:1C:38:7B:0E:28:7B:61:B0:EC
+a=setup:actpass
+a=mid:1
+a=extmap:14 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:4 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:9 urn:ietf:params:rtp-hdrext:sdes:mid
+a=sendonly
+a=msid:audio_stream system_audio
+a=rtcp-mux
+a=rtpmap:111 opus/48000/2
+a=fmtp:111 stereo=1; maxaveragebitrate=163840
+a=rtcp-fb:111 transport-cc
+a=fmtp:111 minptime=10;useinbandfec=1
+a=rtpmap:63 red/48000/2
+a=fmtp:63 111/111
+a=rtpmap:110 telephone-event/48000
+a=ssrc:80834001 cname:aWOjAw14girkfI/W
+a=ssrc:80834001 msid:audio_stream system_audio
+m=application 9 UDP/DTLS/SCTP webrtc-datachannel
+c=IN IP4 0.0.0.0
+a=ice-ufrag:XRdR
+a=ice-pwd:8IZtPJJV2iCaHbBCmEXhP0Xx
+a=ice-options:trickle
+a=fingerprint:sha-256 9C:D5:D5:80:E3:C2:74:E9:05:61:32:76:5E:0A:0B:3E:E9:B5:9A:05:7A:21:DB:1C:38:7B:0E:28:7B:61:B0:EC
+a=setup:actpass
+a=mid:2
+a=sctp-port:5000
+a=max-message-size:262144
+</session-description></transport></content></jingle></iq>
+=========================================================
+[1029/052715.252971:INFO:webrtc_frame_scheduler_constant_rate.cc(85)] Not scheduling capture because framerate is set to 0.
+[1029/052715.253252:WARNING:x_server_pixel_buffer.cc(202)] Failed to get icc profile
+[1029/052715.254102:WARNING:audio_send_stream.cc(873)] Config is invalid: min_bitrate_bps=-1; max_bitrate_bps=-1; both expected greater or equal to 0
+[1029/052715.268464:INFO:transport_context.cc(148)] Using newly requested ICE Config.
+[1029/052715.268523:INFO:transport_context.cc(54)] 
+IceConfig: {
+  stun: [
+    74.125.247.128:3478,
+    [2001:4860:4864:4:8000::]:3478,
+  ]
+  turn: [
+    {
+      username: CLOW+JoGEgZ9sRkGpOwYu7KA8NMNIICjBTAH
+      password: AnYVgyrZtvsbQSLKrhgbyIPsmyE=
+      port: 74.125.247.128:3478
+    },
+    {
+      username: CLOW+JoGEgZ9sRkGpOwYu7KA8NMNIICjBTAH
+      password: AnYVgyrZtvsbQSLKrhgbyIPsmyE=
+      port: [2001:4860:4864:4:8000::]:3478
+    },
+    {
+      username: CLOW+JoGEgZ9sRkGpOwYu7KA8NMNIICjBTAH
+      password: AnYVgyrZtvsbQSLKrhgbyIPsmyE=
+      port: 74.125.247.128:3478
+    },
+    {
+      username: CLOW+JoGEgZ9sRkGpOwYu7KA8NMNIICjBTAH
+      password: AnYVgyrZtvsbQSLKrhgbyIPsmyE=
+      port: [2001:4860:4864:4:8000::]:3478
+    },
+  ]
+  expiration time: 2022-10-30 05:27:15.268 UTC
+  max_bitrate_kbps: 8000
+}
+[1029/052715.268838:WARNING:stun_port.cc(514)] STUN server address is incompatible.
+[1029/052715.289279:INFO:ftl_signal_strategy.cc(373)] Sending outgoing message:
+Receiver: XXXXXXXXX@gmail.com
+Receiver registration ID: d0124bb3-c4db-4f3e-b79c-346454cce116
+<iq xmlns="jabber:client" type="set" to="XXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" id="11677028759573313198_3" from="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129"><jingle xmlns="urn:xmpp:jingle:1" sid="o1lhrkd956h2" action="transport-info"><content name="chromoting" creator="initiator"><transport xmlns="google:remoting:webrtc"><candidate sdpMid="0" sdpMLineIndex="0">candidate:361543858 1 udp 2122260223 172.28.0.2 45659 typ host generation 0 ufrag XRdR network-id 1</candidate><candidate sdpMid="0" sdpMLineIndex="0">candidate:4138548830 1 udp 1686052607 35.229.212.231 45659 typ srflx raddr 172.28.0.2 rport 45659 generation 0 ufrag XRdR network-id 1</candidate></transport></content></jingle></iq>
+=========================================================
+[1029/052715.343110:INFO:ftl_signal_strategy.cc(373)] Sending outgoing message:
+Receiver: XXXXXXXX@gmail.com
+Receiver registration ID: d0124bb3-c4db-4f3e-b79c-346454cce116
+<iq xmlns="jabber:client" type="set" to="XXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" id="11677028759573313198_4" from="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129"><jingle xmlns="urn:xmpp:jingle:1" sid="o1lhrkd956h2" action="transport-info"><content name="chromoting" creator="initiator"><transport xmlns="google:remoting:webrtc"><candidate sdpMid="0" sdpMLineIndex="0">candidate:2162013549 1 udp 41885439 10.2.128.46 7927 typ relay raddr 35.229.212.231 rport 45659 generation 0 ufrag XRdR network-id 1</candidate><candidate sdpMid="0" sdpMLineIndex="0">candidate:1659652912 1 udp 25108223 10.2.128.37 40911 typ relay raddr 35.229.212.231 rport 44703 generation 0 ufrag XRdR network-id 1</candidate></transport></content></jingle></iq>
+=========================================================
+[1029/052716.197811:WARNING:turn_port.cc(1025)] Port[910000:0:1:0:relay:Net[eth0:172.28.0.x/16:Ethernet:id=1]]: Received TURN data indication with unknown peer address, addr: 10.15.0.x:11509
+[1029/052716.266686:WARNING:dtls_transport.cc(603)] DtlsTransport[0|1|__]: Packet received before we know if we are doing DTLS or not.
+[1029/052716.463167:INFO:ftl_signal_strategy.cc(459)] Received incoming stanza:
+<iq xmlns="jabber:client" id="1q7d5mv5ifqt_3" from="XXXXXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" to="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129" type="set"><jingle xmlns="urn:xmpp:jingle:1" sid="o1lhrkd956h2" action="transport-info"><content name="chromoting" creator="initiator"><transport xmlns="google:remoting:webrtc"><candidate sdpMid="0" sdpMLineIndex="0">candidate:3006760579 1 udp 2113937151 de30aa5f-6c3d-43cc-993d-c72f5a8c7acf.local 61847 typ host generation 0 ufrag UMIF network-cost 999</candidate><candidate sdpMid="0" sdpMLineIndex="0">candidate:551623971 1 udp 2113939711 dfecefc4-b7c3-4bff-8955-7a89d129d8f6.local 61848 typ host generation 0 ufrag UMIF network-cost 999</candidate><candidate sdpMid="0" sdpMLineIndex="0">candidate:842163049 1 udp 1677729535 60.93.45.152 61847 typ srflx raddr 0.0.0.0 rport 0 generation 0 ufrag UMIF network-cost 999</candidate></transport></content></jingle></iq>
+=========================================================
+[1029/052716.468009:INFO:ftl_signal_strategy.cc(459)] Received incoming stanza:
+<iq xmlns="jabber:client" id="11677028759573313198_2" from="XXXXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" to="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129" type="result"/>
+=========================================================
+[1029/052716.468225:INFO:ftl_signal_strategy.cc(459)] Received incoming stanza:
+<iq xmlns="jabber:client" id="1q7d5mv5ifqt_2" from="XXXXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" to="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129" type="set"><jingle xmlns="urn:xmpp:jingle:1" sid="o1lhrkd956h2" action="transport-info"><content name="chromoting" creator="initiator"><transport xmlns="google:remoting:webrtc"><session-description type="answer" signature="zKuvfPbzRDMAAVSR+k/rr3BeI/OBc3ffY0dkvDYpyLY=">v=0
+o=- 2746222457668455255 2 IN IP4 127.0.0.1
+s=-
+t=0 0
+a=group:BUNDLE 0 1 2
+a=extmap-allow-mixed
+a=msid-semantic: WMS
+m=video 9 UDP/TLS/RTP/SAVPF 96 97 98 99 35 36 45 46 112 113 114
+c=IN IP4 0.0.0.0
+a=rtcp:9 IN IP4 0.0.0.0
+a=ice-ufrag:UMIF
+a=ice-pwd:ucpXej+bX9Ra6Gz48j8HGRvN
+a=ice-options:trickle
+a=fingerprint:sha-256 6B:70:6C:3D:26:99:0D:11:6C:43:7E:55:AF:A3:65:34:14:1F:1F:F0:76:70:30:0D:DC:1A:02:8B:93:41:10:DE
+a=setup:active
+a=mid:0
+a=extmap:1 urn:ietf:params:rtp-hdrext:toffset
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:3 urn:3gpp:video-orientation
+a=extmap:4 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:5 http://www.webrtc.org/experiments/rtp-hdrext/playout-delay
+a=extmap:6 http://www.webrtc.org/experiments/rtp-hdrext/video-content-type
+a=extmap:7 http://www.webrtc.org/experiments/rtp-hdrext/video-timing
+a=extmap:8 http://www.webrtc.org/experiments/rtp-hdrext/color-space
+a=extmap:9 urn:ietf:params:rtp-hdrext:sdes:mid
+a=extmap:10 urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id
+a=extmap:11 urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id
+a=recvonly
+a=rtcp-mux
+a=rtcp-rsize
+a=rtpmap:96 VP8/90000
+a=rtcp-fb:96 goog-remb
+a=rtcp-fb:96 transport-cc
+a=rtcp-fb:96 ccm fir
+a=rtcp-fb:96 nack
+a=rtcp-fb:96 nack pli
+a=rtcp-fb:96 rrtr
+a=rtpmap:97 rtx/90000
+a=fmtp:97 apt=96
+a=rtpmap:98 VP9/90000
+a=rtcp-fb:98 goog-remb
+a=rtcp-fb:98 transport-cc
+a=rtcp-fb:98 ccm fir
+a=rtcp-fb:98 nack
+a=rtcp-fb:98 nack pli
+a=rtcp-fb:98 rrtr
+a=fmtp:98 profile-id=0
+a=rtpmap:99 rtx/90000
+a=fmtp:99 apt=98
+a=rtpmap:35 VP9/90000
+a=rtcp-fb:35 goog-remb
+a=rtcp-fb:35 transport-cc
+a=rtcp-fb:35 ccm fir
+a=rtcp-fb:35 nack
+a=rtcp-fb:35 nack pli
+a=rtcp-fb:35 rrtr
+a=fmtp:35 profile-id=1
+a=rtpmap:36 rtx/90000
+a=fmtp:36 apt=35
+a=rtpmap:45 AV1/90000
+a=rtcp-fb:45 goog-remb
+a=rtcp-fb:45 transport-cc
+a=rtcp-fb:45 ccm fir
+a=rtcp-fb:45 nack
+a=rtcp-fb:45 nack pli
+a=rtcp-fb:45 rrtr
+a=rtpmap:46 rtx/90000
+a=fmtp:46 apt=45
+a=rtpmap:112 red/90000
+a=rtpmap:113 rtx/90000
+a=fmtp:113 apt=112
+a=rtpmap:114 ulpfec/90000
+m=audio 9 UDP/TLS/RTP/SAVPF 111 63 110
+c=IN IP4 0.0.0.0
+a=rtcp:9 IN IP4 0.0.0.0
+a=ice-ufrag:UMIF
+a=ice-pwd:ucpXej+bX9Ra6Gz48j8HGRvN
+a=ice-options:trickle
+a=fingerprint:sha-256 6B:70:6C:3D:26:99:0D:11:6C:43:7E:55:AF:A3:65:34:14:1F:1F:F0:76:70:30:0D:DC:1A:02:8B:93:41:10:DE
+a=setup:active
+a=mid:1
+a=extmap:14 urn:ietf:params:rtp-hdrext:ssrc-audio-level
+a=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time
+a=extmap:4 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01
+a=extmap:9 urn:ietf:params:rtp-hdrext:sdes:mid
+a=recvonly
+a=rtcp-mux
+a=rtpmap:111 opus/48000/2
+a=fmtp:111 stereo=1; x-google-min-bitrate=160
+a=rtcp-fb:111 transport-cc
+a=fmtp:111 minptime=10;useinbandfec=1
+a=rtpmap:63 red/48000/2
+a=fmtp:63 111/111
+a=rtpmap:110 telephone-event/48000
+m=application 9 UDP/DTLS/SCTP webrtc-datachannel
+c=IN IP4 0.0.0.0
+a=ice-ufrag:UMIF
+a=ice-pwd:ucpXej+bX9Ra6Gz48j8HGRvN
+a=ice-options:trickle
+a=fingerprint:sha-256 6B:70:6C:3D:26:99:0D:11:6C:43:7E:55:AF:A3:65:34:14:1F:1F:F0:76:70:30:0D:DC:1A:02:8B:93:41:10:DE
+a=setup:active
+a=mid:2
+a=sctp-port:5000
+a=max-message-size:262144
+</session-description></transport></content></jingle></iq>
+=========================================================
+[1029/052716.469361:WARNING:audio_send_stream.cc(873)] Config is invalid: min_bitrate_bps=-1; max_bitrate_bps=-1; both expected greater or equal to 0
+[1029/052716.469598:INFO:ftl_signal_strategy.cc(373)] Sending outgoing message:
+Receiver: XXXXXXXXXX@gmail.com
+Receiver registration ID: d0124bb3-c4db-4f3e-b79c-346454cce116
+<iq xmlns="jabber:client" id="1q7d5mv5ifqt_2" type="result" to="XXXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" from="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129"><jingle xmlns="urn:xmpp:jingle:1"/></iq>
+=========================================================
+[1029/052716.469797:INFO:ftl_signal_strategy.cc(373)] Sending outgoing message:
+Receiver: XXXXXXXXXX@gmail.com
+Receiver registration ID: d0124bb3-c4db-4f3e-b79c-346454cce116
+<iq xmlns="jabber:client" id="1q7d5mv5ifqt_3" type="result" to="XXXXXXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" from="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129"><jingle xmlns="urn:xmpp:jingle:1"/></iq>
+=========================================================
+[1029/052716.469984:INFO:ftl_signal_strategy.cc(459)] Received incoming stanza:
+<iq xmlns="jabber:client" id="1q7d5mv5ifqt_4" from="XXXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" to="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129" type="set"><jingle xmlns="urn:xmpp:jingle:1" sid="o1lhrkd956h2" action="transport-info"><content name="chromoting" creator="initiator"><transport xmlns="google:remoting:webrtc"><candidate sdpMid="0" sdpMLineIndex="0">candidate:2933388824 1 udp 33562879 10.14.192.112 48391 typ relay raddr 2400:2652:41a1:3300:4d9a:a4b2:82d:ef63 rport 61848 generation 0 ufrag UMIF network-cost 999</candidate><candidate sdpMid="0" sdpMLineIndex="0">candidate:162868468 1 udp 33563135 10.15.0.47 11509 typ relay raddr 60.93.45.152 rport 61847 generation 0 ufrag UMIF network-cost 999</candidate><candidate sdpMid="0" sdpMLineIndex="0">candidate:1503199115 1 udp 16785151 10.14.128.79 61616 typ relay raddr 2400:2652:41a1:3300:4d9a:a4b2:82d:ef63 rport 62364 generation 0 ufrag UMIF network-cost 999</candidate><candidate sdpMid="0" sdpMLineIndex="0">candidate:1021518508 1 udp 16785407 10.14.192.127 50705 typ relay raddr 60.93.45.152 rport 62363 generation 0 ufrag UMIF network-cost 999</candidate></transport></content></jingle></iq>
+=========================================================
+[1029/052716.470096:INFO:ftl_signal_strategy.cc(373)] Sending outgoing message:
+Receiver: XXXXXXXX@gmail.com
+Receiver registration ID: d0124bb3-c4db-4f3e-b79c-346454cce116
+<iq xmlns="jabber:client" id="1q7d5mv5ifqt_4" type="result" to="XXXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" from="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129"><jingle xmlns="urn:xmpp:jingle:1"/></iq>
+=========================================================
+[1029/052716.470458:INFO:webrtc_video_stream.cc(477)] WebRTC requested max framerate: 2147483647 FPS
+[1029/052716.487264:INFO:client_session.cc(889)] ClientSession::OnVideoSizeChanged
+[1029/052716.487316:INFO:client_session.cc(892)]   DisplaySize: 1600x1200 @96 (size in pixels: 1600x1200)
+[1029/052716.487329:INFO:client_session.cc(901)]   display index -2
+[1029/052716.487335:INFO:client_session.cc(902)]   Recording default webrtc capture size 1600x1200 @96
+[1029/052716.487342:INFO:mouse_input_filter.cc(55)] Setting MouseInputFilter output boundary to 1599,1199
+[1029/052716.487349:INFO:mouse_input_filter.cc(48)] Setting MouseInputFilter input boundary to 1599,1199
+[1029/052716.487473:INFO:webrtc_video_encoder_wrapper.cc(127)] Creating VP8 encoder.
+[1029/052716.487484:WARNING:webrtc_video_encoder_vpx.cc(182)] VP8 video encoder is created.
+[1029/052716.487651:INFO:webrtc_video_stream.cc(477)] WebRTC requested max framerate: 30 FPS
+[1029/052716.499550:WARNING:p2p_transport_channel.cc(1351)] Failed to resolve ICE candidate hostname dfecefc4-b7c3-4bff-8955-7a89d129d8f6.local with error -2
+[1029/052716.507414:WARNING:p2p_transport_channel.cc(1351)] Failed to resolve ICE candidate hostname de30aa5f-6c3d-43cc-993d-c72f5a8c7acf.local with error -2
+[1029/052716.523534:INFO:webrtc_transport.cc(988)] Relay connection: true
+[1029/052716.523581:INFO:webrtc_transport.cc(1057)] Capping bitrate to 8000kbps.
+[1029/052716.523690:INFO:webrtc_transport.cc(1022)] Selected candidate-pair changed, reason = candidate pair state changed
+[1029/052716.523704:INFO:webrtc_transport.cc(1023)]   Local IP = 10.2.128.46:7927, type = relay, protocol = udp
+[1029/052716.523731:INFO:webrtc_transport.cc(1026)]   Remote IP = 10.15.0.47:11509, type = relay, protocol = udp
+[1029/052716.523741:INFO:webrtc_transport.cc(1043)] Sending route-changed notification.
+[1029/052716.588074:INFO:host_control_dispatcher.h(66)] Setting maximum message size to 262144
+[1029/052716.678835:INFO:client_session.cc(683)] Transport protocol: udp
+[1029/052716.697736:INFO:webrtc_transport.cc(988)] Relay connection: false
+[1029/052716.697893:INFO:webrtc_transport.cc(1022)] Selected candidate-pair changed, reason = candidate pair state changed
+[1029/052716.697912:INFO:webrtc_transport.cc(1023)]   Local IP = 35.229.212.231:45659, type = stun, protocol = udp
+[1029/052716.697922:INFO:webrtc_transport.cc(1026)]   Remote IP = 60.93.45.152:61847, type = stun, protocol = udp
+[1029/052716.697931:INFO:webrtc_transport.cc(1043)] Sending route-changed notification.
+[1029/052716.729704:INFO:ftl_signal_strategy.cc(459)] Received incoming stanza:
+<iq xmlns="jabber:client" id="11677028759573313198_4" from="XXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" to="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129" type="result"/>
+=========================================================
+[1029/052716.779587:INFO:desktop_display_info.cc(180)] Displays loaded:
+[1029/052716.779637:INFO:desktop_display_info.cc(190)]    Display: 0,0 1600x1200 @ 96, id=285, primary=0
+[1029/052716.779659:INFO:client_session.cc(944)] ClientSession::OnDesktopDisplayChanged
+[1029/052716.779669:INFO:client_session.cc(956)]   Scanning display info... (dips)
+[1029/052716.779678:INFO:client_session.cc(960)]    #0 : 0,0 1600x1200 [96,96], screen_id=285
+[1029/052716.779689:INFO:client_session.cc(989)]     Webrtc desktop size 1600x1200 @96
+[1029/052716.779699:INFO:client_session.cc(1038)]   Webrtc capture size (DIPS) = 0,0 1600x1200 @96
+[1029/052716.779708:INFO:client_session.cc(1049)]   Full Desktop (DIPS) = 0,0 1600x1200 [96,96]
+[1029/052716.779718:INFO:client_session.cc(1065)]   Display 0 = 0,0 1600x1200 [96,96], screen_id=285
+[1029/052716.779730:INFO:mouse_input_filter.cc(61)] Setting MouseInputFilter output_offset to 0,0
+[1029/052716.779740:INFO:mouse_input_filter.cc(55)] Setting MouseInputFilter output boundary to 1599,1199
+[1029/052716.779752:INFO:mouse_input_filter.cc(48)] Setting MouseInputFilter input boundary to 1599,1199
+[1029/052716.813131:INFO:webrtc_transport.cc(1079)] Client sets min bitrate to 1048576 bps.
+[1029/052716.815530:INFO:resizing_host_observer.cc(207)] Found host resolutions for monitor ID 285:
+[1029/052716.815564:INFO:resizing_host_observer.cc(209)]   1014x524
+[1029/052716.815630:INFO:resizing_host_observer.cc(226)] Resizing monitor ID 285 to 1014x524.
+[1029/052716.815709:INFO:desktop_resizer_x11.cc(384)] Changing desktop size to 1014x524
+[1029/052716.821059:WARNING:send_side_bandwidth_estimation.cc(639)] Estimated available bandwidth 301 kbps is below configured min bitrate 1245216 bps.
+[1029/052716.841408:INFO:ftl_signal_strategy.cc(459)] Received incoming stanza:
+<iq xmlns="jabber:client" id="11677028759573313198_3" from="XXXXXXXXX@gmail.com/chromoting_ftl_d0124bb3-c4db-4f3e-b79c-346454cce116" to="939ca2ac4a154822bf34f786004167ce@chromoting.gserviceaccount.com/chromoting_ftl_2c86bd37-3af0-487b-835d-1b8dc2ff9129" type="result"/>
+=========================================================
+[1029/052716.848679:INFO:desktop_display_info_loader_x11.cc(115)] Got RANDR ScreenChange event.
+[1029/052716.850238:INFO:desktop_display_info_loader_x11.cc(117)] Got RANDR Notify event.
+[1029/052716.851696:INFO:desktop_display_info_loader_x11.cc(113)] Got X11 ConfigureNotify event.
+[1029/052716.852123:INFO:desktop_display_info_loader_x11.cc(115)] Got RANDR ScreenChange event.
+[1029/052716.852222:INFO:desktop_display_info_loader_x11.cc(115)] Got RANDR ScreenChange event.
+[1029/052716.852309:INFO:desktop_display_info_loader_x11.cc(113)] Got X11 ConfigureNotify event.
+[1029/052716.852366:INFO:desktop_display_info_loader_x11.cc(115)] Got RANDR ScreenChange event.
+[1029/052716.852433:INFO:desktop_display_info_loader_x11.cc(117)] Got RANDR Notify event.
+[1029/052716.852488:INFO:desktop_display_info_loader_x11.cc(113)] Got X11 ConfigureNotify event.
+[1029/052716.852823:WARNING:x_server_pixel_buffer.cc(202)] Failed to get icc profile
+[1029/052716.864083:WARNING:x_server_pixel_buffer.cc(202)] Failed to get icc profile
+[1029/052716.864571:WARNING:x_server_pixel_buffer.cc(202)] Failed to get icc profile
+[1029/052716.872630:INFO:client_session.cc(889)] ClientSession::OnVideoSizeChanged
+[1029/052716.872684:INFO:client_session.cc(892)]   DisplaySize: 1014x524 @96 (size in pixels: 1014x524)
+[1029/052716.872700:INFO:mouse_input_filter.cc(61)] Setting MouseInputFilter output_offset to 0,0
+[1029/052716.872710:INFO:mouse_input_filter.cc(55)] Setting MouseInputFilter output boundary to 1013,523
+[1029/052716.872720:INFO:mouse_input_filter.cc(48)] Setting MouseInputFilter input boundary to 1013,523
+[1029/052716.873008:INFO:webrtc_video_stream.cc(477)] WebRTC requested max framerate: 30 FPS
+[1029/052716.883370:INFO:desktop_display_info.cc(180)] Displays loaded:
+[1029/052716.883420:INFO:desktop_display_info.cc(190)]    Display: 0,0 1014x524 @ 96, id=285, primary=0
+[1029/052716.883436:INFO:client_session.cc(944)] ClientSession::OnDesktopDisplayChanged
+[1029/052716.883446:INFO:client_session.cc(956)]   Scanning display info... (dips)
+[1029/052716.883464:INFO:client_session.cc(960)]    #0 : 0,0 1014x524 [96,96], screen_id=285
+[1029/052716.883475:INFO:client_session.cc(989)]     Webrtc desktop size 1600x1200 @96
+[1029/052716.883484:INFO:client_session.cc(1038)]   Webrtc capture size (DIPS) = 0,0 1600x1200 @96
+[1029/052716.883494:INFO:client_session.cc(1049)]   Full Desktop (DIPS) = 0,0 1014x524 [96,96]
+[1029/052716.883503:INFO:client_session.cc(1065)]   Display 0 = 0,0 1014x524 [96,96], screen_id=285
+[1029/052716.883515:INFO:mouse_input_filter.cc(61)] Setting MouseInputFilter output_offset to 0,0
+[1029/052716.883524:INFO:mouse_input_filter.cc(55)] Setting MouseInputFilter output boundary to 1013,523
+[1029/052716.883534:INFO:mouse_input_filter.cc(48)] Setting MouseInputFilter input boundary to 1013,523
+[1029/052717.821815:INFO:resizing_host_observer.cc(207)] Found host resolutions for monitor ID 285:
+[1029/052717.821877:INFO:resizing_host_observer.cc(209)]   1014x524
+[1029/052717.821998:INFO:resizing_host_observer.cc(231)] Not resizing monitor ID 285; desktop dimensions already 1014x524.
+[1029/052808.555942:INFO:heartbeat_sender.cc(172)] Sending outgoing heartbeat.
+[1029/053240.914755:INFO:heartbeat_sender.cc(172)] Sending outgoing heartbeat.
+/home/engbjapan>
+
+
