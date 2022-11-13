@@ -6,11 +6,7 @@ var radius = 20
 setColor([50, 50, 60])
 
 for (var i = 0; i < tools.length; i++) {
-  tools[i].onclick = function (id) {
-    return function () {
-      setTool(id)
-    }
-  }(i)
+  tools[i].onclick = function (id) {return function () {setTool(id)}}(i)
 }
 
 function setTool(id) {
