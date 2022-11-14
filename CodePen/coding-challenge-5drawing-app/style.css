@@ -2,14 +2,15 @@
   outline: none;
 }
 
-html, body {
+html,
+body {
   overflow: hidden;
   margin: 0;
   padding: 0;
 }
 
 h2 {
-  font-family: 'Pacifico';
+  font-family: "Pacifico";
 }
 
 main {
@@ -18,7 +19,6 @@ main {
 }
 
 #canvas {
-  
 }
 
 #tools {
@@ -26,14 +26,15 @@ main {
   height: 50px;
   overflow-x: auto;
   overflow-y: hidden;
-  background-color: #DDD;
+  background-color: #ddd;
   display: flex;
   position: absolute;
   bottom: 0;
   left: 0;
 }
 
-.tool, .option {
+.tool,
+.option {
   width: 50px;
   height: 50px;
   display: flex;
@@ -42,7 +43,17 @@ main {
   cursor: pointer;
 }
 
-.tool, .option > i {
+.option_size {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tool,
+.option > i {
   font-size: 1.5em;
 }
 
@@ -58,8 +69,8 @@ main {
   width: 100%;
   max-width: 500px;
   left: 0%;
-  background-color: #EEE;
-  transition: top .3s ease;
+  background-color: #eee;
+  transition: top 0.3s ease;
 }
 
 .open {
@@ -90,7 +101,7 @@ main {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 5fr;
-  grid-row-gap: 20px; 
+  grid-row-gap: 20px;
 }
 
 #sliders-wrapper > input {
@@ -99,6 +110,6 @@ main {
 }
 #sliders-wrapper > span {
   font-weight: 900;
-  font-family: 'Pacifico';
+  font-family: "Pacifico";
   text-align: center;
 }
