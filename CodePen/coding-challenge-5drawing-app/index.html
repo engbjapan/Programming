@@ -1,53 +1,32 @@
 <!DOCTYPE html>
-<html lang="ja" >
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Coding challenge #5 - Drawing app</title>
+  <title>CodePen - ps5Drawingapp</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css'>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Pacifico'>
-<!--このリンクをGitHubのLinkにしたい-->
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<!-- partial:index.partial.html -->
 <main>
   <div id="canvas"></div>
   <div id="tools">
     <div class="tool tool-selected"><i class="fas fa-paint-brush"></i></div>
     <div class="tool"><i class="fas fa-square-full"></i></div>
     <div class="tool"><i class="fas fa-circle"></i></div>
-    <div class="tool"><i class="fas fa-eraser"></i></div>    
-    <div class="option" id="size-selector"><i class="fas fa-sliders-h"></i></div>
-    <div class="option" id="color-selector"></div>
+    <div class="tool"><i class="fas fa-eraser"></i></div>
+    <div class="option_size" id="size-selector">
+      <input type="range" class="option_size" value="20" min="0" max="255" id="radius-range">
+    </div>
+    <div class="option" id="color-selector">
+      <input id="colorPicker" type="color">
+    </div>
     <div class="option" id="download"><i class="fas fa-cloud-download-alt"></i></div>
   </div>
 </main>
-<div id="color-picker" class="pane">
-  <div class="picker-titlebar">
-    <h2>RGBカラー選択</h2>
-    <i class="fas fa-times close-picker" id="close-color-picker"></i>  
-  </div>  
-  <div id="sliders-wrapper">
-  <span>R赤</span>
-  <input type="range" class="color-range" value="50" min="0" max="255">
-  <span>G緑</span>
-  <input type="range" class="color-range" value="50" min="0" max="255">
-  <span>B青</span>
-  <input type="range" class="color-range" value="60" min="0" max="255">
-  </div>
-</div>
-<div id="size-picker" class="pane">
-  <div class="picker-titlebar">
-    <h2>設定</h2>
-    <i class="fas fa-times close-picker" id="close-size-picker"></i>  
-  </div> 
-  <div id="sliders-wrapper">
-    <span>太さ</span>
-    <input type="range" value="20" min="0" max="255" id="radius-range">
-  </div>
-</div>
 <!-- partial -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js'></script>
-<!--このリンクをGitHubのLinkにしたい-->
   <script  src="./script.js"></script>
 </body>
 </html>
