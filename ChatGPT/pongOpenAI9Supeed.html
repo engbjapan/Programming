@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pong Game</title>
+  <style>
+    svg {
+      border: 1px solid black;
+      display: block;
+      margin: 0 auto;
+    }
+
+    #net {
+      stroke-dasharray: 5;
+      stroke-width: 2;
+    }
+  </style>
+</head>
+<body>
+  <svg id="pong" width="800" height="400">
+    <line id="net" x1="400" y1="0" x2="400" y2="400" stroke="black" />
+    <rect id="paddle1" x="10" y="175" width="10" height="50" fill="black" />
+    <rect id="paddle2" x="780" y="175" width="10" height="50" fill="black" />
+    <circle id="ball" cx="400" cy="200" r="10" fill="black" />
+    <text id="score1" x="200" y="50" font-size="24" fill="black">0</text>
+    <text id="score2" x="600" y="50" font-size="24" fill="black">0</text>
+  </svg>
+  <p>パドル1の遅延時間（0-1000ms）: <input type="number" id="delay-input" min="0" max="1000" value="500" /></p>
+  <p>パドル2の速度（1-10）: <input type="number" id="speed-input" min="1" max="10" value="5" /></p>
+  <button id="start-button">ゲーム開始</button>
+
+  <script>
+    let paddle1Y = 175;
+    let paddle2Y = 175;
+    let ballX = 400;
+    let ballY = 200;
+    let ballSpeedX = 3;
+    let ballSpeedY = 3;
+    let score1 = 0;
+    let score2 = 0;
+    const paddleHeight = 50;
+    const paddleWidth = 10;
+    const ballRadius = 10;
+    const winningScore = 10;
+    const pong = document.getElementById('pong');
+    const paddle1 = document.getElementById('paddle1');
+    const paddle2 = document.getElementById('paddle2');
+    const ball = document.getElementById('ball');
+    const score1Display = document.getElementById('score1');
+    const score2Display = document.getElementById('score2');
+    const delayInput = document.getElementById('delay-input');
+    const speedInput = document.getElementById('speed-input');
+    const startButton = document.getElementById('start-button');
+    let intervalId = 0;
+    let paddle1TimerId = 0;
+    let paddle1Delay = parseInt(delayInput.value);
+    let paddle2Speed = parseInt(speedInput.value);
+    let gameStarted = false;
+
+    function update() {
+      ballX += ballSpeedX;
+      ballY += ballSpeedY;
+
+      if (ballY < ballRadius || ballY > 400 - ballRadius) {
+        ballSpeedY *= -1;
+      }
+
+      if (ballX < paddleWidth + ballRadius && ballY > paddle1Y && ballY < paddle1Y + paddleHeight) {
+        ballSpeedX *= -1;
+        increaseBallSpeed();
+      }
+
+      if (ballX > 800 - paddleWidth - ballRadius && ballY > paddle2Y && ballY < paddle2Y + paddleHeight) {
+        ballSpeedX *= -1;
+      }
+
+      if (ballX < ballRadius) {
+        score2++;
+        reset();
+      } else if (ballX > 800 - ballRadius) {
+        score1++;
+        reset();
+      }
+
+      score1Display.textContent = score1;
+      score2Display.textContent = score2;
+
+      if (score1 === winningScore || score2 === winningScore) {
+        endGame();
+      }
+
+      paddle1.setAttribute('y', paddle1Y);
+      paddle2.setAttribute('y', paddle2Y);
+      ball.setAttribute('cx', ballX);
+      ball.setAttribute('cy', ballY);
+      ball.style.fill = calculateBallColor();
+    }
+
+    function reset() {
+      ballX = 400;
+      ballY = 200;
+      ballSpeedX *= -1;
+      ballSpeedY *= -1;
+    }
+
+    function endGame() {
+      clearInterval(intervalId);
+      clearTimeout(paddle1TimerId);
+      pong.removeEventListener('mousemove', handleMouseMove);
+      startButton.disabled = false;
+      startButton.removeEventListener('click', startGame);
+      alert('ゲーム終了！');
+    }
+
+    function handleMouseMove(event) {
+      const rect = pong.getBoundingClientRect();
+      const mouseY = event.clientY - rect.top - paddleHeight / 2;
+      if (event.clientX < rect.width / 2) {
+        paddle1Y = Math.max(0, Math.min(400 - paddleHeight, mouseY));
+      } else {
+        paddle2Y = Math.max(0, Math.min(400 - paddleHeight, mouseY));
+      }
+    }
+
+    function handlePaddle1Movement() {
+      if (gameStarted) {
+        const ballCenterY = ballY + ballRadius;
+        const targetY = ballCenterY - paddleHeight / 2;
+        const distance = Math.abs(targetY - paddle1Y);
+        const direction = Math.sign(targetY - paddle1Y);
+        const step = Math.min(distance, paddle1Delay) * direction;
+
+        paddle1Y += step;
+      }
+    }
+
+    function handlePaddle2Movement() {
+      if (gameStarted) {
+        const keys = {};
+        window.addEventListener("keydown", function(event) {
+          keys[event.keyCode] = true;
+        });
+        window.addEventListener("keyup", function(event) {
+          keys[event.keyCode] = false;
+        });
+
+        if (keys[38]) {
+          paddle2Y -= paddle2Speed;
+        }
+        if (keys[40]) {
+          paddle2Y += paddle2Speed;
+        }
+      }
+    }
+
+    function increaseBallSpeed() {
+      const maxSpeed = 10;
+      const speedIncrement = 0.2;
+      const currentSpeed = Math.abs(ballSpeedX);
+
+      if (currentSpeed < maxSpeed) {
+        const newSpeed = currentSpeed + speedIncrement;
+        ballSpeedX = Math.sign(ballSpeedX) * newSpeed;
+        ballSpeedY = Math.sign(ballSpeedY) * newSpeed;
+      }
+    }
+
+    function calculateBallColor() {
+      const maxSpeed = 10;
+      const redColor = Math.floor((Math.abs(ballSpeedX) / maxSpeed) * 255);
+      return `rgb(${redColor}, 0, 0)`;
+    }
+
+    function startGame() {
+      if (!gameStarted) {
+        gameStarted = true;
+        intervalId = setInterval(update, 1000 / 60);
+        startButton.disabled = true;
+        startButton.removeEventListener('click', startGame);
+      }
+    }
+
+    pong.addEventListener('mousemove', handleMouseMove);
+    startButton.addEventListener('click', startGame);
+
+    delayInput.addEventListener('change', function() {
+      paddle1Delay = parseInt(delayInput.value);
+    });
+
+    speedInput.addEventListener('change', function() {
+      paddle2Speed = parseInt(speedInput.value);
+    });
+
+    function gameLoop() {
+      handlePaddle1Movement();
+      handlePaddle2Movement();
+      setTimeout(gameLoop, paddle1Delay);
+    }
+
+    gameLoop();
+  </script>
+</body>
+</html>
