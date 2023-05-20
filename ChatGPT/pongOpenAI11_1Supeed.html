@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pong Game</title>
+  <style>
+    svg {
+      border: 1px solid black;
+      display: block;
+      margin: 0 auto;
+    }
+
+    #net {
+      stroke-dasharray: 5;
+      stroke-width: 2;
+    }
+
+    #gameover-text {
+      font-size: 48px;
+      fill: red;
+      visibility: hidden;
+    }
+
+    #score1 {
+      fill: red;
+    }
+
+    #score2 {
+      fill: blue;
+    }
+  </style>
+</head>
+<body>
+  <svg id="pong" width="800" height="400">
+    <line id="net" x1="400" y1="0" x2="400" y2="400" stroke="black" />
+    <rect id="paddle1" x="10" y="175" width="10" height="50" fill="black" />
+    <rect id="paddle2" x="780" y="175" width="10" height="50" fill="black" />
+    <circle id="ball" cx="400" cy="200" r="10" fill="black" />
+    <text id="score1" x="200" y="50" font-size="24" fill="red">コンピュータ: 0</text>
+    <text id="score2" x="600" y="50" font-size="24" fill="blue">プレーヤー: 0</text>
+    <text id="gameover-text" x="380" y="200" text-anchor="middle">GAME OVER</text>
+  </svg>
+  <p>パドル1の遅延時間（0-1000ms）: <input type="number" id="delay-input" min="0" max="1000" value="500" /></p>
+  <button id="start-button">ゲーム開始</button>
+  <p>ボールの速度上昇率: <input type="range" id="speed-increment-input" min="1" max="5" value="3" /></p>
+
+  <script>
+    let paddle1Y = 175;
+    let paddle2Y = 175;
+    let ballX = 400;
+    let ballY = 200;
+    let ballSpeedX, ballSpeedY;
+    function ballSpeedReset() {
+      ballSpeedX = 3;
+      ballSpeedY = 3;
+    }
+    ballSpeedReset();
+    const paddleHeight = 50;
+    const paddleWidth = 10;
+    const ballRadius = 10;
+    const winningScore = 10;
+    const pong = document.getElementById('pong');
+    const paddle1 = document.getElementById('paddle1');
+    const paddle2 = document.getElementById('paddle2');
+    const ball = document.getElementById('ball');
+    const score1Display = document.getElementById('score1');
+    const score2Display = document.getElementById('score2');
+    const gameoverText = document.getElementById('gameover-text');
+    let score1, score2;
+    function scoreReset() {
+      score1 = 0;
+      score2 = 0;
+      score1Display.textContent = `コンピュータ: ${score1}`;
+      score2Display.textContent = `プレーヤー: ${score2}`;
+    }
+    scoreReset();
+    const delayInput = document.getElementById('delay-input');
+    const startButton = document.getElementById('start-button');
+    let intervalId = 0;
+    let paddle1TimerId = 0;
+    let paddle1Delay = parseInt(delayInput.value);
+    let gameStarted = false;
+
+    // パドルに当たったときのビープ音を再生する関数
+    function playPaddleSound() {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      oscillator.connect(audioContext.destination);
+      oscillator.type = 'sine';
+      oscillator.frequency.value = 800;
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.1);
+    }
+
+    // ゴールしたときのビープ音を再生する関数
+    function playGoalSound() {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      oscillator.connect(audioContext.destination);
+      oscillator.type = 'sine';
+      oscillator.frequency.value = 1000;
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.2);
+    }
+
+    // ゲーム終了時のビープ音を再生する関数
+    function playGameOverSound() {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      oscillator.connect(audioContext.destination);
+      oscillator.type = 'sine';
+      oscillator.frequency.value = 1200;
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.3);
+    }
+
+    function update() {
+      ballX += ballSpeedX;
+      ballY += ballSpeedY;
+
+      if (ballY < ballRadius || ballY > 400 - ballRadius) {
+        ballSpeedY *= -1;
+      }
+
+      if (ballX < paddleWidth + ballRadius && ballY > paddle1Y && ballY < paddle1Y + paddleHeight) {
+        ballSpeedX *= -1;
+        increaseBallSpeed();
+        playPaddleSound();
+      }
+
+      if (ballX > 800 - paddleWidth - ballRadius && ballY > paddle2Y && ballY < paddle2Y + paddleHeight) {
+        ballSpeedX *= -1;
+        playPaddleSound();
+      }
+
+      if (ballX < ballRadius) {
+        score2++;
+        playGoalSound();
+        reset();
+      } else if (ballX > 800 - ballRadius) {
+        score1++;
+        playGoalSound();
+        reset();
+      }
+
+      score1Display.textContent = `コンピュータ: ${score1}`;
+      score2Display.textContent = `プレーヤー: ${score2}`;
+
+      if (score1 === winningScore || score2 === winningScore) {
+        endGame();
+      }
+
+      paddle1.setAttribute('y', paddle1Y);
+      paddle2.setAttribute('y', paddle2Y);
+      ball.setAttribute('cx', ballX);
+      ball.setAttribute('cy', ballY);
+    }
+
+    function reset() {
+      ballX = 400;
+      ballY = 200;
+      ballSpeedX = 3;
+      ballSpeedY = 3;
+      ball.style.fill = 'black';
+    }
+
+    function endGame() {
+      clearInterval(intervalId);
+      clearTimeout(paddle1TimerId);
+      pong.removeEventListener('mousemove', handleMouseMove);
+      startButton.disabled = false;
+      // ゲーム開始フラグをfalseに
+      gameStarted = false;
+      gameoverText.style.visibility = 'visible';
+      playGameOverSound();
+    }
+
+    function handleMouseMove(event) {
+      const rect = pong.getBoundingClientRect();
+      const mouseY = event.clientY - rect.top - paddleHeight / 2;
+      paddle2Y = Math.max(0, Math.min(400 - paddleHeight, mouseY));
+    }
+
+    function handlePaddle1Movement() {
+      const ballCenterY = ballY + ballRadius;
+      const targetY = ballCenterY - paddleHeight / 2;
+      const distance = Math.abs(targetY - paddle1Y);
+      const direction = Math.sign(targetY - paddle1Y);
+      const step = Math.min(distance, paddle1Delay) * direction;
+
+      paddle1Y += step;
+    }
+
+    const speedIncrementInput = document.getElementById('speed-increment-input');
+    let speedIncrement = parseInt(speedIncrementInput.value);
+
+    function increaseBallSpeed() {
+      const maxSpeed = 8;
+      const increment = Math.min(speedIncrement, maxSpeed);
+      ballSpeedX += Math.sign(ballSpeedX) * increment;
+      ballSpeedY += Math.sign(ballSpeedY) * increment;
+
+      const colorIncrement = 255 / maxSpeed;
+      const currentSpeed = Math.abs(ballSpeedX);
+      const redValue = Math.max(0, 255 - colorIncrement * currentSpeed);
+      const blueValue = Math.max(0, 255 - colorIncrement * currentSpeed);
+      ball.style.fill = `rgb(${redValue}, 0, ${blueValue})`;
+    }
+
+    startButton.addEventListener('click', function () {
+      scoreReset();
+      reset();
+      gameoverText.style.visibility = 'hidden';
+      startButton.disabled = true;
+      paddle1Delay = parseInt(delayInput.value);
+      speedIncrement = parseInt(speedIncrementInput.value);
+      intervalId = setInterval(update, 1000 / 60);
+      pong.addEventListener('mousemove', handleMouseMove);
+      gameStarted = true;
+      // ゲーム開始後、パドル1を自動で動かす
+      paddle1TimerId = setInterval(handlePaddle1Movement, 1000 / 60);
+    });
+
+    delayInput.addEventListener('change', function () {
+      if (!gameStarted) {
+        paddle1Delay = parseInt(delayInput.value);
+      }
+    });
+
+    speedIncrementInput.addEventListener('change', function () {
+      speedIncrement = parseInt(speedIncrementInput.value);
+    });
+  </script>
+</body>
+</html>
