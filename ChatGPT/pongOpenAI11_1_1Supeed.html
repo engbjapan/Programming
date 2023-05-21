@@ -49,19 +49,15 @@
     let ballX = 400;
     let ballY = 200;
     let ballSpeedX, ballSpeedY;
-
     function ballSpeedReset() {
       ballSpeedX = 3;
       ballSpeedY = 3;
     }
-
     ballSpeedReset();
-
     const paddleHeight = 50;
     const paddleWidth = 10;
     const ballRadius = 10;
     const winningScore = 10;
-
     const pong = document.getElementById('pong');
     const paddle1 = document.getElementById('paddle1');
     const paddle2 = document.getElementById('paddle2');
@@ -69,168 +65,226 @@
     const score1Display = document.getElementById('score1');
     const score2Display = document.getElementById('score2');
     const gameoverText = document.getElementById('gameover-text');
-
     let score1, score2;
-
     function scoreReset() {
       score1 = 0;
       score2 = 0;
       score1Display.textContent = `コンピュータ: ${score1}`;
       score2Display.textContent = `プレーヤー: ${score2}`;
     }
-
     scoreReset();
-
-    let ballSpeedIncrement = 3;
-
     const delayInput = document.getElementById('delay-input');
     const startButton = document.getElementById('start-button');
-    const speedIncrementInput = document.getElementById('speed-increment-input');
+    let intervalId = 0;
+    let paddle1TimerId = 0;
+    let paddle1Delay = parseInt(delayInput.value);
+    let gameStarted = false;
 
-    let delay = parseInt(delayInput.value);
-    let speedIncrement = parseInt(speedIncrementInput.value);
+// SoundLevelの定義
+const SoundLevel = {
+  LOW: {
+    volume: 0.2,
+    frequency: 1000,
+    duration: 50,
+    repeat: 1
+  },
+  MEDIUM: {
+    volume: 0.5,
+    frequency: 1500,
+    duration: 100,
+    repeat: 2
+  },
+  HIGH: {
+    volume: 0.8,
+    frequency: 2000,
+    duration: 200,
+    repeat: 3
+  }
+};
 
-    delayInput.addEventListener('change', function() {
-      delay = parseInt(this.value);
-    });
+// ビープ音を再生する関数
+function playBeep(volume, frequency, duration, repeat) {
+  const context = new AudioContext();
+  const oscillator = context.createOscillator();
+  const gainNode = context.createGain();
 
-    speedIncrementInput.addEventListener('change', function() {
-      speedIncrement = parseInt(this.value);
-    });
+  oscillator.connect(gainNode);
+  gainNode.connect(context.destination);
 
-    function updatePaddle1() {
-      const paddle1Top = paddle1Y;
-      const paddle1Bottom = paddle1Y + paddleHeight;
-      const paddle1Center = paddle1Y + paddleHeight / 2;
+  gainNode.gain.value = volume;
+  oscillator.frequency.value = frequency;
 
-      if (paddle1Top > ballY - ballRadius && paddle1Bottom < ballY + ballRadius && ballSpeedX < 0) {
-        playMultipleBeepSounds(800, 0.1, 1, 200);
-        ballSpeedX *= -1;
-        const deltaY = ballY - paddle1Center;
-        ballSpeedY = deltaY * 0.35;
-      }
+  oscillator.start(context.currentTime);
+
+  // ビープ音の再生回数を制御
+  if (repeat) {
+    // 指定された回数だけビープ音を繰り返す
+    const intervalId = setInterval(() => {
+      oscillator.stop(context.currentTime + duration / 1000);
+      oscillator.start(context.currentTime);
+    }, duration);
+    
+    // 指定された再生時間が経過した後、繰り返しを停止する
+    setTimeout(() => {
+      clearInterval(intervalId);
+      oscillator.stop(context.currentTime);
+    }, duration * repeat);
+  } else {
+    // 指定された再生時間が経過した後、ビープ音を停止する
+    oscillator.stop(context.currentTime + duration / 1000);
+  }
+}
+
+// ビープ音を再生する関数を呼び出す箇所から呼び出す
+function handleCollisionSound(level) {
+  switch (level) {
+    case 'low':
+      playBeep(SoundLevel.LOW.volume, SoundLevel.LOW.frequency, SoundLevel.LOW.duration, SoundLevel.LOW.repeat);
+      break;
+    case 'medium':
+      playBeep(SoundLevel.MEDIUM.volume, SoundLevel.MEDIUM.frequency, SoundLevel.MEDIUM.duration, SoundLevel.MEDIUM.repeat);
+      break;
+    case 'high':
+      playBeep(SoundLevel.HIGH.volume, SoundLevel.HIGH.frequency, SoundLevel.HIGH.duration, SoundLevel.HIGH.repeat);
+      break;
+    default:
+      playBeep(SoundLevel.MEDIUM.volume, SoundLevel.MEDIUM.frequency, SoundLevel.MEDIUM.duration, SoundLevel.MEDIUM.repeat);
+      break;
+  }
+}
+
+    // パドルに当たったときのビープ音を再生する関数
+    function playPaddleSound() {
+      handleCollisionSound('low');
     }
 
-    function updatePaddle2() {
-      const paddle2Top = paddle2Y;
-      const paddle2Bottom = paddle2Y + paddleHeight;
-      const paddle2Center = paddle2Y + paddleHeight / 2;
-
-      if (paddle2Top > ballY - ballRadius && paddle2Bottom < ballY + ballRadius && ballSpeedX > 0) {
-        playMultipleBeepSounds(1000, 0.2, 1, 200);
-        ballSpeedX *= -1;
-        const deltaY = ballY - paddle2Center;
-        ballSpeedY = deltaY * 0.35;
-      }
+    // ゴールしたときのビープ音を再生する関数
+    function playGoalSound() {
+      handleCollisionSound('medium');
     }
 
-    function updateBall() {
+    // ゲーム終了時のビープ音を再生する関数
+    function playGameOverSound() {
+      handleCollisionSound('high');
+    }
+
+
+    function update() {
       ballX += ballSpeedX;
       ballY += ballSpeedY;
 
-      if (ballY + ballRadius > pong.clientHeight || ballY - ballRadius < 0) {
+      if (ballY < ballRadius || ballY > 400 - ballRadius) {
         ballSpeedY *= -1;
-        playMultipleBeepSounds(1200, 0.3, 1, 200);
       }
 
-      if (ballX - ballRadius < paddle1.clientWidth && ballY + ballRadius > paddle1Y && ballY - ballRadius < paddle1Y + paddleHeight) {
-        updatePaddle1();
+      if (ballX < paddleWidth + ballRadius && ballY > paddle1Y && ballY < paddle1Y + paddleHeight) {
+        ballSpeedX *= -1;
+        increaseBallSpeed();
+        playPaddleSound();
       }
 
-      if (ballX + ballRadius > pong.clientWidth - paddle2.clientWidth && ballY + ballRadius > paddle2Y && ballY - ballRadius < paddle2Y + paddleHeight) {
-        updatePaddle2();
+      if (ballX > 800 - paddleWidth - ballRadius && ballY > paddle2Y && ballY < paddle2Y + paddleHeight) {
+        ballSpeedX *= -1;
+        playPaddleSound();
       }
 
-      if (ballX + ballRadius > pong.clientWidth) {
-        playMultipleBeepSounds(1000, 0.2, 1, 200);
-        score1++;
-        if (score1 === winningScore) {
-          gameOver('コンピュータ');
-        } else {
-          score1Display.textContent = `コンピュータ: ${score1}`;
-          ballReset();
-        }
-      }
-
-      if (ballX - ballRadius < 0) {
-        playMultipleBeepSounds(800, 0.1, 1, 200);
+      if (ballX < ballRadius) {
         score2++;
-        if (score2 === winningScore) {
-          gameOver('プレーヤー');
-        } else {
-          score2Display.textContent = `プレーヤー: ${score2}`;
-          ballReset();
-        }
+        playGoalSound();
+        reset();
+      } else if (ballX > 800 - ballRadius) {
+        score1++;
+        playGoalSound();
+        reset();
       }
-    }
 
-    function ballReset() {
-      ballX = pong.clientWidth / 2;
-      ballY = pong.clientHeight / 2;
-      ballSpeedReset();
-    }
+      score1Display.textContent = `コンピュータ: ${score1}`;
+      score2Display.textContent = `プレーヤー: ${score2}`;
 
-    function gameOver(winner) {
-      gameoverText.style.visibility = 'visible';
-      gameoverText.textContent = `GAME OVER - ${winner}の勝利！`;
-      ballSpeedX = 0;
-      ballSpeedY = 0;
-    }
+      if (score1 === winningScore || score2 === winningScore) {
+        endGame();
+      }
 
-    function update() {
-      updatePaddle1();
-      updatePaddle2();
-      updateBall();
-    }
-
-    function render() {
       paddle1.setAttribute('y', paddle1Y);
       paddle2.setAttribute('y', paddle2Y);
       ball.setAttribute('cx', ballX);
       ball.setAttribute('cy', ballY);
     }
 
-    function step() {
-      update();
-      render();
+    function reset() {
+      ballX = 400;
+      ballY = 200;
+      ballSpeedX = 3;
+      ballSpeedY = 3;
+      ball.style.fill = 'black';
     }
 
-    let gameInterval;
+    function endGame() {
+      clearInterval(intervalId);
+      clearTimeout(paddle1TimerId);
+      pong.removeEventListener('mousemove', handleMouseMove);
+      startButton.disabled = false;
+      // ゲーム開始フラグをfalseに
+      gameStarted = false;
+      gameoverText.style.visibility = 'visible';
+      playGameOverSound();
+    }
 
-    startButton.addEventListener('click', function() {
+    function handleMouseMove(event) {
+      const rect = pong.getBoundingClientRect();
+      const mouseY = event.clientY - rect.top - paddleHeight / 2;
+      paddle2Y = Math.max(0, Math.min(400 - paddleHeight, mouseY));
+    }
+
+    function handlePaddle1Movement() {
+      const ballCenterY = ballY + ballRadius;
+      const targetY = ballCenterY - paddleHeight / 2;
+      const distance = Math.abs(targetY - paddle1Y);
+      const direction = Math.sign(targetY - paddle1Y);
+      const step = Math.min(distance, paddle1Delay) * direction;
+
+      paddle1Y += step;
+    }
+
+    const speedIncrementInput = document.getElementById('speed-increment-input');
+    let speedIncrement = parseInt(speedIncrementInput.value);
+
+    function increaseBallSpeed() {
+      const maxSpeed = 8;
+      const increment = Math.min(speedIncrement, maxSpeed);
+      ballSpeedX += Math.sign(ballSpeedX) * increment;
+      ballSpeedY += Math.sign(ballSpeedY) * increment;
+
+      const colorIncrement = 255 / maxSpeed;
+      const currentSpeed = Math.abs(ballSpeedX);
+      const redValue = Math.max(0, 255 - colorIncrement * currentSpeed);
+      const blueValue = Math.max(0, 255 - colorIncrement * currentSpeed);
+      ball.style.fill = `rgb(${redValue}, 0, ${blueValue})`;
+    }
+
+    startButton.addEventListener('click', function () {
       scoreReset();
+      reset();
       gameoverText.style.visibility = 'hidden';
-      ballReset();
-      paddle1Y = 175;
-      paddle2Y = 175;
-      clearInterval(gameInterval);
-      gameInterval = setInterval(step, delay);
+      startButton.disabled = true;
+      paddle1Delay = parseInt(delayInput.value);
+      speedIncrement = parseInt(speedIncrementInput.value);
+      intervalId = setInterval(update, 1000 / 60);
+      pong.addEventListener('mousemove', handleMouseMove);
+      gameStarted = true;
+      // ゲーム開始後、パドル1を自動で動かす
+      paddle1TimerId = setInterval(handlePaddle1Movement, 1000 / 60);
     });
 
-    pong.addEventListener('mousemove', function(event) {
-      paddle2Y = event.clientY - paddleHeight / 2;
-    });
-
-    function playMultipleBeepSounds(frequency, duration, count, interval) {
-      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      let i = 0;
-
-      function playBeepSound() {
-        const oscillator = audioContext.createOscillator();
-        oscillator.connect(audioContext.destination);
-        oscillator.type = 'sine';
-        oscillator.frequency.value = frequency;
-        oscillator.start();
-        oscillator.stop(audioContext.currentTime + duration);
-        i++;
-
-        if (i < count) {
-          setTimeout(playBeepSound, interval);
-        }
+    delayInput.addEventListener('change', function () {
+      if (!gameStarted) {
+        paddle1Delay = parseInt(delayInput.value);
       }
+    });
 
-      playBeepSound();
-    }
+    speedIncrementInput.addEventListener('change', function () {
+      speedIncrement = parseInt(speedIncrementInput.value);
+    });
   </script>
 </body>
 </html>
