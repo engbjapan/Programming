@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pong Game</title>
+  <style>
+    svg {
+      border: 1px solid black;
+      display: block;
+      margin: 0 auto;
+    }
+
+    #net {
+      stroke-dasharray: 5;
+      stroke-width: 2;
+    }
+
+    #gameover-text {
+      font-size: 48px;
+      fill: red;
+      visibility: hidden;
+    }
+
+    #score1 {
+      fill: red;
+    }
+
+    #score2 {
+      fill: blue;
+    }
+  </style>
+</head>
+<body>
+  <svg id="pong" width="800" height="400">
+    <rect id="background" x="0" y="0" width="800" height="400" fill="white" />
+    <line id="net" x1="400" y1="0" x2="400" y2="400" stroke="black" />
+    <rect id="paddle1" x="10" y="175" width="10" height="50" fill="black" />
+    <rect id="paddle2" x="780" y="175" width="10" height="50" fill="black" />
+    <circle id="ball" cx="400" cy="200" r="10" fill="black" />
+    <text id="score1" x="200" y="50" font-size="24" fill="red">コンピュータ: 0</text>
+    <text id="score2" x="600" y="50" font-size="24" fill="blue">プレーヤー: 0</text>
+    <text id="gameover-text" x="380" y="200" text-anchor="middle">GAME OVER</text>
+  </svg>
+  <p>パドル1の遅延時間（0-1000ms）: <input type="number" id="delay-input" min="0" max="1000" value="500" /></p>
+  <button id="start-button">ゲーム開始</button>
+  <p>ボールの速度上昇率: <input type="range" id="speed-increment-input" min="1" max="5" value="3" /></p>
+
+  <script>
+    let paddle1Y = 175;
+    let paddle2Y = 175;
+    let ballX = 400;
+    let ballY = 200;
+    let ballSpeedX, ballSpeedY;
+
+    function ballSpeedReset() {
+      ballSpeedX = 3;
+      ballSpeedY = 3;
+    }
+
+    ballSpeedReset();
+
+    const paddleHeight = 50;
+    const paddleWidth = 10;
+    const ballRadius = 10;
+    const winningScore = 10;
+
+    const pong = document.getElementById('pong');
+    const paddle1 = document.getElementById('paddle1');
+    const paddle2 = document.getElementById('paddle2');
+    const ball = document.getElementById('ball');
+    const background = document.getElementById('background');
+    const score1Display = document.getElementById('score1');
+    const score2Display = document.getElementById('score2');
+    const gameoverText = document.getElementById('gameover-text');
+
+    let score1, score2;
+
+    function playPaddleSound() {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      oscillator.connect(audioContext.destination);
+      oscillator.type = 'sine';
+      oscillator.frequency.value = 800;
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.1);
+    }
+
+    function playGoalSound() {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      oscillator.connect(audioContext.destination);
+      oscillator.type = 'sine';
+      oscillator.frequency.value = 1000;
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.2);
+    }
+
+    function playGameOverSound() {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      oscillator.connect(audioContext.destination);
+      oscillator.type = 'sine';
+      oscillator.frequency.value = 1200;
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.3);
+    }
+
+    function scoreReset() {
+      score1 = 0;
+      score2 = 0;
+      score1Display.textContent = `コンピュータ: ${score1}`;
+      score2Display.textContent = `プレーヤー: ${score2}`;
+    }
+
+    scoreReset();
+
+    const delayInput = document.getElementById('delay-input');
+    const startButton = document.getElementById('start-button');
+    const speedIncrementInput = document.getElementById('speed-increment-input');
+
+    let isGameRunning = false;
+    let isGamePaused = false;
+
+    function startGame() {
+      isGameRunning = true;
+      isGamePaused = false;
+      gameoverText.style.visibility = 'hidden';
+      ballSpeedReset();
+      scoreReset();
+      paddle1Y = 175;
+      paddle2Y = 175;
+      ballX = 400;
+      ballY = 200;
+      paddle1.setAttribute('y', paddle1Y);
+      paddle2.setAttribute('y', paddle2Y);
+      ball.setAttribute('cx', ballX);
+      ball.setAttribute('cy', ballY);
+      movePaddle1();
+      moveBall();
+    }
+
+    function pauseGame() {
+      isGamePaused = true;
+    }
+
+    function resumeGame() {
+      isGamePaused = false;
+      movePaddle1();
+      moveBall();
+    }
+
+    function endGame() {
+      isGameRunning = false;
+      if (score1 === winningScore) {
+        gameoverText.textContent = 'コンピュータの勝利！';
+      } else {
+        gameoverText.textContent = 'プレーヤーの勝利！';
+      }
+      gameoverText.style.visibility = 'visible';
+    }
+
+    function movePaddle1() {
+      if (isGamePaused) return;
+
+      const destinationY = ballY - paddleHeight / 2;
+      const distance = Math.abs(paddle1Y - destinationY);
+      const speed = Math.min(distance, 5);
+
+      if (paddle1Y < destinationY) {
+        paddle1Y += speed;
+      } else if (paddle1Y > destinationY) {
+        paddle1Y -= speed;
+      }
+
+      paddle1.setAttribute('y', paddle1Y);
+
+      if (isGameRunning) {
+        setTimeout(movePaddle1, delayInput.value);
+      }
+    }
+
+    function moveBall() {
+      if (isGamePaused) return;
+
+      ballX += ballSpeedX;
+      ballY += ballSpeedY;
+
+      if (ballY >= pong.clientHeight - ballRadius || ballY <= ballRadius) {
+        ballSpeedY *= -1;
+        playPaddleSound();
+      }
+
+      if (ballX >= pong.clientWidth - ballRadius) {
+        if (ballY > paddle2Y && ballY < paddle2Y + paddleHeight) {
+          ballSpeedX *= -1;
+          const deltaY = ballY - (paddle2Y + paddleHeight / 2);
+          ballSpeedY = deltaY * 0.35;
+          playPaddleSound();
+        } else {
+          score1++;
+          score1Display.textContent = `コンピュータ: ${score1}`;
+
+          if (score1 === winningScore) {
+            endGame();
+            playGameOverSound();
+          } else {
+            ballReset();
+            playGoalSound();
+          }
+        }
+      }
+
+      if (ballX <= ballRadius) {
+        if (ballY > paddle1Y && ballY < paddle1Y + paddleHeight) {
+          ballSpeedX *= -1;
+          const deltaY = ballY - (paddle1Y + paddleHeight / 2);
+          ballSpeedY = deltaY * 0.35;
+          playPaddleSound();
+        } else {
+          score2++;
+          score2Display.textContent = `プレーヤー: ${score2}`;
+
+          if (score2 === winningScore) {
+            endGame();
+            playGameOverSound();
+          } else {
+            ballReset();
+            playGoalSound();
+          }
+        }
+      }
+
+      ball.setAttribute('cx', ballX);
+      ball.setAttribute('cy', ballY);
+
+      if (isGameRunning) {
+        setTimeout(moveBall, 16);
+      }
+    }
+
+    function ballReset() {
+      ballX = pong.clientWidth / 2;
+      ballY = pong.clientHeight / 2;
+      ballSpeedReset();
+    }
+
+    startButton.addEventListener('click', startGame);
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        if (isGameRunning) {
+          if (isGamePaused) {
+            resumeGame();
+          } else {
+            pauseGame();
+          }
+        }
+      }
+    });
+
+    pong.addEventListener('mousemove', function (e) {
+      if (isGameRunning && !isGamePaused) {
+        const rect = pong.getBoundingClientRect();
+        const root = document.documentElement;
+        const mouseY = e.clientY - rect.top - root.scrollTop;
+        paddle2Y = mouseY - paddleHeight / 2;
+        paddle2.setAttribute('y', paddle2Y);
+      }
+    });
+
+    speedIncrementInput.addEventListener('input', function () {
+      const value = parseInt(speedIncrementInput.value);
+      ballSpeedX = Math.sign(ballSpeedX) * (Math.abs(ballSpeedX) + value);
+      ballSpeedY = Math.sign(ballSpeedY) * (Math.abs(ballSpeedY) + value);
+    });
+  </script>
+</body>
+</html>
