@@ -43,9 +43,6 @@
   <button id="start-button">ゲーム開始</button>
   <p>ボールの速度上昇率: <input type="range" id="speed-increment-input" min="1" max="5" value="3" /></p>
 
-  <!--デバッグ情報表示エリア-->
-  <div id="debug-info"></div>
-
   <script>
     let paddle1Y = 175;
     let paddle2Y = 175;
@@ -181,10 +178,6 @@
     }
 
     function update() {
-      // デバッグ情報の表示
-      const debugInfo = document.getElementById('debug-info');
-      debugInfo.textContent = `Ball: x=${ball.x}, y=${ball.y}, vx=${ball.vx}, vy=${ball.vy}`;
-      //処理関数実行
       updatePaddle1();
       updatePaddle2();
       updateBall();
