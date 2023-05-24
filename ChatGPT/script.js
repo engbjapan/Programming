@@ -162,3 +162,8 @@ delayInput.addEventListener('change', function () {
 speedIncrementInput.addEventListener('change', function () {
   speedIncrement = parseInt(speedIncrementInput.value);
 });
+function scoreReset() {
+  score1 = 0;
+  score2 = 0;
+}
+
