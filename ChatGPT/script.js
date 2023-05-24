@@ -24,6 +24,7 @@ let ballRadius = 10;
 let paddle1Delay = parseInt(delayInput.value);
 let speedIncrement = parseInt(speedIncrementInput.value);
 let gameStarted = false;
+let gameRunning = false;
 
 // 指定した周波数の音を指定した回数だけ繰り返し再生し、一定間隔で停止する関数
 function playTone(frequency, volume, duration, interval, repetitions, waveType = 'sine') {
@@ -71,7 +72,10 @@ function playGameOverSound() {
 }
 
 function update() {
-  console.log('update 関数が呼ばれました');
+  if (!gameRunning) {
+    return;
+  }
+
   ballX += ballSpeedX;
   ballY += ballSpeedY;
 
@@ -115,11 +119,11 @@ function update() {
     playGameOverSound();
     startButton.disabled = false;
   }
-  console.log('ボールの位置:', ballX, ballY);
-  console.log('パドル1の位置:', paddle1Y);
-  console.log('パドル2の位置:', paddle2Y);
-  console.log('スコア1:', score1);
-  console.log('スコア2:', score2);
+console.log('ボールの位置:', ballX, ballY);
+console.log('パドル1の位置:', paddle1Y);
+console.log('パドル2の位置:', paddle2Y);
+console.log('スコア1:', score1);
+console.log('スコア2:', score2);
 }
 
 function reset() {
@@ -152,6 +156,14 @@ function handlePaddle1Movement() {
 }
 
 startButton.addEventListener('click', function () {
+  if (gameRunning) {
+    stopGame();
+  } else {
+    startGame();
+  }
+});
+
+function startGame() {
   scoreReset();
   reset();
   gameoverText.style.visibility = 'hidden';
@@ -161,9 +173,16 @@ startButton.addEventListener('click', function () {
   intervalId = setInterval(update, 1000 / 60);
   pong.addEventListener('mousemove', handleMouseMove);
   gameStarted = true;
-  // ゲーム開始後、パドル1を自動で動かす
   paddle1TimerId = setInterval(handlePaddle1Movement, 1000 / 60);
-});
+  gameRunning = true;
+}
+
+function stopGame() {
+  clearInterval(intervalId);
+  clearInterval(paddle1TimerId);
+  startButton.disabled = false;
+  gameRunning = false;
+}
 
 delayInput.addEventListener('change', function () {
   if (!gameStarted) {
@@ -174,8 +193,8 @@ delayInput.addEventListener('change', function () {
 speedIncrementInput.addEventListener('change', function () {
   speedIncrement = parseInt(speedIncrementInput.value);
 });
+
 function scoreReset() {
   score1 = 0;
   score2 = 0;
 }
-
