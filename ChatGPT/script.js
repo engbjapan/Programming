@@ -115,6 +115,11 @@ function update() {
     playGameOverSound();
     startButton.disabled = false;
   }
+  console.log('ボールの位置:', ballX, ballY);
+  console.log('パドル1の位置:', paddle1Y);
+  console.log('パドル2の位置:', paddle2Y);
+  console.log('スコア1:', score1);
+  console.log('スコア2:', score2);
 }
 
 function reset() {
