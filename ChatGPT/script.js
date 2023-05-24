@@ -164,17 +164,23 @@ startButton.addEventListener('click', function () {
 });
 
 function startGame() {
-  scoreReset();
-  reset();
-  gameoverText.style.visibility = 'hidden';
-  startButton.disabled = true;
-  paddle1Delay = parseInt(delayInput.value);
-  speedIncrement = parseInt(speedIncrementInput.value);
-  intervalId = setInterval(update, 1000 / 60);
-  pong.addEventListener('mousemove', handleMouseMove);
-  gameStarted = true;
-  paddle1TimerId = setInterval(handlePaddle1Movement, 1000 / 60);
-  gameRunning = true;
+  if (gameRunning) {
+    stopGame();
+    startButton.textContent = 'ゲーム開始';
+  } else {
+    scoreReset();
+    reset();
+    gameoverText.style.visibility = 'hidden';
+    //startButton.disabled = true; //startButtonは常に有効にする
+    paddle1Delay = parseInt(delayInput.value);
+    speedIncrement = parseInt(speedIncrementInput.value);
+    intervalId = setInterval(update, 1000 / 60);
+    pong.addEventListener('mousemove', handleMouseMove);
+    gameStarted = true;
+    paddle1TimerId = setInterval(handlePaddle1Movement, 1000 / 60);
+    gameRunning = true;
+    startButton.textContent = 'ゲーム停止';
+  }
 }
 
 function stopGame() {
