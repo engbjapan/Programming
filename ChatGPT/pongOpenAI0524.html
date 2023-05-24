@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pong Game</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <svg id="pong" width="800" height="400">
+    <line id="net" x1="400" y1="0" x2="400" y2="400" stroke="black" />
+    <rect id="paddle1" x="10" y="175" width="10" height="50" fill="black" />
+    <rect id="paddle2" x="780" y="175" width="10" height="50" fill="black" />
+    <circle id="ball" cx="400" cy="200" r="10" fill="black" />
+    <text id="score1" x="200" y="50" font-size="24" fill="red">コンピュータ: 0</text>
+    <text id="score2" x="600" y="50" font-size="24" fill="blue">プレーヤー: 0</text>
+    <text id="gameover-text" x="380" y="200" text-anchor="middle">GAME OVER</text>
+  </svg>
+  <p>パドル1の遅延時間（0-1000ms）: <input type="number" id="delay-input" min="0" max="1000" value="500" /></p>
+  <button id="start-button">ゲーム開始</button>
+  <p>ボールの速度上昇率: <input type="range" id="speed-increment-input" min="1" max="5" value="3" /></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
