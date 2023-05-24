@@ -71,6 +71,7 @@ function playGameOverSound() {
 }
 
 function update() {
+  console.log('update 関数が呼ばれました');
   ballX += ballSpeedX;
   ballY += ballSpeedY;
 
@@ -124,9 +125,15 @@ function reset() {
 }
 
 function handleMouseMove(event) {
+  console.log('マウス移動イベントが発生しました');
+  console.log('マウスのY座標:', event.clientY);
+
   const boundingRect = pong.getBoundingClientRect();
   const mousePosition = event.clientY - boundingRect.top;
+  console.log('マウス位置の計算結果:', mousePosition);
+
   paddle1Y = Math.min(400 - paddleHeight, mousePosition);
+  console.log('パドル1のY座標:', paddle1Y);
 }
 
 function handlePaddle1Movement() {
