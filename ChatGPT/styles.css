@@ -22,3 +22,7 @@ svg {
 #score2 {
   fill: blue;
 }
+#pong {
+  margin: 0 auto;
+  display: block;
+}
