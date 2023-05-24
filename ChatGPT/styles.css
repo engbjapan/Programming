@@ -1,0 +1,24 @@
+svg {
+  border: 1px solid black;
+  display: block;
+  margin: 0 auto;
+}
+
+#net {
+  stroke-dasharray: 5;
+  stroke-width: 2;
+}
+
+#gameover-text {
+  font-size: 48px;
+  fill: red;
+  visibility: hidden;
+}
+
+#score1 {
+  fill: red;
+}
+
+#score2 {
+  fill: blue;
+}
