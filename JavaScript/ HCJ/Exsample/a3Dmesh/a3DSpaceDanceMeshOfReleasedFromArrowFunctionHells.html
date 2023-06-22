@@ -135,6 +135,7 @@
     function onMoversHobering(e){//私は、アロー地獄から開放されています
       let v = this;
       v.moversHobering = true;
+      if (v.moving) v.moving = false;
     }
     function onKeyDown(e) {//私は、アロー地獄から開放されています
       let v = this;
