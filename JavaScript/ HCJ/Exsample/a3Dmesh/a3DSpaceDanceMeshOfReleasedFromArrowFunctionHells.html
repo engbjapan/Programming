@@ -155,11 +155,15 @@
       let translateStep = 5; // 移動のステップ値
 
       switch (e.keyCode) {
-        /***注意！！これは、アンセーフな案では有りません。これをし続ける事で貴方のブラウザーが固まる可能性が有ります！！
-        .transform += `translateXorY(-Oｒ＋${translateStep}px)`
-        は、対象のtransformプロパティエリアへ、TranslateXorY(-Or+ N px)をチック分だけ蓄積させて
-        あたかも、移動しているように見せて居るだけで、コードを楽にして書いた良い意味で悪い例です。
+        /***注意！！これは、アンセーフな案です！！。
+        これをし続ける事で貴方のブラウザーが固まる可能性が有ります！！
+        
+        .transform += `translateXorY(-Oｒ＋${translateStep}px)`は、
+           対象のtransformプロパティエリアへ、TranslateXorY(-Or+ N px)をチック分だけ蓄積させて
+           あたかも、移動しているように見せて居るだけで、コードを楽にして書いた良い意味で悪い例です。
+        
         上までのTransFormとの違いから、何が見えますか？
+        
         簡単ですね。全ては、旋回（＝ドラッグ）操作からリセットされ
         　伸縮（＝ホイール）操作は、ドラッグで、控えたv.x/yをドラッグのTransFormに適用し、Scale3dTransForm関数を適用しています。
         以下も、その様にして、然るべきです。
