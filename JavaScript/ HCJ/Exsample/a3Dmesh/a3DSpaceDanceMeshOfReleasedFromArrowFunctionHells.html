@@ -8,6 +8,13 @@
 
 <body>
   <style>
+.parent {
+  display: flex;
+  flex-direction: column;
+}
+#canvas, #canvas-mesh-mover-operater {
+  align-self: center;
+}
     .meshs_dotted {
       border-style: dotted;
       border-width: 1px;
@@ -44,6 +51,7 @@
       background-image: linear-gradient(135deg, white, rgb(84, 109, 109), white);
     }
   </style>
+  <div class="parent">
   <div id="canvas" class="canvas_position_def canvas_size_def canvas_perspective_def canvas_background_image_def">
     <div id="canvas-mesh" name="mesh" class="mesh_position_def meshs_size_def meshs_dotted mesh_transform_def"
       style="transform:rotateX(-45deg) rotateY(45deg)">
@@ -85,6 +93,7 @@
         <td></td>
       </tr>
     </table>
+  </div>
   </div>
   <script>
     function debuginfos(msgs) {
