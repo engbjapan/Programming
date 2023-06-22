@@ -69,5 +69,15 @@ slide: false
     mySetUpListeners();
 ```
 
+# 適用サンプル
+HTML、CSS、JavaScriptオンリー
+
+https://engbjapan.github.io/Programming/JavaScript/%20HCJ/Exsample/a3Dmesh/a3DSpaceDanceMeshOfReleasedFromArrowFunctionHells.html
+
+# License
+MIT
+refer https://qiita.com/engbJapan/items/96ec14045b5eee6545d4
+
+
 # 参照先
 https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Function/bind
