@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>私はアロー地獄から開放されて宙を舞うことが出来ます(saferdTransrateVer)</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+  <style>
+.parent {
+  display: flex;
+  flex-direction: column;
+}
+#canvas, #canvas-mesh-mover-operater {
+  align-self: center;
+}
+    .meshs_dotted {
+      border-style: dotted;
+      border-width: 1px;
+      border-color: black;
+    }
+    .meshs_size_def {
+      width: 400px;
+      height: 400px;
+    }
+    .mesh_transform_def {
+      transform-style: preserve-3d;
+      transition: transform 1s;
+    }
+    .mesh_position_def {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+    }
+    .mesh_face_position_def {
+      position: absolute;
+    }
+    .canvas_position_def {
+      position: absolute;
+    }
+    .canvas_size_def {
+      width: 600px;
+      height: 600px;
+    }
+    .canvas_perspective_def {
+      perspective: 1200px;
+      perspective-origin: 50% 50%;
+    }
+    .canvas_background_image_def {
+      background-image: linear-gradient(135deg, white, rgb(84, 109, 109), white);
+    }
+  </style>
+  <div class="parent">
+  <div id="canvas" class="canvas_position_def canvas_size_def canvas_perspective_def canvas_background_image_def">
+    <div id="canvas-mesh" name="mesh" class="mesh_position_def meshs_size_def meshs_dotted mesh_transform_def"
+      style="transform:rotateX(-45deg) rotateY(45deg)">
+      <div name="FrontFace" class="mesh_face_position_def meshs_size_def meshs_dotted"
+        style="background-color: rgba(17, 195, 226, 0.3);">
+        <p>前面</p>
+      </div>
+      <div name="BackFace" class="mesh_face_position_def meshs_size_def meshs_dotted"
+        style="background-color: rgba(19, 170, 187, 0.3); transform: rotateY(180deg);">
+        <p>背面</p>
+      </div>
+      <div name="TopFace" class="mesh_face_position_def meshs_size_def meshs_dotted"
+        style="background-color:rgba(16, 196, 70, 0.3);transform:rotateX(90deg)">
+        <p>頂点面</p>
+      </div>
+      <div name="BottomFace" class="mesh_face_position_def meshs_size_def meshs_dotted"
+        style="background-color:rgba(16, 166, 86, 0.435);transform:rotateX(-90deg)">
+        <p>底面</p>
+      </div>
+      <div name="RightFace" class="mesh_face_position_def meshs_size_def meshs_dotted"
+        style="background-color: rgba(80, 17, 226, 0.3); transform: rotateY(90deg);">
+        <p>右面</p>
+      </div>
+      <div name="LeftFace" class="mesh_face_position_def meshs_size_def meshs_dotted"
+        style="background-color: rgba(18, 15, 185, 0.3); transform: rotateY(-90deg);">
+        <p>左面</p>
+      </div>
+    </div>
+  </div>
+  <div id="canvas-mesh-mover-operater" style="position:relative;top:600px;left:0;">
+    <table style="position:absolute; margin: auto; left: 0; right: 0;">
+      <tr>
+        <td></td>
+        <td>
+          <div title="ここでメッシュを操作します" id="canvas-mesh-mover"
+            style="width:100px;height:100px;background-color:rgba(142, 190, 157, 0.7);top:0;left:50%;transform:translateX(-50%);cursor:move">
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+  </div>
+  <script>
+    function debuginfos(msgs) {
+
+    }
+    function resetMoving(e) {//私は、アロー地獄から開放されています
+      /* 私は、静的スコープの制約から開放されており、呼び出し元（彼ら）の呼び出し時点の変数君達に直接アクセスできます。
+       * なぜなら、彼らが私を"私の名前.bind(v={変数郡モジュール})(パラメータ*)"の形式で呼び出してくれるからです。
+       * おかげで私は、誰か知らない人たちの静的スコープの制約を回避し、彼らの変数君達にアクセスすることが可能なのです。
+       * それでも、変数君達以外の動的ルール（再宣言、再代入）を守まもる事が出来るから安心しています。*/
+
+      let v = this;//だから私もletしか使いません。レットイットビー♪大丈V！
+      v.moving = false;
+
+    }
+    function onMouseMove(e) {//私は、アロー地獄から開放されています
+      let v = this;
+      if ((v.movers !== e.target) || (!v.moving)) {
+        resetMoving.bind(v)(e);//私は、お友達も静的スコープの呪縛から開放してあげます。
+        return;
+      }
+      v.x += e.clientY - v.prevY;
+      v.y += e.clientX - v.prevX;
+      v.moveTargetMesh.style.transform = `rotateX(${v.x}deg) rotateY(${v.y}deg)`;
+      v.prevX = e.clientX;
+      v.prevY = e.clientY;
+    }
+    function onMouseDown(e) {//私は、アロー地獄から開放されています
+      let v = this;
+      v.moving = true;
+      v.prevX = e.clientX;
+      v.prevY = e.clientY;
+    }
+    function onWheel(e) {//私は、アロー地獄から開放されています
+      let v = this;
+      if (e.deltaY < 0) {
+        v.scale += 0.1;
+      } else {
+        v.scale -= 0.1;
+      }
+      v.moveTargetMesh.style.transform = `rotateX(${v.x}deg) rotateY(${v.y}deg) scale3d(${v.scale},${v.scale},${v.scale})`;
+    }
+    function resetMovingAndHobering(e){//私は、アロー地獄から開放されています
+      let v = this;
+      resetMoving.bind(v)(e);
+      v.moversHobering = false;
+    }
+    function onMoversHobering(e){//私は、アロー地獄から開放されています
+      let v = this;
+      v.moversHobering = true;
+      if (v.moving) v.moving = false;
+    }
+    function onKeyDown(e) {//私は、アロー地獄から開放されています
+      let v = this;
+      if (!v.moversHobering) return;
+      let arrowKeyCodes = [37, 38, 39, 40]; // 左上右下の矢印キーコード
+      if (!arrowKeyCodes.includes(e.keyCode)) return;
+
+      let translateStep = 5; // 移動のステップ値
+      let preTransforms = v.moveTargetMesh.style.transform;
+      let applTranrate = (v, xsteps, ysteps) => [
+        rejectedTransraters = preTransforms.replace(/translate[X|Y]\([^\)]+\)/,""),
+        splitsTransraters = preTransforms.replace(/^(translate[X|Y]\([^\)]+\))/,"")
+                            .split(),
+        v.moveTargetMesh.style.transform = 
+          (xsteps) ?
+             ``
+            :(ysteps) ?
+               ``
+              :``
+                                             
+          '
+      ];
+      switch (e.keyCode) {
+        /***注意！！これは、アンセーフな案です！！。
+        これをし続ける事で貴方のブラウザーが固まる可能性が有ります！！
+        
+        .transform += `translateXorY(-Oｒ＋${translateStep}px)`は、
+           対象のtransformプロパティエリアへ、TranslateXorY(-Or+ N px)をチック分だけ蓄積させて
+           あたかも、移動しているように見せて居るだけで、コードを楽にして書いた良い意味で悪い例です。
+        
+        上までのTransFormとの違いから、何が見えますか？
+        
+        簡単ですね。全ては、旋回（＝ドラッグ）操作からリセットされ
+        　伸縮（＝ホイール）操作は、ドラッグで、控えたv.x/yをドラッグのTransFormに適用し、Scale3dTransForm関数を適用しています。
+        以下も、その様にして、然るべきです。
+        
+        何故、このbindスキームを公開したのか？その意図するもう一つの重要なポイントを此処に示さなかった。
+        　今、私はその時の私を後悔しています。
+        ***/
+        case 37: // 左キー
+          v.moveTargetMesh.style.transform += `translateX(-${translateStep}px)`;
+          break;
+        case 38: // 上キー
+          v.moveTargetMesh.style.transform += `translateY(-${translateStep}px)`;
+          break;
+        case 39: // 右キー
+          v.moveTargetMesh.style.transform += `translateX(${translateStep}px)`;
+          break;
+        case 40: // 下キー
+          v.moveTargetMesh.style.transform += `translateY(${translateStep}px)`;
+          break;
+      }
+    }
+    function mySetUpListeners(e) {
+      let v = {//私達は、これで彼女達（＝関数達）と変数を共有します。
+        movers: document.getElementById('canvas-mesh-mover-operater').querySelector('#canvas-mesh-mover'),
+        moveTargetMesh: document.getElementById('canvas').querySelector('#canvas-mesh'),
+        moving: false, x: 0, prevX: 0, y: 0, prevY: 0, scale: 1,moversHobering:false,
+      };
+
+      v.movers.setAttribute("title", `ここで「${v.moveTargetMesh.getAttribute("name")}」を旋回(マウスドラッグ)伸縮(マウスホイール)移動(矢印キー)します`);
+
+      //追跡二次元面座標軸の初期化
+      v.prevX = e.clientX;
+      v.prevY = e.clientY;
+      
+      //私達は、彼女達をアロー地獄から開放し彼女達をリスナー登録します。
+      v.movers.addEventListener('mouseup', resetMoving.bind(v));
+      v.movers.addEventListener('mouseout', resetMovingAndHobering.bind(v));
+
+      v.movers.addEventListener('mousemove', onMouseMove.bind(v));
+      v.movers.addEventListener('mousedown', onMouseDown.bind(v));
+      v.movers.addEventListener('wheel', onWheel.bind(v));
+      // onKeyDownで上下左右移動する為の彼女達を追加し、マウスホバーと矢印キーに対してリスナー登録します。
+      v.movers.addEventListener('mouseover', onMoversHobering.bind(v));//ホバーをキャプチャする彼女を登録
+      document.addEventListener('keydown', onKeyDown.bind(v));//矢印キーをキャプチャし上下左右に移動する彼女を登録
+
+    }
+    window.onload=mySetUpListeners;
+  </script>
+</body>
+</html>
+<!--
+https://qiita.com/engbJapan/items/96ec14045b5eee6545d4
+-->
