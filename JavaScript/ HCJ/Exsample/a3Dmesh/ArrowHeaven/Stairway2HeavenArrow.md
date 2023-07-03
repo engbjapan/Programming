@@ -507,3 +507,25 @@ That6 マイケル is a God!?fathers .
 また、WeakRefはオブジェクトへの弱い参照を提供します。これにより、オブジェクトがガベージコレクションされるまでの間、その内容を読み取ることができます。キャッシュシステムなどで役立ちます。
 
 これらのAPIは、長時間実行されるプログラムでメモリ使用量を最適化するために使用されます。詳しい情報はMDN Web Docsの[WeakMap](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)、[WeakSet](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)、[WeakRef](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)のページを参照してください。
+
+# おわりに
+
+:::note info
+この記事は、私がJavaScriptコード及び文章ドラフトを`Github`へMarkdownファイルとして作成し、`MicrosoftEdge`で閲覧しながら`Bing`を用いて記事の精査、補足情報の収集etcを行い作成したものです。
+
+`Microsoft Bing`は、Microsoftが提供する検索エンジンです。Bingは、Web、画像、動画、地図などの検索サービスを提供しています。
+
+- 機能
+
+ - **Web検索**: Bingは、Webページの検索結果を提供します。
+ - **画像検索**: Bingは、画像の検索結果を提供します。
+ - **動画検索**: Bingは、動画の検索結果を提供します。
+ - **地図検索**: Bingは、地図の検索結果を提供します。
+
+Bingは、Microsoftが提供する検索エンジンであり、Web、画像、動画、地図などの検索サービスを提供しています。Bingは、高度な検索アルゴリズムと人工知能技術を使用して、ユーザーに最適な検索結果を提供します。
+
+- Microsoft Bing: [https://www.bing.com/](https://www.bing.com/)
+  
+- Microsoft Edge: [https://www.microsoft.com/en-us/edge](https://www.microsoft.com/en-us/edge)
+
+:::
