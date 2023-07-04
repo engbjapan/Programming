@@ -4,25 +4,27 @@ tags: 大丈V JavaScript アロー天国への階段 習作
 author: engbJapan
 slide: false
 ---
+
 # はじめに
 
 この記事は、私が`大丈V`シリーズとしてJavaScriptの学習過程を記録した経緯を一旦復習し更にヒントを得た習作です。  
 
 このシリーズは「`アロー地獄`」と敢えて「地獄」というキーワードを用いた事から端を発したもので、  
-この`アロー達`が私にとって難解であり様々なスニペットを見れば見るほど混乱していました。 
+この`アロー達`が私にとって**難解**であり様々なスニペットを**見れば見るほど混乱**していました。 
 
 また、`X式列`の発見は、私がアロー達をPlayGroundでplayするために[`VScode`](https://code.visualstudio.com/)でコード中、いつもの通り**タイポ**（`{`とタイプすべきを`[`とタイプ）をしてしまいシンタックスエラーとなり該当箇所の訂正案に応じた結果、  
-**カンマ区切り「`カンマ演算子`」**でコードを綴り。後に誤りとこれ発見をしたものです。 
+
+カンマ区切り「**`カンマ演算子`**」でコードを綴り。後に誤りとこれ発見をしたものです。 
 
 そして、式列でのコードを学習しているうちに、**アロー階段**の先は地獄ではなく、  
 [天国への階段(*Stairway to Heaven*)](https://ja.wikipedia.org/wiki/%E5%A4%A9%E5%9B%BD%E3%81%B8%E3%81%AE%E9%9A%8E%E6%AE%B5_%28%E3%83%AC%E3%83%83%E3%83%89%E3%83%BB%E3%83%84%E3%82%A7%E3%83%83%E3%83%9A%E3%83%AA%E3%83%B3%E3%81%AE%E6%9B%B2%29)では？と言う思いに至った事を私なりにまとめたものです。
 
 この記事では、主に以下の4点を私が学習し・コード・コードテストを行い動作可能なスニペットを掲載しています。  
 
-- 式へステートメントを組み込む`.~`チェーンスタイル
-- 式列配置と記法の参考事項
-- 式列でプロパティ名ブロックスコープを使い自身を再帰的評価するロジック例
-- テンプレートリテラルX式列呼び出し例
+1. 式へステートメントを組み込む`.~`チェーンスタイル
+1. 式列配置と記法の参考事項
+1. 式列でプロパティ名ブロックスコープを使い自身を再帰的評価するロジック例
+1. テンプレートリテラルX式列呼び出し例
 
 # 本題
 ## 式へステートメントを組み込む`.~`チェーンスタイル
@@ -444,7 +446,7 @@ That6 マイケル is a God!?fathers .
   `大丈VXTag`タグ付きテンプレートリテラル関数は、4つの引数を受け取ります。`strings`は、テンプレートリテラル内の文字列部分の配列です。`personExp`は、テンプレートリテラル内の最初の式（この場合は`person`変数）の値です。`pTvam`は、テンプレートリテラル内の2番目の式（この場合は`aTvam`オブジェクト）の値です。最後に、`Debug`は、デバッグモードを有効にするかどうかを指定する真偽値です。
 
   1. これは、まずデバッグモードが有効な場合にデバッグ情報が出力します。次に、文字列部分を変数に代入し`pTvam.Q`と`pTvam.isa`の値が出力します。
-  1. 年齢判定用の「アロー関数」が呼び出します。この関数は、与えられた年齢に基づいて異なる文字列を生成し、それを`ppTvam.Ans`プロパティに格納します。
+  1. 年齢判定用の「アロー関数」を呼び出します。この関数は、与えられた年齢に基づいて異なる文字列を生成し、それを`ppTvam.Ans`プロパティに格納します。
      - アロー関数内では、年齢が40歳未満の場合は「youngster」、40歳以上60歳未満の場合は「Oyaji。」、60歳以上80歳未満の場合は「Jinys!」、80歳以上の場合は「God!?fathers」を返します。
   1. 最後に、これは配列を返しますが、この配列を呼び出し元では使用せず`aTvam`オブジェクトの`Ans`プロパティに紐づく戻り値をConsoleへ出力しています。
 
@@ -520,11 +522,11 @@ translateY(-40px) translateY(50px) translateX(-33px)`
 );
 ```
 
-## メモリー考察
+## メモリー考察への道？
 
 [Memory management https://developer.mozilla.org/ja/docs/Web/JavaScript/Memory_Management](https://developer.mozilla.org/ja/docs/Web/JavaScript/Memory_Management)
 
-### ターゲット　WeakMap、WeakSet、WeakRef
+### １ターゲット　WeakMap、WeakSet、WeakRef
 
 *WeakMap、WeakSet、WeakRefなどのAPIは、ガベージコレクションに関連するデータ構造やAPIです。これらはオブジェクトを**弱く保持**することで、ガベージコレクションの観察やメモリ使用の最適化に役立ちます。*
 
@@ -553,33 +555,34 @@ translateY(-40px) translateY(50px) translateX(-33px)`
 
 *この記事がご覧頂いた方々にとって何らかの参考になれば幸いです。*
 
-:::note info
+# 参照情報他
 
-この記事は、私がJavaScriptコード及び文章ドラフトを`Github`へMarkdownファイルとして作成し、`MicrosoftEdge`で閲覧しながら`Bing`を用いて記事の精査、補足情報の収集etcを行い作成したものです。
+- この記事は、私がJavaScriptコード及び文章ドラフトを`Github`へMarkdownファイルとして作成し、`MicrosoftEdge`で閲覧しながら`Bing`を用いて記事の精査、補足情報の収集etcを行い作成したものです。  
+  以下は、Bingからの紹介文です。
 
-`Microsoft Bing`は、Microsoftが提供する検索エンジンです。Bingは、Web、画像、動画、地図などの検索サービスを提供しています。
 
- - **Web検索**: Bingは、Webページの検索結果を提供します。
- - **画像検索**: Bingは、画像の検索結果を提供します。
- - **動画検索**: Bingは、動画の検索結果を提供します。
- - **地図検索**: Bingは、地図の検索結果を提供します。
+  `Microsoft Bing`は、Microsoftが提供する検索エンジンです。Bingは、Web、画像、動画、地図などの検索サービスを提供しています。
 
-Bingは、Microsoftが提供する検索エンジンであり、Web、画像、動画、地図などの検索サービスを提供しています。Bingは、高度な検索アルゴリズムと人工知能技術を使用して、ユーザーに最適な検索結果を提供します。
+   - **Web検索**: Bingは、Webページの検索結果を提供します。
+   - **画像検索**: Bingは、画像の検索結果を提供します。
+   - **動画検索**: Bingは、動画の検索結果を提供します。
+   - **地図検索**: Bingは、地図の検索結果を提供します。
+
+  Bingは、Microsoftが提供する検索エンジンであり、Web、画像、動画、地図などの検索サービスを提供しています。Bingは、高度な検索アルゴリズムと人工知能技術を使用して、ユーザーに最適な検索結果を提供します。
+---
+- 「天国への階段(Stairway to Heaven)」は、イギリスのロックグループ、レッド・ツェッペリンの代表曲です。ジミー・ペイジとロバート・プラントによる共作です。
+
+  - 天国への階段 (レッド・ツェッペリンの曲) - Wikipedia: [https://ja.wikipedia.org/wiki/天国への階段_(レッド・ツェッペリンの曲)](https://ja.wikipedia.org/wiki/%E5%A4%A9%E5%9B%BD%E3%81%B8%E3%81%AE%E9%9A%8E%E6%AE%B5_%28%E3%83%AC%E3%83%83%E3%83%89%E3%83%BB%E3%83%84%E3%82%A7%E3%83%83%E3%83%9A%E3%83%AA%E3%83%B3%E3%81%AE%E6%9B%B2%29)
+
+- MDN Web Docs: [https://developer.mozilla.org/](https://developer.mozilla.org/)
+
+- TypeScript Playground: [https://www.typescriptlang.org/play](https://www.typescriptlang.org/play)
 
 - Microsoft Bing: [https://www.bing.com/](https://www.bing.com/)
   
 - Microsoft Edge: [https://www.microsoft.com/en-us/edge](https://www.microsoft.com/en-us/edge)
 
 - Microsoft Visual Studio Code: [https://code.visualstudio.com/](https://code.visualstudio.com/)
-
-- MDN Web Docs: [https://developer.mozilla.org/](https://developer.mozilla.org/)
-
-- TypeScript Playground: [https://www.typescriptlang.org/play](https://www.typescriptlang.org/play)
-
-- 「天国への階段(Stairway to Heaven)」は、イギリスのロックグループ、レッド・ツェッペリンの代表曲です。ジミー・ペイジとロバート・プラントによる共作です。
-
-  - 天国への階段 (レッド・ツェッペリンの曲) - Wikipedia: [https://ja.wikipedia.org/wiki/天国への階段_(レッド・ツェッペリンの曲)](https://ja.wikipedia.org/wiki/%E5%A4%A9%E5%9B%BD%E3%81%B8%E3%81%AE%E9%9A%8E%E6%AE%B5_%28%E3%83%AC%E3%83%83%E3%83%89%E3%83%BB%E3%83%84%E3%82%A7%E3%83%83%E3%83%9A%E3%83%AA%E3%83%B3%E3%81%AE%E6%9B%B2%29)
-
-:::
+---
 
 :License: MIT
