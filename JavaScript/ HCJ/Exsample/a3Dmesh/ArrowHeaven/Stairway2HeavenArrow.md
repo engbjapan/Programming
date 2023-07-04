@@ -590,6 +590,17 @@ translateY(-40px) translateY(50px) translateX(-33px)`
 - Microsoft Edge: [https://www.microsoft.com/en-us/edge](https://www.microsoft.com/en-us/edge)
 
 - Microsoft Visual Studio Code: [https://code.visualstudio.com/](https://code.visualstudio.com/)
----
 
+---
+# 2 Fibonacci sequence Heaven!!
+「フィボナッチ数列」的な思考で、いわゆる「IK」物理学的IKをJavaScriptで実装することが可能です。実際に、GitHubには、**lo-th/fullik**というリポジトリがあります。これは、**three.js**上で動作する、**Inverse Kinematics**のための高速な反復ソルバーです。このライブラリは、JavaからCalikoライブラリへの変換であり、Calikoライブラリは、Dr. Andreas AristidouによるFABRIK逆運動学アルゴリズムの実装です¹。
+
+また、他にも、**Matter.js**という2D剛体JavaScript物理エンジンがあります。これは、Web用の2D物理エンジンであり、剛体、複合体、複合体、凹凸ハルなどの機能があります²。
+
+これらのライブラリを使用することで、「IK」物理学的IKをJavaScriptで実装することが可能です。
+
+(1) GitHub - lo-th/fullik: javascript fast iterative solver for Inverse .... https://github.com/lo-th/fullik.
+(2) Matter.js - a 2D rigid body JavaScript physics engine · code .... http://brm.io/matter-js/.
+(3) Build a simple 2D physics engine for JavaScript games. https://developer.ibm.com/tutorials/wa-build2dphysicsengine/.
+---
 :License: MIT
