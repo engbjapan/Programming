@@ -1,6 +1,6 @@
 ---
 title: 大丈Vシリーズまとめ「アロー天国への階段(Stairway to Arrow Heaven)」（習作）
-tags: 大丈V JavaScript アロー天国への階段 習作 
+tags: 大丈V JavaScript アロー天国への階段 習作 FibonacciSequenceHeaven
 author: engbJapan
 slide: false
 ---
