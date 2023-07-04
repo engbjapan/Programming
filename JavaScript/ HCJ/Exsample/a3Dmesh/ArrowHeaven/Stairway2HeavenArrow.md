@@ -7,13 +7,17 @@ slide: false
 # はじめに
 
 この記事は、私が`大丈V`シリーズとしてJavaScriptの学習過程を記録した経緯を一旦復習し更にヒントを得た習作です。  
-このシリーズは「`アロー地獄`」と敢えて「地獄」というキーワードを用いた事から端を発したもので、これの`アロー達`が私にとって難解であり様々なスニペットを見れば見るほど混乱していました。 
-また、`X式列`の発見は、私がアロー達をplayGroundでplayするために[`VScode`](https://code.visualstudio.com/)でコード中、いつもの通り**タイポ**（`{`とタイプすべきを`[`とタイプ）をしてしまいシンタックスエラーとなり該当箇所の訂正案に応じた結果、**カンマ区切り「`カンマ演算子`」**でコードを綴り。後に誤りとこれ発見をしたものです。 
-その結果、式列でのコードを学習しているうちに、**アロー階段**の先は地獄ではなく、  
+
+このシリーズは「`アロー地獄`」と敢えて「地獄」というキーワードを用いた事から端を発したもので、  
+この`アロー達`が私にとって難解であり様々なスニペットを見れば見るほど混乱していました。 
+
+また、`X式列`の発見は、私がアロー達をPlayGroundでplayするために[`VScode`](https://code.visualstudio.com/)でコード中、いつもの通り**タイポ**（`{`とタイプすべきを`[`とタイプ）をしてしまいシンタックスエラーとなり該当箇所の訂正案に応じた結果、  
+**カンマ区切り「`カンマ演算子`」**でコードを綴り。後に誤りとこれ発見をしたものです。 
+
+そして、式列でのコードを学習しているうちに、**アロー階段**の先は地獄ではなく、  
 [天国への階段(*Stairway to Heaven*)](https://ja.wikipedia.org/wiki/%E5%A4%A9%E5%9B%BD%E3%81%B8%E3%81%AE%E9%9A%8E%E6%AE%B5_%28%E3%83%AC%E3%83%83%E3%83%89%E3%83%BB%E3%83%84%E3%82%A7%E3%83%83%E3%83%9A%E3%83%AA%E3%83%B3%E3%81%AE%E6%9B%B2%29)では？と言う思いに至った事を私なりにまとめたものです。
 
-この記事では、主に以下の4点を学習し・コード・コードテストを行い動作可能なスニペットを掲載しています。  
-*この記事がご覧頂いた方々にとって何らかの参考になれば幸いです。*
+この記事では、主に以下の4点を私が学習し・コード・コードテストを行い動作可能なスニペットを掲載しています。  
 
 - 式へステートメントを組み込む`.~`チェーンスタイル
 - 式列配置と記法の参考事項
@@ -516,11 +520,11 @@ translateY(-40px) translateY(50px) translateX(-33px)`
 );
 ```
 
-# メモリー考察
+## メモリー考察
 
 [Memory management https://developer.mozilla.org/ja/docs/Web/JavaScript/Memory_Management](https://developer.mozilla.org/ja/docs/Web/JavaScript/Memory_Management)
 
-## ターゲット　WeakMap、WeakSet、WeakRef
+### ターゲット　WeakMap、WeakSet、WeakRef
 
 *WeakMap、WeakSet、WeakRefなどのAPIは、ガベージコレクションに関連するデータ構造やAPIです。これらはオブジェクトを**弱く保持**することで、ガベージコレクションの観察やメモリ使用の最適化に役立ちます。*
 
@@ -530,15 +534,30 @@ translateY(-40px) translateY(50px) translateX(-33px)`
 
 これらのAPIは、長時間実行されるプログラムでメモリ使用量を最適化するために使用されます。詳しい情報はMDN Web Docsの[WeakMap](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)、[WeakSet](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WeakSet)、[WeakRef](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/WeakRef)のページを参照してください。
 
+## 本記事主題の学識者的解釈？（from Bing):
+
+このページの記事では、*[フィボナッチ数列](https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0)*に関するコードやロジックの例を紹介しています。例えば、以下のようなものです。
+
+- 式へステートメントを組み込む`.~`チェーンスタイル
+- 式列配置と記法の参考事項
+- 式列でプロパティ名ブロックスコープを使い自身を再帰的評価するロジック例
+- テンプレートリテラルX式列呼び出し例
+
+これらの例は、JavaScriptの構文や機能を使って、フィボナッチ数列を生成したり、操作したりする方法を示しています。
+
+「フィボナッチ数列」は、数学の分野で広く研究されている数列の一つです。この数列は、イタリアの数学者であるフィボナッチ(1170 - 1259年)が名付けたもので、「1、1、2、3、5、8、13、21、34、55、89、144、233…」のように、前の数字を足した数が続く法則のことです。
+
+フィボナッチ数列は、自然界における成長や増殖などの現象を表す際にも用いられることがあります。また、フィボナッチ数列に基づく「黄金比」は、美術や建築など様々な分野で応用されています。
+
 # おわりに
+
+*この記事がご覧頂いた方々にとって何らかの参考になれば幸いです。*
 
 :::note info
 
 この記事は、私がJavaScriptコード及び文章ドラフトを`Github`へMarkdownファイルとして作成し、`MicrosoftEdge`で閲覧しながら`Bing`を用いて記事の精査、補足情報の収集etcを行い作成したものです。
 
 `Microsoft Bing`は、Microsoftが提供する検索エンジンです。Bingは、Web、画像、動画、地図などの検索サービスを提供しています。
-
-- 機能
 
  - **Web検索**: Bingは、Webページの検索結果を提供します。
  - **画像検索**: Bingは、画像の検索結果を提供します。
@@ -551,15 +570,16 @@ Bingは、Microsoftが提供する検索エンジンであり、Web、画像、�
   
 - Microsoft Edge: [https://www.microsoft.com/en-us/edge](https://www.microsoft.com/en-us/edge)
 
-:::
-
 - Microsoft Visual Studio Code: [https://code.visualstudio.com/](https://code.visualstudio.com/)
 
 - MDN Web Docs: [https://developer.mozilla.org/](https://developer.mozilla.org/)
+
 - TypeScript Playground: [https://www.typescriptlang.org/play](https://www.typescriptlang.org/play)
+
 - 「天国への階段(Stairway to Heaven)」は、イギリスのロックグループ、レッド・ツェッペリンの代表曲です。ジミー・ペイジとロバート・プラントによる共作です。
 
   - 天国への階段 (レッド・ツェッペリンの曲) - Wikipedia: [https://ja.wikipedia.org/wiki/天国への階段_(レッド・ツェッペリンの曲)](https://ja.wikipedia.org/wiki/%E5%A4%A9%E5%9B%BD%E3%81%B8%E3%81%AE%E9%9A%8E%E6%AE%B5_%28%E3%83%AC%E3%83%83%E3%83%89%E3%83%BB%E3%83%84%E3%82%A7%E3%83%83%E3%83%9A%E3%83%AA%E3%83%B3%E3%81%AE%E6%9B%B2%29)
 
+:::
 
 :License: MIT
