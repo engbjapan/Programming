@@ -19,7 +19,10 @@ slide: false
 そして、式列でのコードを学習しているうちに、**アロー階段**の先は地獄ではなく、  
 [天国への階段(*Stairway to Heaven*)](https://ja.wikipedia.org/wiki/%E5%A4%A9%E5%9B%BD%E3%81%B8%E3%81%AE%E9%9A%8E%E6%AE%B5_%28%E3%83%AC%E3%83%83%E3%83%89%E3%83%BB%E3%83%84%E3%82%A7%E3%83%83%E3%83%9A%E3%83%AA%E3%83%B3%E3%81%AE%E6%9B%B2%29)では？と言う思いに至った事を私なりにまとめたものです。
 
-この記事では、主に以下の4点を私が学習し・コード・コードテストを行い動作可能なスニペットを掲載しています。  
+この記事では、主に以下の4点を私が学習し、   
+（「コード・コードテストを行い動作可能」  
+若しくは「コード無し」 
+若しくは「コードは有るが目的の動作をしない」）ものを掲載しています。  
 
 1. 式へステートメントを組み込む`.~`チェーンスタイル
 1. 式列配置と記法の参考事項
@@ -118,7 +121,9 @@ slide: false
 
 ### これらの動作確認済みのコードスニペット及びその説明
 
-#### 無名関数 bind(`.~`)チェーンに於けるcallのコード例:**TODO!!**
+#### 無名関数 bind(`.~`)チェーンに於けるcallのコード例:**TODO**
+これは「アロー関数(`.~`)チェーンに於けるcallコード例」と同様の動作をしません。 
+もし興味が有ればコメント欄などに示したくださると幸いです。
 
 ```javascript:無名関数bindチェーンに於けるcall式列
 let 大丈VModXFunctionBindCalls = (pmyObject, pmsg) => [//X式列
@@ -184,6 +189,8 @@ avam.addsparam=true,avam.addsArray=1,2,3
 ```
 
 #### 無名class new(`.~`)チェーンに於けるメソッド呼び出しコード例:**TODO!!**
+これは「アロー関数(`.~`)チェーンに於けるcallコード例」と同様のコードを書いていません。   
+もし興味が有ればコメント欄などに示したくださると幸いです。
 
 #### アロー関数(`.~`)チェーンに於けるcallコード例
 
@@ -464,7 +471,10 @@ That6 マイケル is a God!?fathers .
        その引数へ依存できるfunctionステートメント Or 式列をコード出来ます。  
 - また、プロパティ名はその中からブロックスコープとして参照出来ます。  
 
-### これに基づく、動作確認済みコードスニペット **TODO!!**
+### これに基づく、目的動作をしない事を確認済みのコードスニペット **TODO!!**
+
+このコードはコメント中にある「`//目的とする出力>...`」を得ることが出来ませんでした。  
+もし、興味が有ればコメント欄などに示して下さると幸いです。
 
 ```javascript:動作確認済みコードスニペット
 (
@@ -513,7 +523,7 @@ new spPm.InCS("aaa","bbb"),
 gettsTransraters = preTransforms.replace(rejectedTransraters,""),
 console.log(`gettsTransraters=${gettsTransraters}`),
   //??> gettsTransraters=rotateX(40deg) rotateY(30deg) scale3d(3,3,3) translateX(-10px) translateY(-40px) translateY(50px) translateX(-33px)
-  //MyAims> gettsTransraters=translateX(-10px) translateY(-40px) translateY(50px) translateX(-33px)
+  //目的とする出力> gettsTransraters=translateX(-10px) translateY(-40px) translateY(50px) translateX(-33px)
 
 ])
 (
@@ -539,8 +549,10 @@ translateY(-40px) translateY(50px) translateX(-33px)`
 ## 本記事主題を把握する為の「フィボナッチ数列」（from Bing):
 
 ---
+
 これは、私が本記事の要約をBingへ依頼した時に得た情報です。  
 私的に「フィボナッチ数列」？？？となっておりますが有識者であれば、この「まとまりの無い記事」を把握する為に役立つかもしれません。
+
 ---
 
 このページの記事では、*[フィボナッチ数列](https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0)*に関するコードやロジックの例を紹介しています。例えば、以下のようなものです。
