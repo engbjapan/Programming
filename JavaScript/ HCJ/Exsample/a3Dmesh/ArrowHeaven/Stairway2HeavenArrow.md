@@ -1,6 +1,6 @@
 ---
 title: 大丈Vシリーズまとめ「アロー天国への階段(Stairway to Arrow Heaven)」（習作）
-tags: 大丈V JavaScript アロー天国への階段 習作 FibonacciSequenceHeaven
+tags: 大丈V JavaScript アロー天国への階段 X式列 FibonacciSequenceHeaven
 author: engbJapan
 slide: false
 ---
@@ -9,20 +9,18 @@ slide: false
 
 この記事は、私が`大丈V`シリーズとしてJavaScriptの学習過程を記録した経緯を一旦復習し更にヒントを得た習作です。  
 
-このシリーズは「`アロー地獄`」と敢えて「地獄」というキーワードを用いた事から端を発したもので、  
-この`アロー達`が私にとって**難解**であり様々なスニペットを**見れば見るほど混乱**していました。 
+このシリーズは「`アロー地獄`」と敢えて「地獄」というキーワードを用いた事から端を発したもので、この`アロー達`が私にとって**難解**であり様々なスニペットを**見れば見るほど混乱**していました。 
 
-また、`X式列`の発見は、私がアロー達をPlayGroundでplayするために[`VScode`](https://code.visualstudio.com/)でコード中、いつもの通り**タイポ**（`{`とタイプすべきを`[`とタイプ）をしてしまいシンタックスエラーとなり該当箇所の訂正案に応じた結果、  
+また、`X式列`の発見は、私がアロー達をPlayGroundでplayするために[`VScode`](https://code.visualstudio.com/)でコード中、いつもの通り**タイポ**（`{`とタイプすべきを`[`とタイプ）をしてしまいシンタックスエラーとなり該当箇所の訂正案に応じた結果、カンマ区切り「**`カンマ演算子`**」でコードを綴り。後に誤りとこれ発見をしたものです。 
 
-カンマ区切り「**`カンマ演算子`**」でコードを綴り。後に誤りとこれ発見をしたものです。 
 
-そして、式列でのコードを学習しているうちに、**アロー階段**の先は地獄ではなく、  
+そして、式列でのコードを学習しているうちに、**アロー階段**の先は地獄では無く
 [天国への階段(*Stairway to Heaven*)](https://ja.wikipedia.org/wiki/%E5%A4%A9%E5%9B%BD%E3%81%B8%E3%81%AE%E9%9A%8E%E6%AE%B5_%28%E3%83%AC%E3%83%83%E3%83%89%E3%83%BB%E3%83%84%E3%82%A7%E3%83%83%E3%83%9A%E3%83%AA%E3%83%B3%E3%81%AE%E6%9B%B2%29)では？と言う思いに至った事を私なりにまとめたものです。
 
 この記事では、主に以下の4点を私が学習し、   
 （「コード・コードテストを行い動作可能」  
-若しくは「コード無し」 
-若しくは「コードは有るが目的の動作をしない」）ものを掲載しています。  
+若しくは「コード無し」=> `TODO`マークが目印
+若しくは「コードは有るが目的動作不能」=> `TODO`マークが目印）な物を掲載しています。  
 
 1. 式へステートメントを組み込む`.~`チェーンスタイル
 1. 式列配置と記法の参考事項
@@ -37,14 +35,14 @@ slide: false
 ### 無名関数 bind(`.~`)チェーンを使いfunctionとして呼び出すスタイル
 
   ```javascript:
-  (function(引数定義*){ステートメント;...})
-    .bind(依存Object値)(引数*),
+  (function(引数定義){ステートメント;...})
+    .bind(依存Object値)(引数),
     //又は、
-    //.bind(依存Object値, 引数*)(),
-    //.bind(依存Object値, 引数*).call(),
-    //.bind(依存Object値).call(null, 引数*),
+    //.bind(依存Object値, 引数)(),
+    //.bind(依存Object値, 引数).call(),
+    //.bind(依存Object値).call(null, 引数),
     //.bind(依存Object値).apply(null ,[引数列]*),
-    //.bind(依存Object値, [引数列]*).apply(),//?
+    //.bind(依存Object値, [引数列]).apply(),//?
     //etc?
   ```
 
@@ -61,15 +59,15 @@ slide: false
   (new 
     (class{
         constructor(依存Object, 
-                    コンストラクタ引数定義*){
+                    コンストラクタ引数定義){
             インスタンス初期化ステートメント;...
             this.依存Object = 依存Object;
         }
-        メソッド(引数定義*){
+        メソッド(引数定義){
             {ステートメント;...};...
         }...
-    })(依存Object値,コンストラクタ引数*))
-    .メソッド(引数*),
+    })(依存Object値,コンストラクタ引数))
+    .メソッド(引数),
      //etc...
   ```
 
@@ -83,11 +81,11 @@ slide: false
 ### アロー関数(`.~`)チェーンを使いアローfunctionとして呼び出すスタイル
 
   ```javascript:
-  ((依存Object, 引数定義*) => {ステートメント;...})
-  　(依存Object値, 引数*),
+  ((依存Object, 引数定義) => {ステートメント;...})
+    (依存Object値, 引数),
     //又は、
-    //.call(null, 依存Object値, 引数*),
-    //.apply(null, 依存Object値, [引数列]*),
+    //.call(null, 依存Object値, 引数),
+    //.apply(null, 依存Object値, [引数列]),
   ```
 
   `{ステートメント;...}`内での「依存Object」のプロパティ｜メソッド｜関数 へのアクセスは、
@@ -99,13 +97,13 @@ slide: false
   - *更に、`.bind`生成した場合は無名関数と同じように*
 
     ```javascript:
-    ((依存Object, 引数定義*) => {ステートメント;...})
-    .bind(依存Object値)(引数*),
-    //.bind(依存Object値, 引数*)(),
-    //.bind(依存Object値, 引数*).call(),
-    //.bind(依存Object値).call(null, 引数*),
-    //.bind(依存Object値).apply(null ,[引数列]*),
-    //.bind(依存Object値, [引数列]*).apply(),//?
+    ((依存Object, 引数定義) => {ステートメント;...})
+    .bind(依存Object値)(引数),
+    //.bind(依存Object値, 引数)(),
+    //.bind(依存Object値, 引数).call(),
+    //.bind(依存Object値).call(null, 引数),
+    //.bind(依存Object値).apply(null ,[引数列]),
+    //.bind(依存Object値, [引数列]).apply(),//?
     //etc?
     ```
 
@@ -119,11 +117,16 @@ slide: false
     *とコードすると、this参照を与え同じように動作するかもしれませんが、*  
    *「**アロー天国への階段(*Stairway to ArrowHeaven*)**」へ行くことができないと思われます。*
 
-### これらの動作確認済みのコードスニペット及びその説明
+### `.~`チェーンスタイル別のTODO有りコードスニペット及びその説明
+
+この節には、上記で述べた三つのスタイル別のコードスニペットを記載しています。なお、冒頭で述べた通り未完成・目的動作をしないものを私の都合により掲載しています。
+
+ベースとなるロジックは三つ目の「**アロー関数(`.~`)チェーンに於けるcallコード例**」です。ので、そこから見てください。
+
+そして比較すれば私がこの記事で述べている「**アロー天国への階段**」の意味が分かると思います。
 
 #### 無名関数 bind(`.~`)チェーンに於けるcallのコード例:**TODO**
 これは「アロー関数(`.~`)チェーンに於けるcallコード例」と同様の動作をしません。 
-もし興味が有ればコメント欄などに示したくださると幸いです。
 
 ```javascript:無名関数bindチェーンに於けるcall式列
 let 大丈VModXFunctionBindCalls = (pmyObject, pmsg) => [//X式列
@@ -189,8 +192,7 @@ avam.addsparam=true,avam.addsArray=1,2,3
 ```
 
 #### 無名class new(`.~`)チェーンに於けるメソッド呼び出しコード例:**TODO!!**
-これは「アロー関数(`.~`)チェーンに於けるcallコード例」と同様のコードを書いていません。   
-もし興味が有ればコメント欄などに示したくださると幸いです。
+これは「アロー関数(`.~`)チェーンに於けるcallコード例」と同様の振る舞いをするコードを書けていません。
 
 #### アロー関数(`.~`)チェーンに於けるcallコード例
 
@@ -266,9 +268,9 @@ avam.addsparam=こんばんは, avam.addsArray=1,2,3,4
   「`if/for/while etc (conds*) {...}`」etc?へ配置する場合は「`funcX : (引数*)=>  [`」で良いはずです。  
 - *要は、該当のブロック内に配列定義を記載する場合と同様の考え＋`(引数*)=>[`です。*
 
-## 式列でプロパティ名ブロックスコープを使い自身を再帰的に評価するロジック例
+## 式列でプロパティ名ブロックスコープを使い自身を再帰的に評価するコード例
 
-```javascript:式列でプロパティ名ブロックスコープを使い自身を再帰的に評価するロジック例
+```javascript:式列でプロパティ名ブロックスコープを使い自身を再帰的に評価するコード例
 setTimeout(() => [//setTimeout時に実行するX式列ブロック 定義
   console.log(//これで、最終的な値を出力する。
 
@@ -311,9 +313,27 @@ setTimeout(() => [//setTimeout時に実行するX式列ブロック 定義
 再帰的な呼び出しの際には、現在値に*1*を加えて渡します。最終的には、結果格納用オブジェクトの*eIdxプロパティ*に現在値をセットして戻ります。この戻り値が*console.log*で出力されます。
 
 <details>
-  <summary>「プロパティ名ブロックスコープ」での「再帰」と「一時変数によるグローバル名前空間の汚染制御」:BIngからの参考情報</summary>
+  <summary>「プロパティ名ブロックスコープ」での「再帰」と「一時変数によるグローバル名前空間の汚染制御」:Bingからの参考情報</summary>
 
-- プロパティ名ブロックスコープ「再帰」と一時変数によるグローバル名前空間の制御
+プロパティ名ブロックスコープ「再帰」と一時変数によるグローバル名前空間の制御
+
+- 「プロパティ名ブロックスコープ」は、オブジェクトのプロパティ名に[ブロック](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block)（`{...}`）を使って[スコープ](https://developer.mozilla.org/ja/docs/Glossary/Scope)を作ることを示したキーワードです。[これにより、let、const、classなどのブロックスコープ宣言と組み合わせることで、IIFEのように、一時変数がグローバル名前空間を汚染するのを防ぐことができます。](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block)
+例えば、以下のコードでは、let変数xはブロック内で宣言されているため、そのスコープはブロック内に制限されます。
+
+```javascript
+let x = 1;
+{
+  let x = 2;
+}
+console.log(x); // 1
+```
+
+　[このx = 2は、それが定義されたブロックのスコープに制限されています。同じことがconstにも言えます。](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const)このように、「プロパティ名ブロックスコープ」を使用することで、「変数のスコープを制限」し、データをカプセル化することができます。
+
+    - ソース
+  1. [ブロック https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block)- JavaScript | MDN - MDN Web Docs.
+  1. [let https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/let](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/let) - JavaScript | MDN - MDN Web Docs.
+  1. [const https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const) - JavaScript | MDN - MDN Web Docs.
 
   - 「プロパティ名ブロックスコープ「再帰」」は、JavaScriptの[式列](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Comma_Operator)と[プロパティ名](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names)を使って自身を再帰（[再帰とは、が自分自身を呼び出すことを指します。再帰関数は、複雑なデータ構造の扱いが得すただし、for文の方が早いことが多いので、使いドコロが限られるかもしれません。そでも、プログラミングの幅が広がるという点では学んでおいて損はないかと思われます。再帰は関数型プログラミングにおける重要概念の１つであり、ひょっとしたら新しい世界が開けるかもしれません。](https://qiita.com/chuck0523/items/2c40a5da90a1d73ab956))呼び出しする
 
@@ -332,24 +352,6 @@ setTimeout(() => [//setTimeout時に実行するX式列ブロック 定義
      arrayLength(nums);
    ```
    `arrayLength`は再帰関数です。処理の中で自分自身を呼んでいます。 また、if文では、終了条件を規定しています。渡された配列が空だった場合に、再帰呼び出しを終了します。このように、再帰関数を使用することで、複雑な処理を簡潔に記述することができます。
-
-- 「プロパティ名ブロックスコープ」は、オブジェクトのプロパティ名に[ブロック](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block)（`{...}`）を使って[スコープ](https://developer.mozilla.org/ja/docs/Glossary/Scope)を作ることを示したキーワードです。[これにより、let、const、classなどのブロックスコープ宣言と組み合わせることで、IIFEのように、一時変数がグローバル名前空間を汚染するのを防ぐことができます。](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block)
-例えば、以下のコードでは、let変数xはブロック内で宣言されているため、そのスコープはブロック内に制限されます。
-
-```javascript
-let x = 1;
-{
-  let x = 2;
-}
-console.log(x); // 1
-```
-
-　[このx = 2は、それが定義されたブロックのスコープに制限されています。同じことがconstにも言えます。](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const)このように、「プロパティ名ブロックスコープ」を使用することで、「変数のスコープを制限」し、データをカプセル化することができます。
-
-- ソース
-  1. [ブロック https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block)- JavaScript | MDN - MDN Web Docs.
-  1. [let https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/let](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/let) - JavaScript | MDN - MDN Web Docs.
-  1. [const https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const) - JavaScript | MDN - MDN Web Docs.
 
 </details>
 
@@ -473,8 +475,7 @@ That6 マイケル is a God!?fathers .
 
 ### これに基づく、目的動作をしない事を確認済みのコードスニペット **TODO!!**
 
-このコードはコメント中にある「`//目的とする出力>...`」を得ることが出来ませんでした。  
-もし、興味が有ればコメント欄などに示して下さると幸いです。
+このコードはコメント中にある「`//目的とする出力>...`」を得ることが出来ませんでした。  もし、興味が有ればコメント欄などに示して下さると幸いです。
 
 ```javascript:動作確認済みコードスニペット
 (
@@ -548,14 +549,12 @@ translateY(-40px) translateY(50px) translateX(-33px)`
 
 ## 本記事主題を把握する為の「フィボナッチ数列」（from Bing):
 
----
-
 これは、私が本記事の要約をBingへ依頼した時に得た情報です。  
 私的に「フィボナッチ数列」？？？となっておりますが有識者であれば、この「まとまりの無い記事」を把握する為に役立つかもしれません。
 
 ---
 
-このページの記事では、*[フィボナッチ数列](https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0)*に関するコードやロジックの例を紹介しています。例えば、以下のようなものです。
+このページの記事では、[*フィボナッチ数列*](https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0)に関するコードやロジックの例を紹介しています。例えば、以下のようなものです。
 
 - 式へステートメントを組み込む`.~`チェーンスタイル
 - 式列配置と記法の参考事項
@@ -576,7 +575,9 @@ translateY(-40px) translateY(50px) translateX(-33px)`
 
 # 参照情報他
 
-- この記事は、私がJavaScriptコード及び文章ドラフトを`Github`へMarkdownファイルとして作成し、`MicrosoftEdge`で閲覧しながら`Bing`を用いて記事の精査、補足情報の収集etcを行い作成したものです。  
+:::note info
+
+- この記事は、私がJavaScriptコード及び文章ドラフトを[`Github`](https://engbjapan.github.io/Programming/JavaScript/%20HCJ/Exsample/a3Dmesh/ArrowHeaven/Stairway2HeavenArrow.md)へMarkdownファイルとして作成し、`MicrosoftEdge`で閲覧しながら`Bing`を用いて記事の精査、補足情報の収集etcを行い作成したものです。  
   以下は、Bingからの紹介文です。
 
 
@@ -619,4 +620,5 @@ translateY(-40px) translateY(50px) translateX(-33px)`
 (3) Build a simple 2D physics engine for JavaScript games. https://developer.ibm.com/tutorials/wa-build2dphysicsengine/
 
 ---
+:::
 :License: MIT
