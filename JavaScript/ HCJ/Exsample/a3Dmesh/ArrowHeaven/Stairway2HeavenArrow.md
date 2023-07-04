@@ -22,17 +22,18 @@ slide: false
 若しくは「コード無し」=> `TODO`マークが目印
 若しくは「コードは有るが目的動作不能」=> `TODO`マークが目印）な物を掲載しています。  
 
-1. 式へステートメントを組み込む`.~`チェーンスタイル
-1. 式列配置と記法の参考事項
-1. 式列でプロパティ名ブロックスコープを使い自身を再帰的評価するロジック例
-1. テンプレートリテラルX式列呼び出し例
+1. [式へステートメントを組み込むチェーンスタイル](#式へステートメントを組み込むチェーンスタイル)
+1. [式列配置と記法の参考事項](#式列配置と記法の参考事項)
+1. [式列でプロパティ名ブロックスコープを使い自身を再帰的評価するロジック例](#式列でプロパティ名ブロックスコープを使い自身を再帰的に評価するコード例)
+1. [テンプレートリテラルX式列呼び出し例](#テンプレートリテラルX式列呼び出し例)
 
 # 本題
-## 式へステートメントを組み込む`.~`チェーンスタイル
 
-まず、「`.~`チェーンスタイル」とは、複数のジェネレーター関数を連結し、一連の値を生成することができるJavaScriptの機能を指しています。
+## 式へステートメントを組み込むチェーンスタイル
 
-### 無名関数 bind(`.~`)チェーンを使いfunctionとして呼び出すスタイル
+まず、「チェーンスタイル」とは、複数のジェネレーター関数を連結し、一連の値を生成することができるJavaScriptの機能を指しています。
+
+### 無名関数bindチェーンを使いfunctionとして呼び出すスタイル
 
   ```javascript:
   (function(引数定義){ステートメント;...})
@@ -53,7 +54,7 @@ slide: false
     //etc?
   ```
 
-### 無名class new(`.~`)チェーンを使いメソッドとして呼び出すスタイル
+### 無名class new".~"チェーンを使いメソッドとして呼び出すスタイル
 
   ```javascript:
   (new 
@@ -78,7 +79,7 @@ slide: false
     //etc...
   ```
 
-### アロー関数(`.~`)チェーンを使いアローfunctionとして呼び出すスタイル
+### アロー関数チェーンを使いアローfunctionとして呼び出すスタイル
 
   ```javascript:
   ((依存Object, 引数定義) => {ステートメント;...})
@@ -117,16 +118,17 @@ slide: false
     *とコードすると、this参照を与え同じように動作するかもしれませんが、*  
    *「**アロー天国への階段(*Stairway to ArrowHeaven*)**」へ行くことができないと思われます。*
 
-### `.~`チェーンスタイル別のTODO有りコードスニペット及びその説明
+### チェーンスタイル別のTODO有りコードスニペット及びその説明
 
 この節には、上記で述べた三つのスタイル別のコードスニペットを記載しています。なお、冒頭で述べた通り未完成・目的動作をしないものを私の都合により掲載しています。
 
-ベースとなるロジックは三つ目の「**アロー関数(`.~`)チェーンに於けるcallコード例**」です。ので、そこから見てください。
+ベースとなるロジックは三つ目の「[アロー関数チェーンに於けるcallコード例](#アロー関数チェーンに於けるcallコード例)です。ので、そこから見てください。
 
 そして比較すれば私がこの記事で述べている「**アロー天国への階段**」の意味が分かると思います。
 
-#### 無名関数 bind(`.~`)チェーンに於けるcallのコード例:**TODO**
-これは「アロー関数(`.~`)チェーンに於けるcallコード例」と同様の動作をしません。 
+#### 無名関数bindチェーンに於けるcallのコード例
+:**TODO**
+これは「[アロー関数チェーンに於けるcallコード例](#アロー関数チェーンに於けるcallコード例)」と同様の動作をしません。 
 
 ```javascript:無名関数bindチェーンに於けるcall式列
 let 大丈VModXFunctionBindCalls = (pmyObject, pmsg) => [//X式列
@@ -191,10 +193,11 @@ avam.addsparam=true,avam.addsArray=1,2,3
 */
 ```
 
-#### 無名class new(`.~`)チェーンに於けるメソッド呼び出しコード例:**TODO!!**
-これは「アロー関数(`.~`)チェーンに於けるcallコード例」と同様の振る舞いをするコードを書けていません。
+#### 無名class newチェーンに於けるメソッド呼び出しコード例
+:**TODO!!**
+これは「[アロー関数チェーンに於けるcallコード例](#アロー関数チェーンに於けるcallコード例)」と同様の振る舞いをするコードを書けていません。
 
-#### アロー関数(`.~`)チェーンに於けるcallコード例
+#### アロー関数チェーンに於けるcallコード例
 
 ```javascript:アロー関数チェーンに於けるcall式列
 let 大丈VModXArrowCalls = (pmyObject, pmsg) => [//X式列
@@ -330,7 +333,7 @@ console.log(x); // 1
 
 　[このx = 2は、それが定義されたブロックのスコープに制限されています。同じことがconstにも言えます。](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const)このように、「プロパティ名ブロックスコープ」を使用することで、「変数のスコープを制限」し、データをカプセル化することができます。
 
-    - ソース
+  - ソース
   1. [ブロック https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block)- JavaScript | MDN - MDN Web Docs.
   1. [let https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/let](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/let) - JavaScript | MDN - MDN Web Docs.
   1. [const https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const) - JavaScript | MDN - MDN Web Docs.
@@ -556,7 +559,7 @@ translateY(-40px) translateY(50px) translateX(-33px)`
 
 このページの記事では、[*フィボナッチ数列*](https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0)に関するコードやロジックの例を紹介しています。例えば、以下のようなものです。
 
-- 式へステートメントを組み込む`.~`チェーンスタイル
+- 式へステートメントを組み込む".~"チェーンスタイル
 - 式列配置と記法の参考事項
 - 式列でプロパティ名ブロックスコープを使い自身を再帰的に評価するロジック例
 - テンプレートリテラルX式列呼び出し例
@@ -574,10 +577,8 @@ translateY(-40px) translateY(50px) translateX(-33px)`
 *この記事がご覧頂いた方々にとって何らかの参考になれば幸いです。*
 
 # 参照情報他
-
 :::note info
-
-- この記事は、私がJavaScriptコード及び文章ドラフトを[`Github`](https://engbjapan.github.io/Programming/JavaScript/%20HCJ/Exsample/a3Dmesh/ArrowHeaven/Stairway2HeavenArrow.md)へMarkdownファイルとして作成し、`MicrosoftEdge`で閲覧しながら`Bing`を用いて記事の精査、補足情報の収集etcを行い作成したものです。  
+- この記事は、私がJavaScriptコード及び文章ドラフトを[`Github`](https://engbjapan.github.jo/JavaScript/ HCJ/Exsample/a3Dmesh/ArrowHeaven/Stairway2HeavenArrow.md)へMarkdownファイルとして作成し、`MicrosoftEdge`で閲覧しながら`Bing`を用いて記事の精査、補足情報の収集etcを行い作成したものです。  
   以下は、Bingからの紹介文です。
 
 
@@ -619,6 +620,6 @@ translateY(-40px) translateY(50px) translateX(-33px)`
 
 (3) Build a simple 2D physics engine for JavaScript games. https://developer.ibm.com/tutorials/wa-build2dphysicsengine/
 
----
 :::
+
 :License: MIT
