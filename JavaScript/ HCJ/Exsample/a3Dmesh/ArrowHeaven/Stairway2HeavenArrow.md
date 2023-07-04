@@ -578,9 +578,11 @@ translateY(-40px) translateY(50px) translateX(-33px)`
 
 # 参照情報他
 :::note info
-- この記事は、私がJavaScriptコード及び文章ドラフトを[`Github`](https://engbjapan.github.jo/JavaScript/ HCJ/Exsample/a3Dmesh/ArrowHeaven/Stairway2HeavenArrow.md)へMarkdownファイルとして作成し、`MicrosoftEdge`で閲覧しながら`Bing`を用いて記事の精査、補足情報の収集etcを行い作成したものです。  
-  以下は、Bingからの紹介文です。
+- この記事は、私がJavaScriptコード及び文章ドラフトを[`Github`](https://engbjapan.github.jo/Programming/JavaScript//%20HCJ/Exsample/a3Dmesh/ArrowHeaven/Stairway2HeavenArrow.md)へMarkdownファイルとして作成し、`MicrosoftEdge`で閲覧しながら`Bing`を用いて記事の精査、補足情報の収集etcを行い作成したものです。  
 
+以下は、Bingからの紹介文です。
+
+---
 
   `Microsoft Bing`は、Microsoftが提供する検索エンジンです。Bingは、Web、画像、動画、地図などの検索サービスを提供しています。
 
@@ -590,6 +592,7 @@ translateY(-40px) translateY(50px) translateX(-33px)`
    - **地図検索**: Bingは、地図の検索結果を提供します。
 
   Bingは、Microsoftが提供する検索エンジンであり、Web、画像、動画、地図などの検索サービスを提供しています。Bingは、高度な検索アルゴリズムと人工知能技術を使用して、ユーザーに最適な検索結果を提供します。
+
 ---
 - 「天国への階段(Stairway to Heaven)」は、イギリスのロックグループ、レッド・ツェッペリンの代表曲です。ジミー・ペイジとロバート・プラントによる共作です。
 
