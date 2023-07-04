@@ -301,10 +301,12 @@ setTimeout(() => [//setTimeout時に実行するX式列ブロック 定義
 5
 ```
 
-このコードは、[*setTimeout*](https://developer.mozilla.org/ja/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout)関数で式列「ブロック」を3秒後に実行します。この`ブロック`では、「無名関数実行型（アロー実行体）」持ち、これに引数5と0を渡して`アロー実行体`を呼び出しています。このアロー実行体は、*`大丈夫VreCuXs`* という「プロパティX式列」を持ち、「プロパティ名ブロックスコープ」。この`プロパティ名ブロックスコープ`は、引数に最大値（*maxn*）、現在値（*n*）、結果格納用オブジェクト（*rVam*）を受け取り、現在値が最大値以上になるまで`自身を再帰`的に呼び出します。再帰的な呼び出しの際には、現在値に*1*を加えて渡します。最終的には、結果格納用オブジェクトの*eIdxプロパティ*に現在値をセットして戻ります。この戻り値が*console.log*で出力されます。
+このコードは、[*setTimeout*](https://developer.mozilla.org/ja/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout)関数で式列「ブロック」を3秒後に実行します。この`ブロック`では、「無名関数実行型（アロー実行体）」持ち、これに引数5と0を渡して`アロー実行体`を呼び出しています。このアロー実行体は、*`大丈夫VreCuXs`* という「プロパティX式列」を持ちます。  
+*`大丈夫VreCuXs`*プロパティX式列は「プロパティ名ブロックスコープ」を与えて、引数に最大値（*maxn*）、現在値（*n*）、結果格納用オブジェクト（*rVam*）を受け取り、現在値が最大値以上になるまで`*「プロパティ名ブロックスコープ」を用いて自身を再帰*`的に呼び出します。  
+再帰的な呼び出しの際には、現在値に*1*を加えて渡します。最終的には、結果格納用オブジェクトの*eIdxプロパティ*に現在値をセットして戻ります。この戻り値が*console.log*で出力されます。
 
 <details>
-  <summary>「プロパティ名ブロックスコープ」での「再帰」と「一時変数によるグローバル名前空間の汚染制御</summary>
+  <summary>「プロパティ名ブロックスコープ」での「再帰」と「一時変数によるグローバル名前空間の汚染制御」:BIngからの参考情報</summary>
 
 - プロパティ名ブロックスコープ「再帰」と一時変数によるグローバル名前空間の制御
 
@@ -326,7 +328,7 @@ setTimeout(() => [//setTimeout時に実行するX式列ブロック 定義
    ```
    `arrayLength`は再帰関数です。処理の中で自分自身を呼んでいます。 また、if文では、終了条件を規定しています。渡された配列が空だった場合に、再帰呼び出しを終了します。このように、再帰関数を使用することで、複雑な処理を簡潔に記述することができます。
 
-- 「プロパティ名ブロックスコープ」とは、オブジェクトのプロパティ名に[ブロック](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block)（`{...}`）を使って[スコープ](https://developer.mozilla.org/ja/docs/Glossary/Scope)を作ることです。[これにより、let、const、classなどのブロックスコープ宣言と組み合わせることで、IIFEのように、一時変数がグローバル名前空間を汚染するのを防ぐことができます。](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block)
+- 「プロパティ名ブロックスコープ」は、オブジェクトのプロパティ名に[ブロック](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block)（`{...}`）を使って[スコープ](https://developer.mozilla.org/ja/docs/Glossary/Scope)を作ることを示したキーワードです。[これにより、let、const、classなどのブロックスコープ宣言と組み合わせることで、IIFEのように、一時変数がグローバル名前空間を汚染するのを防ぐことができます。](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block)
 例えば、以下のコードでは、let変数xはブロック内で宣言されているため、そのスコープはブロック内に制限されます。
 
 ```javascript
