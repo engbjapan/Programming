@@ -333,7 +333,7 @@ console.log(x); // 1
 
 　[このx = 2は、それが定義されたブロックのスコープに制限されています。同じことがconstにも言えます。](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const)このように、「プロパティ名ブロックスコープ」を使用することで、「変数のスコープを制限」し、データをカプセル化することができます。
 
-  - ソース
+ソース:
   1. [ブロック https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/block)- JavaScript | MDN - MDN Web Docs.
   1. [let https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/let](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/let) - JavaScript | MDN - MDN Web Docs.
   1. [const https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/const) - JavaScript | MDN - MDN Web Docs.
