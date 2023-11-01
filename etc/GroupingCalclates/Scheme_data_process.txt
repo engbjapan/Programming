@@ -37,16 +37,15 @@ https://www.j-platpat.inpit.go.jp/c1800/PU/JP-H10-341459/3FCE252C06C1D315233596B
       （５）  （４）＝（４）＋（３）ロジック：
 ```python
 bit_len = 3
-for pn, (s32, p32) in enumerate(zip(selects, plsin)):  # enumerateとzipの間の括弧を修正
+for s32, p32 in zip(selects, plsin):  # enumerateとzipの間の括弧を修正
     Cup = 0
     for b in range(bit_len - 1, -1, -1):  # ループの範囲を修正
         S = s32[b]
         P = p32[b]
         # 半加算Logic
-        Cup, Sset = (S & P, S ^ P)
-        if b < (bit_len - 1):
-            # 半加算結果より全加算を行うLogic
-            Cup, Sset = (Sset & Cup, Sset ^ Cup)  # 全加算ロジックを修正
+        Cup_new, Sset = (S & P, S ^ P)
+        # 半加算結果より全加算を行うLogic
+        Cup, Sset = (Sset & Cup_new, Sset ^ Cup_new)  # 全加算ロジックを修正
         s32[b] = Sset
 
 ```
