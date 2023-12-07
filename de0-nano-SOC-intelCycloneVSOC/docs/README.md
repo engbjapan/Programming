@@ -34,13 +34,12 @@
     <img src="./etc/images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202023-12-07%20224519.png" title="起動ディスクパーティションを任意のディレクトリへコピーその４" width="45%"/>
     <img src="./etc/images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202023-12-07%20225446.png" title="起動ディスクパーティションを任意のディレクトリへコピーその１" width="80%"/>
 ---
-## SDCARD(128GB)へLXDEイメージから起動ディスク作成し直し、extlinux機構導入
-- オペレーションイメージ
-![オペレーションイメージ](./etc/images/de0-nano-socs-extlinus-freedam.svg)
-
 - **この超解釈**
     > Bootパーティション（パーティション番号1であり、FATフォーマット）に`extlinux`ディレクトリが有れば、  
     >  その中の`extlinux.conf`を参照し、  
     >  `extlinux`ディレクトリ直下のカーネルイメージ`zImage`を`/dev/mmcblok0p2`デバイスにLOADし、  
     >  U-bootから`root=/dev/mmcblk0p2 rootwait rw earlyprintk console=ttyS0,115200n8`をカーネルへ`bootargs`として引き渡し起動する。 
 
+## SDCARD(128GB)へLXDEイメージから起動ディスク作成し直し、extlinux機構導入
+- オペレーションイメージ
+![オペレーションイメージ](./etc/images/de0-nano-socs-extlinus-freedam.svg)
